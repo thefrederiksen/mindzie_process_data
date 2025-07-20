@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Registration",
+    "description": "The patient has completed the registration process at the front desk and their information is entered into the system."
+  },
+  {
+    "name": "Triage",
+    "description": "The triage nurse has finished assessing the patient's condition and assigned a triage level."
+  },
+  {
+    "name": "Bed Assigned",
+    "description": "The patient has been assigned a bed in the emergency department."
+  },
+  {
+    "name": "Nurse Assessment",
+    "description": "The nurse has completed the initial assessment of the patient in their assigned bed."
+  },
+  {
+    "name": "Doctor Examination",
+    "description": "The doctor has finished examining the patient and recorded their findings."
+  },
+  {
+    "name": "Diagnostic Test Ordered",
+    "description": "The doctor has ordered one or more diagnostic tests for the patient (e.g., blood test, imaging)."
+  },
+  {
+    "name": "Blood Test Performed",
+    "description": "A blood test has been performed on the patient and the sample has been sent to the lab."
+  },
+  {
+    "name": "Imaging Performed",
+    "description": "An imaging test (such as X-ray or CT scan) has been performed on the patient."
+  },
+  {
+    "name": "Test Results Available",
+    "description": "The results of the ordered diagnostic tests are now available in the system."
+  },
+  {
+    "name": "Treatment Administered",
+    "description": "The patient has received treatment, medication, or a procedure as ordered by the doctor."
+  },
+  {
+    "name": "Observation",
+    "description": "The patient has completed a period of observation in the emergency department."
+  },
+  {
+    "name": "Specialist Consultation",
+    "description": "A specialist has completed their consultation with the patient."
+  },
+  {
+    "name": "Disposition Decision Recorded",
+    "description": "The doctor has recorded the decision regarding the patient's next steps (discharge, admission, or transfer)."
+  },
+  {
+    "name": "Discharged",
+    "description": "The patient has been discharged from the emergency department and has left the facility."
+  },
+  {
+    "name": "Admitted to Hospital",
+    "description": "The patient has been admitted to an inpatient ward for further care."
+  },
+  {
+    "name": "Transferred to Another Facility",
+    "description": "The patient has been transferred to another healthcare facility for further treatment."
+  }
+] 

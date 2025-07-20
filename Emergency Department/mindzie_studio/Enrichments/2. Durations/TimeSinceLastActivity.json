@@ -1,0 +1,26 @@
+{
+  "MclVersion": 2,
+  "LogVersion": 12,
+  "NotebookVersion": 3,
+  "PackageNotes": null,
+  "ContentType": 7,
+  "Projects": null,
+  "Datasets": null,
+  "Enrichments": null,
+  "Investigations": null,
+  "Dashboards": null,
+  "Notebooks": null,
+  "Blocks": null,
+  "EnrichmentBlocks": [
+    {
+      "Id": "4e9fef8d-108e-4a77-abf2-e5418679556b",
+      "Title": "TimeSinceLastActivity",
+      "Description": null,
+      "OperatorTypeName": "OperatorTimeDifferenceFromCurrentTime",
+      "OperatorSettings": "{\r\n  \"AttributeName\": \"~calc~CaseEnd\",\r\n  \"AttributeValueAsLastTime\": false,\r\n  \"DurationType\": 8,\r\n  \"AllowFractionalPeriods\": false,\r\n  \"NewAttributeName\": \"TimeSinceLastActivity\",\r\n  \"OperatorName\": \"OperatorTimeDifferenceFromCurrentTime\"\r\n}",
+      "BlockOrder": 99996948.242187500000
+    }
+  ],
+  "EnrichmentNotebooks": null,
+  "Settings": []
+} 

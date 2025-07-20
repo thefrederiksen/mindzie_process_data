@@ -1,0 +1,104 @@
+{
+  "MclVersion": 2,
+  "LogVersion": 12,
+  "NotebookVersion": 3,
+  "PackageNotes": null,
+  "ContentType": 1,
+  "Projects": null,
+  "Datasets": null,
+  "Enrichments": null,
+  "Investigations": null,
+  "Dashboards": null,
+  "Notebooks": [
+    {
+      "Version": 2,
+      "Id": "11111111-1111-1111-1111-111111111111",
+      "Name": "Waiting For Test Results",
+      "Description": null,
+      "NotebookOrder": 30000.000000000000,
+      "Blocks": [
+        {
+          "Id": "22222222-2222-2222-2222-222222222222",
+          "Title": "select cases where Case End Activity is Blood Test Performed or Imaging Performed",
+          "Description": null,
+          "AutoTitle": true,
+          "Disabled": false,
+          "ImportanceScore": null,
+          "DisplaySettings": null,
+          "OperatorTypeName": "FilterAttribute",
+          "OperatorSettings": "{\r\n  \"ColumnName\": \"~calc~EndActivity\",\r\n  \"CompareMethod\": 1,\r\n  \"CompareValue\": null,\r\n  \"CompareArray\": [\"Blood Test Performed\", \"Imaging Performed\"],\r\n  \"CompareValueType\": 10,\r\n  \"CompareArrayType\": 10,\r\n  \"LowerValueType\": 0,\r\n  \"UpperValueType\": 0,\r\n  \"TimeSpanUnits\": 4,\r\n  \"LowerValue\": null,\r\n  \"UpperValue\": null,\r\n  \"RemoveFilter\": false,\r\n  \"ActivityNameIfEventAttribute\": null\r\n}",
+          "BlockType": 1,
+          "ParentBlockId": "33333333-3333-3333-3333-333333333333",
+          "IsFirstBlock": true,
+          "Prompt": null,
+          "PromptId": null
+        },
+        {
+          "Id": "44444444-4444-4444-4444-444444444444",
+          "Title": "Test Results Available",
+          "Description": null,
+          "AutoTitle": false,
+          "Disabled": false,
+          "ImportanceScore": null,
+          "DisplaySettings": null,
+          "OperatorTypeName": "CalculatorCaseStage",
+          "OperatorSettings": "{\r\n  \"StageName\": \"Test Results Available\",\r\n  \"TimeColumnName\": \"WaitingForTestResults\",\r\n  \"MediumThreshold\": \"01:00:00\",\r\n  \"HighThreshold\": \"03:00:00\",\r\n  \"TimeSpanUnits\": 2,\r\n  \"GenerateAlarms\": false,\r\n  \"ListAttributes\": [],\r\n  \"DetailAttributes\": [],\r\n  \"MessageTemplate\": null,\r\n  \"FilterListSettings\": \"{\\r\\n  \\\"FilterSettingsList\\\": []\\r\\n}\"\r\n}",
+          "BlockType": 2,
+          "ParentBlockId": "22222222-2222-2222-2222-222222222222",
+          "IsFirstBlock": null,
+          "Prompt": null,
+          "PromptId": null
+        }
+      ],
+      "DashboardBlocks": [
+        {
+          "Id": "55555555-5555-5555-5555-555555555555",
+          "Title": "Test Results Available",
+          "Description": null,
+          "AutoTitle": false,
+          "Disabled": false,
+          "ImportanceScore": null,
+          "DisplaySettings": null,
+          "OperatorTypeName": "SelectorFullCalculator",
+          "OperatorSettings": "{\r\n  \"CalculatorBlockId\": \"44444444-4444-4444-4444-444444444444\",\r\n  \"DisplayType\": \"\",\r\n  \"JsonText\": \"{\\\"ViewType\\\":2}\",\r\n  \"DefaultPanelSize\": 0,\r\n  \"DefaultPanelType\": \"DashboardPanelCalculator\"\r\n}",
+          "BlockType": 3,
+          "ParentBlockId": "44444444-4444-4444-4444-444444444444",
+          "IsFirstBlock": null,
+          "Prompt": null,
+          "PromptId": null
+        }
+      ],
+      "NotebookDashboard": {
+        "Version": 2,
+        "Id": "11111111-1111-1111-1111-111111111111",
+        "ProjectId": "b73fc50c-f962-4ee3-bdc5-889707ed976f",
+        "Name": "11111111-1111-1111-1111-111111111111",
+        "Description": null,
+        "IsNotebookDashboard": true,
+        "DashboardOrder": 0.000000000000,
+        "ThumbnailUrl": null,
+        "CopilotInitialStatus": 1,
+        "Panels": [
+          {
+            "Id": "66666666-6666-6666-6666-666666666666",
+            "Dashboardid": "11111111-1111-1111-1111-111111111111",
+            "Title": "Test Results Available",
+            "Row": 0,
+            "Column": 0,
+            "SizeX": 6,
+            "SizeY": 3,
+            "Description": null,
+            "InputblockId": "55555555-5555-5555-5555-555555555555",
+            "ExtraOptions": "{\r\n  \"PanelDisableTitle\": true\r\n}",
+            "DashboardPanelClassname": "DashboardPanelCalculator"
+          }
+        ]
+      },
+      "NotebookType": 7
+    }
+  ],
+  "Blocks": null,
+  "EnrichmentBlocks": null,
+  "EnrichmentNotebooks": null,
+  "Settings": []
+} 
