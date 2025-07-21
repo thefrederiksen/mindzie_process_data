@@ -24,6 +24,40 @@ This document defines the requirements and rules for generating the historical s
 - The ED has 40 beds; at most 40 patients can be assigned a bed at any one time.
 - Daily case volume should be set so that bed occupancy is realistic, with some days approaching or exceeding capacity to simulate operational stress.
 
+## 4a. Emergency Department Human Resources (Staffing)
+
+To create realistic historical data and process mining analyses, the following human resources are modeled for an Emergency Department with 40 beds and typical patient volumes:
+
+### Doctors
+- **Total unique doctors:** 10
+- **Example first names:** Peter, Maria, John, Priya, Ahmed, Emily, David, Chen, Anna, Luis
+- **Coverage:** 2–3 doctors per shift (day, evening, night), with some overlap for handover
+
+### Nurses
+- **Total unique nurses:** 18
+- **Example first names:** Sarah, Tom, Lisa, Kevin, Zoe, Mark, Julia, Sam, Chloe, Ben, Mia, Alex, Grace, Leo, Ella, Jack, Sophie, Max
+- **Coverage:** 5–7 nurses per shift, with overlap for breaks and handover
+
+### Nurse Practitioners / Physician Assistants (optional)
+- **Total unique NPs/PAs:** 4
+- **Example first names:** Olivia, Ryan, Hannah, Josh
+- **Coverage:** 1 per shift, often supporting triage or fast-track
+
+### Registration Clerks
+- **Total unique clerks:** 3
+- **Example first names:** Emma, Paul, Rita
+- **Coverage:** 1 per shift
+
+### Diagnostic Technicians (Lab/Imaging)
+- **Total unique techs:** 4
+- **Example first names:** Steve, Maya, Ivan, Tara
+- **Coverage:** 1–2 per shift, depending on volume
+
+### Other Roles (as needed)
+- **Security, Porters, Housekeeping:** Not directly involved in clinical activities but may be referenced for completeness
+
+**Note:** All staff are referenced by first name only in the data for privacy and simplicity. Staff are assigned to activities based on their role and shift, ensuring realistic resource allocation and handover patterns.
+
 ## 5. Anomaly and Problem Injection (for Process Mining/Analysis)
 - The historical dataset will include periods or days with operational problems, such as:
     - **Bed shortages:** More patients than beds available, leading to long waits for bed assignment.

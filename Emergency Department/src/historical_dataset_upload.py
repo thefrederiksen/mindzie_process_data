@@ -38,6 +38,7 @@ def create_data_set(csv_path, dataset_name, tenant_id, project_id, api_key):
         'caseIdColumn': 'CaseId',
         'activityNameColumn': 'ActivityName',
         'activityTimeColumn': 'ActivityTime',
+        'resourceColumn': 'Resource',
         'cultureInfo': 'en-US'
     }
     headers = {'Authorization': f'Bearer {api_key}'}

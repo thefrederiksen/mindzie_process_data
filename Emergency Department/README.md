@@ -37,20 +37,35 @@ Each row in the event log represents a single activity for a single patient visi
 
 ## How to Generate Event Logs
 
-1. Ensure `activities.json` and `generate_event_log.py` are in the `SRC` directory.
-2. Run the script:
-   ```bash
-   python SRC/generate_event_log.py
-   ```
-3. The script will generate `event_log.json` and `event_log.csv` in the `SRC` directory.
+There are now two separate scripts for generating event logs:
 
-**Note:** The script uses a fixed random seed, so the generated event log will be identical every time you run it. This ensures full reproducibility for your analysis and dashboarding.
+### 1. Daily Event Log (Live Snapshot)
+- **Script:** `src/daily_event_log.py`
+- **Output:**
+  - `src/Output/alderaan_daily.json`
+  - `src/Output/alderaan_daily.csv`
+- **How to run:**
+  ```bash
+  python src/daily_event_log.py
+  ```
+
+### 2. Historical Event Log (All Closed Cases)
+- **Script:** `src/historical_event_log.py`
+- **Output:**
+  - `src/Output/alderaan_year_to_date.json`
+  - `src/Output/alderaan_year_to_date.csv`
+- **How to run:**
+  ```bash
+  python src/historical_event_log.py
+  ```
+
+**Note:** Both scripts use a fixed random seed, so the generated event logs will be identical every time you run them. This ensures full reproducibility for your analysis and dashboarding.
 
 ---
 
 ## FreezeTime (Snapshot Time)
 
-The event log is generated as a snapshot of the Emergency Department at a specific point in time, called the **FreezeTime** (or snapshot time). This is the reference time for all calculations of waiting times and for determining which patients are currently in progress versus completed. The FreezeTime is included in the event log output as a top-level field:
+The event log is generated as a snapshot of the Emergency Department at a specific point in time, called the **FreezeTime** (or snapshot time). This is the reference time for all calculations of waiting times and for determining which patients are currently in progress versus completed. The FreezeTime is included in the event log output as a top-level field in the daily event log:
 
 ```
 "FreezeTime": "2025-05-04T14:00:00+00:00"
@@ -74,19 +89,19 @@ This section summarizes the evolving instructions and requirements for building 
 
 1. **Event Log Structure**: The event log must have three main columns: `CaseId`, `ActivityName`, and `ActivityTime`. We added `PatientID` as a case attribute, so every event for a given case (visit) has the same patient ID.
 2. **Case Attributes**: Each case (visit) is associated with a unique patient. All events for a case share the same `PatientID`. The generator can be extended to include more case attributes.
-3. **Live and Historical Data**: The generator creates both a live snapshot (patients currently in the ED at 2:00 PM on May 4th, 2025) and historical data (cases closed by that time).
-4. **Statistics Reporting**: After generating the event log, the script prints a statistics report with two main sections:
+3. **Live and Historical Data**: The generators create both a live snapshot (patients currently in the ED at 2:00 PM on May 4th, 2025) and historical data (cases closed by that time).
+4. **Statistics Reporting**: After generating the event log, the scripts print a statistics report with two main sections:
    - Live snapshot: Number of in-progress cases, number of activities, number of unique patients, activity count breakdown, and how many in-progress cases have completed their journey (admitted or discharged).
    - Historical (closed) cases: Number of closed cases, number of activities, number of unique patients, and activity count breakdown.
 5. **Extensibility**: The generator and event log structure are designed to be extensible. You can add more case attributes or activity types as needed for your process mining or simulation needs.
 
 ---
 
-For further customization or to add more features, update the generator script and this README accordingly. 
+For further customization or to add more features, update the generator scripts and this README accordingly. 
 
-## Environment Variables for Dataset Upload
+## Uploading Datasets to Mindzie Studio
 
-To upload datasets to Mindzie Studio, you must create a `.env` file in the `src` directory with the following parameters:
+There are two upload scripts, one for each dataset. Before uploading, ensure you have created a `.env` file in the `src` directory with the following parameters:
 
 ```
 TENANT_ID=your-tenant-id-here
@@ -98,4 +113,20 @@ API_KEY=your-api-key-here
 - **PROJECT_ID**: The project ID within your tenant (can be found in the 'About' box in Mindzie Studio for the project you want to upload data into)
 - **API_KEY**: Your API key for authentication (can be retrieved in Mindzie Studio under Administration Settings, subsection API keys)
 
-The `.env` file should be placed in the same directory as the upload scripts (e.g., `src/`). 
+The `.env` file should be placed in the same directory as the upload scripts (e.g., `src/`).
+
+### 1. Upload Daily Event Log
+- **Script:** `src/daily_dataset_upload.py`
+- **How to run:**
+  ```bash
+  python src/daily_dataset_upload.py
+  ```
+- This will generate the daily event log and upload it to Mindzie Studio.
+
+### 2. Upload Historical Event Log
+- **Script:** `src/historical_dataset_upload.py`
+- **How to run:**
+  ```bash
+  python src/historical_dataset_upload.py
+  ```
+- This will generate the historical event log and upload it to Mindzie Studio. 

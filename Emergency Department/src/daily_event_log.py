@@ -694,9 +694,14 @@ def main():
     lwbs_cases = generate_lwbs_cases(snapshot_time, used_patient_ids, used_case_ids, n=lwbs_n)
     current_cases.extend(lwbs_cases)
     # Completed cases: only explicit discharged/admitted
+    # Set total number of completed cases and admission rate
+    total_completed = 100  # Adjust as needed for realism
+    admit_rate = 0.17
+    n_admitted = int(round(total_completed * admit_rate))
+    n_discharged = total_completed - n_admitted
     completed_cases = []
-    completed_cases.extend(generate_discharged_cases(snapshot_time, used_patient_ids, used_case_ids, n=76))
-    completed_cases.extend(generate_admitted_cases(snapshot_time, used_patient_ids, used_case_ids, n=64))
+    completed_cases.extend(generate_discharged_cases(snapshot_time, used_patient_ids, used_case_ids, n=n_discharged))
+    completed_cases.extend(generate_admitted_cases(snapshot_time, used_patient_ids, used_case_ids, n=n_admitted))
     all_cases = completed_cases + current_cases
     # Check for cases ending with 'Observation'
     obs_end_count = sum(1 for case in all_cases if case['activities'][-1]['ActivityName'] == 'Observation')
