@@ -9,12 +9,12 @@ The analyses are tailored for different user groups:
 - **Management Dashboard**: High-level overviews of long-term performance, compliance, and strategic insights.
 - **ER Staff Dashboard**: Weekly/monthly views focused on team performance to motivate improvements in wait times and efficiency.
 
-Analyses should be implemented using process mining tools (e.g., for variant analysis, conformance checking) and visualization platforms (e.g., dashboards with charts, tables, and filters). Ensure all metrics align with ED capacity (40 beds historically, 30 in current snapshots) and use FreezeTime for snapshot-based calculations in daily views.
+Analyses should be implemented using process mining tools (e.g., for variant analysis, conformance checking) and visualization platforms (e.g., dashboards with charts, tables, and filters). Ensure all metrics align with ED capacity and use FreezeTime for snapshot-based calculations in daily views.
 
 ---
 
 ## 1. Core Metrics and Visualizations
-These foundational metrics form the basis for all dashboards. They validate daily stage waiting times (e.g., Waiting for Triage, Waiting for Bed) by providing historical context, such as averages, trends, and anomaly detection.
+These foundational metrics form the basis for all dashboards. They validate daily stage waiting times by providing historical context, such as averages, trends, and anomaly detection.
 
 - **Patient Volume Metrics**:
   - Daily, weekly, and monthly patient counts (total, by outcome: Discharged, Admitted to Hospital, Left Without Being Seen (LWBS)).
@@ -28,7 +28,7 @@ These foundational metrics form the basis for all dashboards. They validate dail
   - Edge Cases: Handle skipped stages (e.g., no diagnostic test) by excluding them from averages.
 
 - **Threshold Compliance**:
-  - % of cases within warning threshold, exceeding warning (yellow), and exceeding critical (red) for each stage (using thresholds from [process_current_day.md](process_current_day.md), e.g., Waiting for Triage: 15 min warning, 45 min critical).
+  - % of cases within warning threshold, exceeding warning (yellow), and exceeding critical (red) for each stage (using thresholds from [process_current_day.md](process_current_day.md)).
   - For final outcomes (Discharged/Admitted): % exceeding 180 min (warning) and 300 min (critical) total case duration.
   - Visualization: Stacked bar charts or heatmaps showing compliance trends over time.
 
@@ -38,7 +38,7 @@ These foundational metrics form the basis for all dashboards. They validate dail
   - Visualization: Line chart with annotations for root causes.
 
 - **Bed and Resource Utilization**:
-  - Hourly/daily bed occupancy (peak, average; alert if >40 beds historically or >30 currently).
+  - Hourly/daily bed occupancy (peak, average).
   - Utilization rates for doctors/nurses (if inferred from delays) and diagnostic resources (e.g., imaging bottlenecks).
   - Visualization: Area charts for occupancy over time, with overlays for anomalies.
 
@@ -51,7 +51,7 @@ These foundational metrics form the basis for all dashboards. They validate dail
 ---
 
 ## 2. Process Mining Analyses
-Use process mining to uncover patterns in historical data, validating daily observations (e.g., proving that long waits in "Waiting for Test Results" are due to recurring bottlenecks). Focus on conformance to expected flows and identification of inefficiencies.
+Use process mining to uncover patterns in historical data, validating daily observations. Focus on conformance to expected flows and identification of inefficiencies.
 
 - **Process Variant Analysis**:
   - Discover and rank the most common patient paths (e.g., Registration → Triage → Bed Assigned → ... → Discharged).
@@ -138,7 +138,33 @@ Integrate these into all dashboards for proactive issue detection, using histori
 
 ---
 
-### Historical Data Generation Methodology
+## 6. Stage Duration Thresholds Table
+
+The following table summarizes the duration calculations for each key stage in the Emergency Department process, including the activities used to calculate the duration and the thresholds for medium and high performance. These thresholds are used for dashboard compliance and performance analysis.
+
+| Stage                              | From Activity                | To Activity                        | Medium Threshold (min) | High Threshold (min) |
+|-------------------------------------|------------------------------|-------------------------------------|------------------------|----------------------|
+| Waiting for Registration           | Case Start                   | Registration                        | 10                     | 30                   |
+| Waiting for Triage                 | Registration                 | Triage                              | 15                     | 45                   |
+| Waiting for Bed                    | Triage                       | Bed Assigned                        | 20                     | 60                   |
+| Waiting for Nurse Assessment       | Bed Assigned                 | Nurse Assessment                    | 10                     | 30                   |
+| Waiting for Doctor                 | Nurse Assessment             | Doctor Examination                  | 30                     | 90                   |
+| Waiting for Diagnostic Test        | Doctor Examination           | Diagnostic Test Ordered             | 20                     | 60                   |
+| Waiting for Test Results           | Last Test Performed          | Test Results Available              | 60                     | 180                  |
+| Waiting for Treatment              | Test Results Available*      | Treatment Administered              | 15                     | 45                   |
+| Waiting for Observation Completion | Observation                  | Next Activity                       | None                   | None                 |
+| Waiting for Specialist Consultation| Request                      | Specialist Consultation             | 60                     | 180                  |
+| Waiting for Disposition Decision   | Last Clinical Activity       | Disposition Decision Recorded       | 15                     | 45                   |
+| Waiting for Admission to Hospital  | Disposition Decision Recorded| Admitted to Hospital                | 30                     | 90                   |
+| Waiting for Transfer to Another Facility | Disposition Decision Recorded | Transferred to Another Facility | 60                     | 180                  |
+
+*For Waiting for Treatment: If no diagnostic test is ordered, use Doctor Examination as the "From" activity.
+
+**Note**: Observation completion has no thresholds as it's a clinical decision-based activity.
+
+---
+
+## 7. Historical Data Generation Methodology
 
 The historical event log was synthetically generated to closely mimic real-world Emergency Department (ED) operations and to provide a robust baseline for process mining and dashboarding. Key aspects of the data generation process include:
 
@@ -153,142 +179,45 @@ This approach ensures that the historical data provides a realistic, variable, a
 
 ---
 
-## 6. Dashboard Designs for Management and ER Staff
+## 8. Staffing Model
 
-This section outlines the recommended dashboards for the two primary user groups beyond the command center: Management and Emergency Department (ER) Staff. Each dashboard is tailored to the needs and decision-making context of its audience.
-
-### 6.1 Management Dashboard(s)
-**Audience:** Hospital executives, department heads, quality improvement, resource planners
-
-**Purpose:**
-- Strategic oversight
-- Resource planning
-- Performance benchmarking
-- Policy and process improvement
-
-**Key Components/Views:**
-- **Performance Trends:**
-  - Monthly/quarterly trends for key metrics (wait times by stage, throughput, LWBS rate, admission rate)
-  - Trend lines with historical context and targets
-- **Threshold Compliance:**
-  - % of cases within, exceeding warning, and exceeding critical thresholds for each stage
-  - Stacked bar charts or heatmaps over time
-- **Outcome and Efficiency Reports:**
-  - Outcome distribution (% Discharged, % Admitted, % LWBS)
-  - % of cases exceeding critical thresholds (e.g., >300 min total duration)
-  - Box plots for case durations, pie charts for outcome breakdown
-- **Anomaly and Improvement Tracking:**
-  - Before/after views for known anomalies (e.g., “doctor shortage week”)
-  - Annotations on trend charts for interventions or anomalies
-  - Improvement deltas (e.g., “Wait times improved by 15% after intervention”)
-- **Benchmarking:**
-  - Compare ED performance to internal targets and external standards
-  - KPI cards with color-coded status
-- **Resource Utilization:**
-  - Bed occupancy rates (peak, average)
-  - Doctor/nurse utilization (if available)
-  - Area charts for occupancy
-- **Export/Reporting:**
-  - Exportable reports (PDF, Excel) for board meetings
-  - Scheduled email summaries
-
-### 6.2 ER Staff Dashboard(s)
-**Audience:** On-floor staff, shift leads, team managers
-
-**Purpose:**
-- Motivation and feedback
-- Operational awareness
-- Team/shift performance comparison
-
-**Key Components/Views:**
-- **Live Stage Calculator (Wall Display):**
-  - Always-on, real-time display of current stage wait times
-  - Color-coded by threshold (green/yellow/red)
-  - Current patient count, bed occupancy, LWBS alerts
-- **Weekly Performance Snapshot:**
-  - This week vs. last week for key metrics (wait times by stage, compliance rates, LWBS rate)
-  - Progress bars toward targets, badges for milestones
-- **Shift/Team Breakdown:**
-  - Wait times and compliance by shift (day/night) or team
-  - Bar charts for comparison
-- **Stage-Specific Feedback:**
-  - Distributions of wait times per stage
-  - Highlighted “wins” (e.g., “Test Results waits improved”)
-  - Histograms or box plots for variability
-- **Outcome Overview:**
-  - % Discharged, % Admitted, % LWBS for the week
-  - Pie chart or simple summary
-- **Improvement Gamification:**
-  - Progress toward goals (e.g., “Reduce triage wait <15 min”)
-  - Motivational infographics and team rankings
-- **Drilldown/Details:**
-  - Ability to filter by date, shift, team, or stage
-  - View individual case timelines (for learning)
-
-**General Features for Both:**
-- Filters: Date range, outcome, stage, shift/team
-- Export: Data and charts for further analysis
-- Annotations: For known events/interventions
-- Mobile-friendly: Especially for staff dashboards
-
----
-
-## 7. Emergency Department Human Resources (Staffing)
-
-To create realistic historical data and process mining analyses, the following human resources are modeled for an Emergency Department with 30 beds and typical patient volumes:
+To create realistic historical data and process mining analyses, the following human resources are modeled:
 
 ### Doctors
 - **Total unique doctors:** 10
-- **Example first names:** Peter, Maria, John, Priya, Ahmed, Emily, David, Chen, Anna, Luis
 - **Coverage:** 2–3 doctors per shift (day, evening, night), with some overlap for handover
 
 ### Nurses
 - **Total unique nurses:** 18
-- **Example first names:** Sarah, Tom, Lisa, Kevin, Zoe, Mark, Julia, Sam, Chloe, Ben, Mia, Alex, Grace, Leo, Ella, Jack, Sophie, Max
 - **Coverage:** 5–7 nurses per shift, with overlap for breaks and handover
 
-### Nurse Practitioners / Physician Assistants (optional)
-- **Total unique NPs/PAs:** 4
-- **Example first names:** Olivia, Ryan, Hannah, Josh
-- **Coverage:** 1 per shift, often supporting triage or fast-track
-
-### Registration Clerks
-- **Total unique clerks:** 3
-- **Example first names:** Emma, Paul, Rita
-- **Coverage:** 1 per shift
-
-### Diagnostic Technicians (Lab/Imaging)
-- **Total unique techs:** 4
-- **Example first names:** Steve, Maya, Ivan, Tara
-- **Coverage:** 1–2 per shift, depending on volume
-
-### Other Roles (as needed)
-- **Security, Porters, Housekeeping:** Not directly involved in clinical activities but may be referenced for completeness
+### Other Staff
+- **Nurse Practitioners / Physician Assistants:** 4
+- **Registration Clerks:** 3
+- **Diagnostic Technicians:** 4
 
 **Note:** All staff are referenced by first name only in the data for privacy and simplicity. Staff are assigned to activities based on their role and shift, ensuring realistic resource allocation and handover patterns.
 
 ---
 
-## 7. Stage Duration Thresholds Table
+## 9. Key Analysis Focus Areas
 
-The following table summarizes the duration calculations for each key stage in the Emergency Department process, including the activities used to calculate the duration and the thresholds for fast, warning, and critical performance. These thresholds are used for dashboard compliance and performance analysis.
+### Process Efficiency
+- **Variant Analysis**: Identify the most common patient paths and deviations
+- **Conformance Checking**: Measure adherence to expected process flows
+- **Bottleneck Detection**: Find stages with consistently long wait times
+- **Rework Analysis**: Identify repeated activities and their causes
 
-| Stage                              | From Activity                | To Activity                        | Fast (min) | Warning (min) | Critical (min) |
-|-------------------------------------|------------------------------|-------------------------------------|------------|---------------|----------------|
-| Waiting for Triage                 | Registration                 | Triage                              | 5          | 15            | 45             |
-| Waiting for Bed                    | Triage                       | Bed Assigned                        | 7          | 20            | 60             |
-| Waiting for Nurse Assessment       | Bed Assigned                 | Nurse Assessment                    | 3          | 10            | 30             |
-| Waiting for Doctor                 | Nurse Assessment             | Doctor Examination                  | 10         | 30            | 90             |
-| Waiting for Test Results           | Diagnostic Test Ordered      | Test Results Available              | 20         | 60            | 180            |
-| Waiting for Treatment              | Test Results Available*      | Treatment Administered              | 5          | 15            | 45             |
-| Waiting for Observation Completion | Observation                  | Next Activity (e.g., Disposition Decision Recorded) | 10 (suggested) | Varies         | Varies         |
-| Waiting for Specialist Consultation| Doctor Examination           | Specialist Consultation             | 20         | 60            | 180            |
-| Waiting for Discharge   | Last clinical activity†      | Disposition Decision Recorded       | 5          | 15            | 45             |
-| Admitted to Hospital (case duration) | Registration               | Admitted to Hospital                | 60         | 180           | 300            |
-| Discharged (case duration)         | Registration                 | Discharged                          | 60         | 180           | 300            |
+### Operational Performance
+- **Threshold Compliance**: Track performance against stage-specific targets
+- **Volume Patterns**: Understand daily, weekly, and seasonal variations
+- **Resource Utilization**: Monitor bed occupancy and staff workload
+- **Outcome Analysis**: Track discharge, admission, and LWBS rates
 
-*For Waiting for Treatment: If no diagnostic test is ordered, use Doctor Examination as the "From" activity.
+### Continuous Improvement
+- **Trend Analysis**: Identify long-term performance patterns
+- **Anomaly Detection**: Flag unusual patterns for investigation
+- **Intervention Impact**: Measure the effect of process changes
+- **Benchmarking**: Compare performance against targets and standards
 
-†For Waiting for Discharge: Use the last relevant clinical activity (e.g., Treatment Administered, Observation, or Specialist Consultation) as the "From" activity.
-
-For “Observation Completion,” the fast threshold is suggested as 10 min, but this can be adjusted based on your clinical context.
+This comprehensive analysis framework provides the foundation for data-driven decision-making in the Emergency Department, supporting both operational excellence and strategic planning.
