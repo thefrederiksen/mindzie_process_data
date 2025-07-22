@@ -14,7 +14,7 @@ stage_thresholds = {
     'Waiting for Treatment': (15, 45),
     'Waiting for Observation Completion': (60, 180),  # Use defaults if None
     'Waiting for Specialist Consultation': (60, 180),
-    'Waiting for Disposition Decision': (15, 45),
+    'Waiting for Discharge': (15, 45),
 }
 
 # List of all possible stages to check
@@ -28,7 +28,7 @@ all_stages = [
     'Waiting for Treatment',
     'Waiting for Observation Completion',
     'Waiting for Specialist Consultation',
-    'Waiting for Disposition Decision',
+    'Waiting for Discharge',
     'Discharged',
     'Admitted to Hospital',
 ]
@@ -58,7 +58,7 @@ def determine_stage(activities):
     if names[-1] == 'Registration' and 'Triage' not in names:
         return 'Waiting for Triage'
     if names[-1] == 'Disposition Decision Recorded':
-        return 'Waiting for Disposition Decision'
+        return 'Waiting for Discharge'
     return 'Other'
 
 # Helper to determine status (OK, warning, critical) for a case in a stage
@@ -94,6 +94,8 @@ for case in cases:
     if not stage:
         # Try to infer stage from activities
         stage = determine_stage(case['activities'])
+    if stage == 'Waiting for Discharge':
+        stage = 'Waiting for Discharge'
     waiting_time = case.get('waiting_time')
     status = get_status(stage, waiting_time)
     stage_case_ids[stage].add(cid)
@@ -178,7 +180,7 @@ elif last_activity == 'Triage' and 'Bed Assigned' not in activities:
 elif last_activity == 'Registration' and 'Triage' not in activities:
     'Waiting for Triage'
 elif last_activity == 'Disposition Decision Recorded':
-    'Waiting for Disposition Decision'
+    'Waiting for Discharge'
 else:
     'Other'
 """) 

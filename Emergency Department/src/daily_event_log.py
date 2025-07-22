@@ -56,8 +56,7 @@ def generate_case_activities(start_time, complete=True, stage=None, stage_time=N
         'Waiting for Treatment': 'Treatment Administered',
         'Waiting for Observation Completion': 'Observation',
         'Waiting for Specialist Consultation': 'Specialist Consultation',
-        'Waiting for Disposition Decision': 'Disposition Decision Recorded',
-        'Waiting for Discharge': 'Discharged',
+        'Waiting for Discharge': 'Disposition Decision Recorded',
         'Waiting for Admission to Hospital': 'Admitted to Hospital',
         'Waiting for Transfer to Another Facility': 'Transferred to Another Facility'
     }
@@ -487,8 +486,8 @@ def generate_observation_cases(snapshot_time, stage_thresholds, used_patient_ids
 
 def generate_disposition_decision_cases(snapshot_time, stage_thresholds, used_patient_ids, used_case_ids, n_ok=6, n_warning=2, n_critical=0):
     cases = []
-    disp_warning = stage_thresholds['Waiting for Disposition Decision'][0]
-    disp_critical = stage_thresholds['Waiting for Disposition Decision'][1]
+    disp_warning = stage_thresholds['Waiting for Discharge'][0]
+    disp_critical = stage_thresholds['Waiting for Discharge'][1]
     for _ in range(n_ok):
         case_id = random_case_id(used_case_ids)
         patient_id = random_patient_id(used_case_ids)
@@ -504,7 +503,7 @@ def generate_disposition_decision_cases(snapshot_time, stage_thresholds, used_pa
             "CaseId": case_id,
             "PatientID": patient_id,
             "activities": activities_list,
-            "current_stage": 'Waiting for Disposition Decision',
+            "current_stage": 'Waiting for Discharge',
             "waiting_time": wait_time
         })
     for _ in range(n_warning):
@@ -521,7 +520,7 @@ def generate_disposition_decision_cases(snapshot_time, stage_thresholds, used_pa
             "CaseId": case_id,
             "PatientID": patient_id,
             "activities": activities_list,
-            "current_stage": 'Waiting for Disposition Decision',
+            "current_stage": 'Waiting for Discharge',
             "waiting_time": wait_time
         })
     for _ in range(n_critical):
@@ -538,7 +537,7 @@ def generate_disposition_decision_cases(snapshot_time, stage_thresholds, used_pa
             "CaseId": case_id,
             "PatientID": patient_id,
             "activities": activities_list,
-            "current_stage": 'Waiting for Disposition Decision',
+            "current_stage": 'Waiting for Discharge',
             "waiting_time": wait_time
         })
     return cases
@@ -568,18 +567,34 @@ def save_event_log_json(all_cases, output_dir, snapshot_time):
 def save_event_log_csv(all_cases, output_dir):
     all_events = []
     for case in all_cases:
+        vitals = case.get('VitalSigns', {})
         for activity in case['activities']:
             all_events.append({
                 "CaseId": case['CaseId'],
                 "ActivityName": activity['ActivityName'],
                 "ActivityTime": activity['ActivityTime'],
-                "PatientID": case['PatientID']
+                "PatientID": case['PatientID'],
+                "Resource": activity.get('Resource', ''),
+                "Age": case.get('Age', ''),
+                "Sex": case.get('Sex', ''),
+                "ModeOfArrival": case.get('ModeOfArrival', ''),
+                "VisitType": case.get('VisitType', ''),
+                "HR": vitals.get('HR', ''),
+                "BP": vitals.get('BP', ''),
+                "Temp": vitals.get('Temp', ''),
+                "O2Sat": vitals.get('O2Sat', ''),
+                "Triage": case.get('Triage', ''),
+                "ArrivalShift": case.get('ArrivalShift', '')
             })
     all_events.sort(key=lambda x: (x['ActivityTime'], x['CaseId']))
     os.makedirs(output_dir, exist_ok=True)
     csv_path = os.path.join(output_dir, 'alderaan_daily.csv')
+    fieldnames = [
+        "CaseId", "ActivityName", "ActivityTime", "PatientID", "Resource",
+        "Age", "Sex", "ModeOfArrival", "VisitType", "HR", "BP", "Temp", "O2Sat", "Triage", "ArrivalShift"
+    ]
     with open(csv_path, 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=["CaseId", "ActivityName", "ActivityTime", "PatientID"])
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for event in all_events:
             writer.writerow(event)
@@ -646,6 +661,64 @@ def generate_lwbs_cases(snapshot_time, used_patient_ids, used_case_ids, n=2):
         })
     return cases
 
+def random_age():
+    # Skew toward adults, but include children and elderly
+    r = random.random()
+    if r < 0.15:
+        return random.randint(0, 17)  # Pediatric
+    elif r < 0.85:
+        return random.randint(18, 75)  # Adult
+    else:
+        return random.randint(76, 100)  # Elderly
+
+def random_sex():
+    return random.choices(['Male', 'Female', 'Other'], weights=[0.49, 0.49, 0.02])[0]
+
+def random_mode_of_arrival():
+    return random.choices(['Ambulance', 'Walk-in', 'Referral'], weights=[0.25, 0.7, 0.05])[0]
+
+def random_visit_type():
+    return random.choices(['New', 'Follow-up', 'Transfer'], weights=[0.85, 0.1, 0.05])[0]
+
+def random_vitals():
+    return {
+        'HR': random.randint(50, 120),
+        'BP': f"{random.randint(90, 160)}/{random.randint(50, 100)}",
+        'Temp': round(random.uniform(35.5, 39.5), 1),
+        'O2Sat': random.randint(90, 100)
+    }
+
+def random_triage():
+    # ESI/CTAS 1 (most urgent) to 5 (least urgent)
+    return random.choices([1, 2, 3, 4, 5], weights=[0.05, 0.15, 0.5, 0.2, 0.1])[0]
+
+def get_arrival_shift(activities):
+    reg_time_str = None
+    for act in activities:
+        if act['ActivityName'] == 'Registration':
+            reg_time_str = act['ActivityTime']
+            break
+    if not reg_time_str:
+        return None
+    reg_time = datetime.strptime(reg_time_str, '%Y-%m-%d %H:%M:%S')
+    hour = reg_time.hour
+    if 7 <= hour < 15:
+        return 'Day'
+    elif 15 <= hour < 23:
+        return 'Evening'
+    else:
+        return 'Night'
+
+def add_case_attributes(case):
+    case['Age'] = random_age()
+    case['Sex'] = random_sex()
+    case['ModeOfArrival'] = random_mode_of_arrival()
+    case['VisitType'] = random_visit_type()
+    case['VitalSigns'] = random_vitals()
+    case['Triage'] = random_triage()
+    case['ArrivalShift'] = get_arrival_shift(case['activities'])
+    return case
+
 def main():
     SRC_DIR = os.path.dirname(os.path.abspath(__file__))
     OUTPUT_DIR = os.path.join(SRC_DIR, 'Output')
@@ -662,8 +735,7 @@ def main():
         'Waiting for Treatment': (15, 45),
         'Waiting for Observation Completion': (None, None),
         'Waiting for Specialist Consultation': (60, 180),
-        'Waiting for Disposition Decision': (15, 45),
-        'Waiting for Discharge': (10, 30),
+        'Waiting for Discharge': (15, 45),
         'Waiting for Admission to Hospital': (30, 90),
         'Waiting for Transfer to Another Facility': (60, 180)
     }

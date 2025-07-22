@@ -6358,7 +6358,7 @@
           "ActivityTime": "2025-05-04 13:52:00"
         }
       ],
-      "current_stage": "Waiting for Disposition Decision",
+      "current_stage": "Waiting for Discharge",
       "waiting_time": 8
     },
     {
@@ -6398,7 +6398,7 @@
           "ActivityTime": "2025-05-04 13:59:00"
         }
       ],
-      "current_stage": "Waiting for Disposition Decision",
+      "current_stage": "Waiting for Discharge",
       "waiting_time": 1
     },
     {
@@ -6438,7 +6438,7 @@
           "ActivityTime": "2025-05-04 13:52:00"
         }
       ],
-      "current_stage": "Waiting for Disposition Decision",
+      "current_stage": "Waiting for Discharge",
       "waiting_time": 8
     },
     {
@@ -6478,7 +6478,7 @@
           "ActivityTime": "2025-05-04 13:55:00"
         }
       ],
-      "current_stage": "Waiting for Disposition Decision",
+      "current_stage": "Waiting for Discharge",
       "waiting_time": 5
     },
     {
@@ -6518,7 +6518,7 @@
           "ActivityTime": "2025-05-04 13:56:00"
         }
       ],
-      "current_stage": "Waiting for Disposition Decision",
+      "current_stage": "Waiting for Discharge",
       "waiting_time": 4
     },
     {
@@ -6558,7 +6558,7 @@
           "ActivityTime": "2025-05-04 13:59:00"
         }
       ],
-      "current_stage": "Waiting for Disposition Decision",
+      "current_stage": "Waiting for Discharge",
       "waiting_time": 1
     },
     {
@@ -6598,7 +6598,7 @@
           "ActivityTime": "2025-05-04 13:17:00"
         }
       ],
-      "current_stage": "Waiting for Disposition Decision",
+      "current_stage": "Waiting for Discharge",
       "waiting_time": 43
     },
     {
@@ -6638,7 +6638,7 @@
           "ActivityTime": "2025-05-04 13:26:00"
         }
       ],
-      "current_stage": "Waiting for Disposition Decision",
+      "current_stage": "Waiting for Discharge",
       "waiting_time": 34
     },
     {

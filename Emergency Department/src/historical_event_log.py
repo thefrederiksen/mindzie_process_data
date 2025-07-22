@@ -144,17 +144,32 @@ def save_all_cases_json(all_cases, output_dir):
 
 def save_all_cases_csv(all_cases, output_dir):
     out_path = os.path.join(output_dir, "alderaan_year_to_date.csv")
+    fieldnames = [
+        "CaseId", "ActivityName", "ActivityTime", "PatientID", "Resource",
+        "Age", "Sex", "ModeOfArrival", "VisitType", "HR", "BP", "Temp", "O2Sat", "Triage", "ArrivalShift"
+    ]
     with open(out_path, "w", newline="") as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=["CaseId", "ActivityName", "ActivityTime", "PatientID", "Resource"])
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for case in all_cases:
+            vitals = case.get("VitalSigns", {})
             for activity in case["activities"]:
                 writer.writerow({
                     "CaseId": case["CaseId"],
                     "ActivityName": activity["ActivityName"],
                     "ActivityTime": activity["ActivityTime"],
                     "PatientID": case["PatientID"],
-                    "Resource": activity["Resource"]
+                    "Resource": activity.get("Resource", ""),
+                    "Age": case.get("Age", ""),
+                    "Sex": case.get("Sex", ""),
+                    "ModeOfArrival": case.get("ModeOfArrival", ""),
+                    "VisitType": case.get("VisitType", ""),
+                    "HR": vitals.get("HR", ""),
+                    "BP": vitals.get("BP", ""),
+                    "Temp": vitals.get("Temp", ""),
+                    "O2Sat": vitals.get("O2Sat", ""),
+                    "Triage": case.get("Triage", ""),
+                    "ArrivalShift": case.get("ArrivalShift", "")
                 })
     print(f"Saved all cases to {out_path}")
 
@@ -193,13 +208,72 @@ def generate_lwbs_cases_for_historical(all_days, n):
     return cases
 
 def generate_unique_ids(prefix, n, min_val, max_val):
-    ids = set()
-    while len(ids) < n:
-        ids.add(f"{prefix}{random.randint(min_val, max_val)}")
-    return list(ids)
+    # Ensure there are enough unique values in the range
+    if n > (max_val - min_val + 1):
+        raise ValueError("Not enough unique IDs in the specified range.")
+    ids = list(range(min_val, max_val + 1))
+    random.shuffle(ids)
+    return [f"{prefix}{id_}" for id_ in ids[:n]]
+
+def random_age():
+    r = random.random()
+    if r < 0.15:
+        return random.randint(0, 17)
+    elif r < 0.85:
+        return random.randint(18, 75)
+    else:
+        return random.randint(76, 100)
+
+def random_sex():
+    return random.choices(['Male', 'Female', 'Other'], weights=[0.49, 0.49, 0.02])[0]
+
+def random_mode_of_arrival():
+    return random.choices(['Ambulance', 'Walk-in', 'Referral'], weights=[0.25, 0.7, 0.05])[0]
+
+def random_visit_type():
+    return random.choices(['New', 'Follow-up', 'Transfer'], weights=[0.85, 0.1, 0.05])[0]
+
+def random_vitals():
+    return {
+        'HR': random.randint(50, 120),
+        'BP': f"{random.randint(90, 160)}/{random.randint(50, 100)}",
+        'Temp': round(random.uniform(35.5, 39.5), 1),
+        'O2Sat': random.randint(90, 100)
+    }
+
+def random_triage():
+    return random.choices([1, 2, 3, 4, 5], weights=[0.05, 0.15, 0.5, 0.2, 0.1])[0]
+
+def get_arrival_shift(activities):
+    reg_time_str = None
+    for act in activities:
+        if act['ActivityName'] == 'Registration':
+            reg_time_str = act['ActivityTime']
+            break
+    if not reg_time_str:
+        return None
+    reg_time = datetime.strptime(reg_time_str, '%Y-%m-%d %H:%M:%S')
+    hour = reg_time.hour
+    if 7 <= hour < 15:
+        return 'Day'
+    elif 15 <= hour < 23:
+        return 'Evening'
+    else:
+        return 'Night'
+
+def add_case_attributes(case):
+    case['Age'] = random_age()
+    case['Sex'] = random_sex()
+    case['ModeOfArrival'] = random_mode_of_arrival()
+    case['VisitType'] = random_visit_type()
+    case['VitalSigns'] = random_vitals()
+    case['Triage'] = random_triage()
+    case['ArrivalShift'] = get_arrival_shift(case['activities'])
+    return case
 
 # --- STEP 2: MAIN GENERATION LOOP ---
 def main(output_dir=None):
+    print('Starting historical event log generation...')
     # Ensure output directory is src/Output relative to this script
     if output_dir is None:
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -209,6 +283,7 @@ def main(output_dir=None):
     all_cases = []
     all_days = []
     # First, determine total number of cases needed
+    print('Counting total number of cases...')
     total_case_count = 0
     temp_date = START_DATE
     while temp_date <= END_DATE:
@@ -229,9 +304,13 @@ def main(output_dir=None):
     # Add LWBS cases (~2% of total)
     lwbs_n = max(1, round(0.02 * total_case_count))
     total_case_count += lwbs_n
-    # Pre-generate unique CaseIds and PatientIDs
-    unique_case_ids = generate_unique_ids("ED", total_case_count, 100000, 999999)
-    unique_patient_ids = generate_unique_ids("P", total_case_count, 1000, 9999)
+    print(f'Total number of cases to generate: {total_case_count}')
+    SAFETY_MARGIN = 2
+    print('Generating unique CaseIds...')
+    unique_case_ids = generate_unique_ids("ED", total_case_count * SAFETY_MARGIN, 100000, 9999999)
+    print('Generating unique PatientIDs...')
+    unique_patient_ids = generate_unique_ids("P", total_case_count * SAFETY_MARGIN, 1000, 999999)
+    print('Unique IDs generated. Beginning per-day case generation...')
     case_id_iter = iter(unique_case_ids)
     patient_id_iter = iter(unique_patient_ids)
     # Now generate cases as before, but assign unique IDs
@@ -252,27 +331,65 @@ def main(output_dir=None):
             case_count = int(round(case_count * 14 / 24))
         n_admitted = int(round(case_count * 0.17))
         n_discharged = case_count - n_admitted
-        cases = []
+        print(f"Generating {case_count} cases for {day_str} (admitted: {n_admitted}, discharged: {n_discharged})")
+        simple_discharge_cases = []
         for _ in range(n_discharged):
-            case = generate_simple_discharge(current_date, None, None)
-            case["CaseId"] = next(case_id_iter)
-            case["PatientID"] = next(patient_id_iter)
-            cases.append(case)
-            all_cases.append(case)
+            try:
+                case = generate_simple_discharge(current_date, None, None)
+                case["CaseId"] = next(case_id_iter)
+                case["PatientID"] = next(patient_id_iter)
+            except StopIteration:
+                print("ERROR: Ran out of unique IDs. Increase the SAFETY_MARGIN or ID range.")
+                raise
+            case = add_case_attributes(case)
+            simple_discharge_cases.append(case)
+            if (len(simple_discharge_cases)) % 100 == 0:
+                print(f'  Created {len(simple_discharge_cases)} simple discharge cases...')
+        print('Generating discharge with tests cases...')
+        discharge_with_tests_cases = []
+        for _ in range(n_discharged):
+            try:
+                case = generate_discharge_with_tests(current_date, None, None)
+                case["CaseId"] = next(case_id_iter)
+                case["PatientID"] = next(patient_id_iter)
+            except StopIteration:
+                print("ERROR: Ran out of unique IDs. Increase the SAFETY_MARGIN or ID range.")
+                raise
+            case = add_case_attributes(case)
+            discharge_with_tests_cases.append(case)
+            if (len(discharge_with_tests_cases)) % 100 == 0:
+                print(f'  Created {len(discharge_with_tests_cases)} discharge with tests cases...')
+        print('Generating admission after observation cases...')
+        admission_after_observation_cases = []
         for _ in range(n_admitted):
-            case = generate_admission_after_observation(current_date, None, None)
-            case["CaseId"] = next(case_id_iter)
-            case["PatientID"] = next(patient_id_iter)
-            cases.append(case)
-            all_cases.append(case)
-        print(f"Generated {case_count} cases for {day_str} (admitted: {n_admitted}, discharged: {n_discharged})")
+            try:
+                case = generate_admission_after_observation(current_date, None, None)
+                case["CaseId"] = next(case_id_iter)
+                case["PatientID"] = next(patient_id_iter)
+            except StopIteration:
+                print("ERROR: Ran out of unique IDs. Increase the SAFETY_MARGIN or ID range.")
+                raise
+            case = add_case_attributes(case)
+            admission_after_observation_cases.append(case)
+            if (len(admission_after_observation_cases)) % 100 == 0:
+                print(f'  Created {len(admission_after_observation_cases)} admission after observation cases...')
+        print('Assembling all cases...')
+        cases = simple_discharge_cases + discharge_with_tests_cases + admission_after_observation_cases
+        print(f'Total cases generated for {day_str}: {len(cases)}')
+        all_cases.extend(cases)
         current_date += timedelta(days=1)
     # Add LWBS cases at ~2% of total cases
     lwbs_cases = generate_lwbs_cases_for_historical(all_days, lwbs_n)
     for case in lwbs_cases:
-        case["CaseId"] = next(case_id_iter)
-        case["PatientID"] = next(patient_id_iter)
+        try:
+            case["CaseId"] = next(case_id_iter)
+            case["PatientID"] = next(patient_id_iter)
+        except StopIteration:
+            print("ERROR: Ran out of unique IDs. Increase the SAFETY_MARGIN or ID range.")
+            raise
+        case = add_case_attributes(case)
     all_cases.extend(lwbs_cases)
+    print('Historical event log generation complete.')
     # Save all cases to a single JSON and CSV file
     save_all_cases_json(all_cases, output_dir)
     save_all_cases_csv(all_cases, output_dir)

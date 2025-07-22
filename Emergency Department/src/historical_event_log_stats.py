@@ -63,7 +63,7 @@ stages = [
         "critical": 180
     },
     {
-        "name": "Waiting for Disposition Decision",
+        "name": "Waiting for Discharge",
         "from": "Treatment Administered",
         "to": "Disposition Decision Recorded",
         "fast": 5,

@@ -283,12 +283,12 @@ The following table summarizes the duration calculations for each key stage in t
 | Waiting for Treatment              | Test Results Available*      | Treatment Administered              | 5          | 15            | 45             |
 | Waiting for Observation Completion | Observation                  | Next Activity (e.g., Disposition Decision Recorded) | 10 (suggested) | Varies         | Varies         |
 | Waiting for Specialist Consultation| Doctor Examination           | Specialist Consultation             | 20         | 60            | 180            |
-| Waiting for Disposition Decision   | Last clinical activity†      | Disposition Decision Recorded       | 5          | 15            | 45             |
+| Waiting for Discharge   | Last clinical activity†      | Disposition Decision Recorded       | 5          | 15            | 45             |
 | Admitted to Hospital (case duration) | Registration               | Admitted to Hospital                | 60         | 180           | 300            |
 | Discharged (case duration)         | Registration                 | Discharged                          | 60         | 180           | 300            |
 
 *For Waiting for Treatment: If no diagnostic test is ordered, use Doctor Examination as the "From" activity.
 
-†For Waiting for Disposition Decision: Use the last relevant clinical activity (e.g., Treatment Administered, Observation, or Specialist Consultation) as the "From" activity.
+†For Waiting for Discharge: Use the last relevant clinical activity (e.g., Treatment Administered, Observation, or Specialist Consultation) as the "From" activity.
 
 For “Observation Completion,” the fast threshold is suggested as 10 min, but this can be adjusted based on your clinical context.
