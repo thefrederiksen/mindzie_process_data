@@ -5,6 +5,8 @@
 **Snapshot Date:** 2025-05-04 at 14:00:00  
 **Location:** Mos Eisley, Tatooine, Outer Rim Territories  
 
+![Command Centre Dashboard](Images/command_center.png)
+
 ## 🚀 Quick Start: Mindzie Studio Project
 
 **Ready to explore?** Download the complete Mindzie Studio project with all data and process flow monitoring dashboards!
