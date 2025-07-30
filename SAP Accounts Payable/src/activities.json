@@ -1,0 +1,84 @@
+{
+  "activities": [
+    {
+      "name": "Invoice Received",
+      "description": "An invoice has been received from a vendor and entered into the system"
+    },
+    {
+      "name": "Invoice Scanned",
+      "description": "The physical invoice has been scanned and attached to the digital record"
+    },
+    {
+      "name": "Invoice Validation",
+      "description": "The invoice has been validated against purchase orders and receiving documents"
+    },
+    {
+      "name": "Three-Way Match",
+      "description": "The invoice has been matched with purchase order and goods receipt"
+    },
+    {
+      "name": "Price Variance Check",
+      "description": "Price variances between invoice and purchase order have been identified and reviewed"
+    },
+    {
+      "name": "Quantity Variance Check",
+      "description": "Quantity variances between invoice and goods receipt have been identified and reviewed"
+    },
+    {
+      "name": "Tax Calculation",
+      "description": "Tax amounts have been calculated and verified"
+    },
+    {
+      "name": "Approval Requested",
+      "description": "The invoice has been submitted for approval workflow"
+    },
+    {
+      "name": "Manager Approval",
+      "description": "A manager has approved the invoice for payment"
+    },
+    {
+      "name": "Finance Approval",
+      "description": "The finance department has approved the invoice"
+    },
+    {
+      "name": "Vendor Master Data Review",
+      "description": "Vendor information has been verified and updated if necessary"
+    },
+    {
+      "name": "Payment Terms Verification",
+      "description": "Payment terms have been verified and confirmed"
+    },
+    {
+      "name": "GL Account Assignment",
+      "description": "General ledger accounts have been assigned to the invoice"
+    },
+    {
+      "name": "Cost Center Assignment",
+      "description": "Cost centers have been assigned for expense allocation"
+    },
+    {
+      "name": "Payment Block Release",
+      "description": "Any payment blocks have been released"
+    },
+    {
+      "name": "Payment Scheduled",
+      "description": "The invoice has been scheduled for payment"
+    },
+    {
+      "name": "Payment Executed",
+      "description": "The payment has been executed and sent to the vendor"
+    },
+    {
+      "name": "Payment Confirmed",
+      "description": "The payment has been confirmed and reconciled"
+    },
+    {
+      "name": "Invoice Posted",
+      "description": "The invoice has been posted to the general ledger"
+    },
+    {
+      "name": "Document Archived",
+      "description": "The invoice and related documents have been archived"
+    }
+  ]
+} 

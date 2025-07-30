@@ -1,0 +1,4173 @@
+{
+  "metadata": {
+    "FreezeTime": "2025-05-04T14:00:00+00:00",
+    "TotalCases": 69,
+    "TotalEvents": 538,
+    "Activities": [
+      "Invoice Received",
+      "Invoice Scanned",
+      "Invoice Validation",
+      "Three-Way Match",
+      "Price Variance Check",
+      "Quantity Variance Check",
+      "Tax Calculation",
+      "Approval Requested",
+      "Manager Approval",
+      "Finance Approval",
+      "Vendor Master Data Review",
+      "Payment Terms Verification",
+      "GL Account Assignment",
+      "Cost Center Assignment",
+      "Payment Block Release",
+      "Payment Scheduled",
+      "Payment Executed",
+      "Payment Confirmed",
+      "Invoice Posted",
+      "Document Archived"
+    ],
+    "StageThresholds": {
+      "Invoice Scanning": {
+        "warning": 2,
+        "critical": 8
+      },
+      "Validation": {
+        "warning": 4,
+        "critical": 12
+      },
+      "Three-Way Match": {
+        "warning": 2,
+        "critical": 8
+      },
+      "Approval": {
+        "warning": 24,
+        "critical": 72
+      },
+      "GL Assignment": {
+        "warning": 2,
+        "critical": 8
+      },
+      "Payment Scheduling": {
+        "warning": 4,
+        "critical": 12
+      },
+      "Payment Execution": {
+        "warning": 8,
+        "critical": 24
+      },
+      "Document Archiving": {
+        "warning": 24,
+        "critical": 72
+      }
+    },
+    "CaseDistribution": {
+      "Invoice Scanning": {
+        "total": 8,
+        "ok": 6,
+        "warning": 2,
+        "critical": 0
+      },
+      "Validation": {
+        "total": 12,
+        "ok": 9,
+        "warning": 3,
+        "critical": 0
+      },
+      "Three-Way Match": {
+        "total": 6,
+        "ok": 5,
+        "warning": 1,
+        "critical": 0
+      },
+      "Approval": {
+        "total": 15,
+        "ok": 10,
+        "warning": 3,
+        "critical": 2
+      },
+      "GL Assignment": {
+        "total": 4,
+        "ok": 4,
+        "warning": 0,
+        "critical": 0
+      },
+      "Payment Scheduling": {
+        "total": 8,
+        "ok": 6,
+        "warning": 2,
+        "critical": 0
+      },
+      "Payment Execution": {
+        "total": 6,
+        "ok": 5,
+        "warning": 1,
+        "critical": 0
+      },
+      "Document Archiving": {
+        "total": 10,
+        "ok": 8,
+        "warning": 2,
+        "critical": 0
+      }
+    }
+  },
+  "events": [
+    {
+      "CaseId": "AP770487",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-25T15:51:38.995195+00:00",
+      "VendorID": "V214"
+    },
+    {
+      "CaseId": "AP809570",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-16T11:37:42.422569+00:00",
+      "VendorID": "V858"
+    },
+    {
+      "CaseId": "AP343962",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-17T10:22:46.217424+00:00",
+      "VendorID": "V617"
+    },
+    {
+      "CaseId": "AP539898",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-25T15:55:18.545499+00:00",
+      "VendorID": "V325"
+    },
+    {
+      "CaseId": "AP267414",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-25T13:51:18.519711+00:00",
+      "VendorID": "V814"
+    },
+    {
+      "CaseId": "AP207175",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-23T05:51:15.106361+00:00",
+      "VendorID": "V194"
+    },
+    {
+      "CaseId": "AP145561",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-30T02:50:56.488043+00:00",
+      "VendorID": "V847"
+    },
+    {
+      "CaseId": "AP407419",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-07T23:29:28.701700+00:00",
+      "VendorID": "V949"
+    },
+    {
+      "CaseId": "AP172933",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-11T07:53:33.756480+00:00",
+      "VendorID": "V146"
+    },
+    {
+      "CaseId": "AP172933",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-11T11:23:10.759765+00:00",
+      "VendorID": "V146"
+    },
+    {
+      "CaseId": "AP498591",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-09T10:31:42.356633+00:00",
+      "VendorID": "V384"
+    },
+    {
+      "CaseId": "AP498591",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-09T12:16:18.767456+00:00",
+      "VendorID": "V384"
+    },
+    {
+      "CaseId": "AP835911",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-15T23:08:37.699168+00:00",
+      "VendorID": "V799"
+    },
+    {
+      "CaseId": "AP835911",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-16T02:11:44.696822+00:00",
+      "VendorID": "V799"
+    },
+    {
+      "CaseId": "AP497887",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-17T13:15:32.861560+00:00",
+      "VendorID": "V376"
+    },
+    {
+      "CaseId": "AP497887",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-17T16:42:32.795754+00:00",
+      "VendorID": "V376"
+    },
+    {
+      "CaseId": "AP340174",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-21T23:31:15.486063+00:00",
+      "VendorID": "V941"
+    },
+    {
+      "CaseId": "AP340174",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-22T03:13:01.001228+00:00",
+      "VendorID": "V941"
+    },
+    {
+      "CaseId": "AP852787",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-19T06:07:53.163955+00:00",
+      "VendorID": "V422"
+    },
+    {
+      "CaseId": "AP852787",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-19T08:52:53.097520+00:00",
+      "VendorID": "V422"
+    },
+    {
+      "CaseId": "AP246413",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-18T01:59:10.877037+00:00",
+      "VendorID": "V352"
+    },
+    {
+      "CaseId": "AP246413",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-18T03:59:09.143261+00:00",
+      "VendorID": "V352"
+    },
+    {
+      "CaseId": "AP479580",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-19T09:39:29.579286+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP479580",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-19T13:10:19.475948+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP267753",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-16T08:44:45.600725+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP267753",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-16T11:19:53.794922+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP363626",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-12T19:15:48.960061+00:00",
+      "VendorID": "V666"
+    },
+    {
+      "CaseId": "AP363626",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-12T21:38:34.786224+00:00",
+      "VendorID": "V666"
+    },
+    {
+      "CaseId": "AP772097",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-21T01:29:29.106623+00:00",
+      "VendorID": "V448"
+    },
+    {
+      "CaseId": "AP772097",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-21T05:19:47.187310+00:00",
+      "VendorID": "V448"
+    },
+    {
+      "CaseId": "AP376183",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-07T06:21:28.219718+00:00",
+      "VendorID": "V612"
+    },
+    {
+      "CaseId": "AP376183",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-07T07:54:08.624090+00:00",
+      "VendorID": "V612"
+    },
+    {
+      "CaseId": "AP738551",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-11T13:40:49.115112+00:00",
+      "VendorID": "V303"
+    },
+    {
+      "CaseId": "AP738551",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-11T16:54:19.808743+00:00",
+      "VendorID": "V303"
+    },
+    {
+      "CaseId": "AP738551",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-11T19:15:42.265013+00:00",
+      "VendorID": "V303"
+    },
+    {
+      "CaseId": "AP439902",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-06T18:55:22.402748+00:00",
+      "VendorID": "V600"
+    },
+    {
+      "CaseId": "AP439902",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-06T22:20:01.388418+00:00",
+      "VendorID": "V600"
+    },
+    {
+      "CaseId": "AP439902",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-06T23:54:36.066398+00:00",
+      "VendorID": "V600"
+    },
+    {
+      "CaseId": "AP694916",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-19T12:29:34.372847+00:00",
+      "VendorID": "V180"
+    },
+    {
+      "CaseId": "AP694916",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-19T15:39:17.960129+00:00",
+      "VendorID": "V180"
+    },
+    {
+      "CaseId": "AP694916",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-19T18:50:07.473938+00:00",
+      "VendorID": "V180"
+    },
+    {
+      "CaseId": "AP598369",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-18T09:21:43.641605+00:00",
+      "VendorID": "V662"
+    },
+    {
+      "CaseId": "AP598369",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-18T13:14:14.614221+00:00",
+      "VendorID": "V662"
+    },
+    {
+      "CaseId": "AP598369",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-18T16:59:18.924233+00:00",
+      "VendorID": "V662"
+    },
+    {
+      "CaseId": "AP823378",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-22T03:09:08.148817+00:00",
+      "VendorID": "V305"
+    },
+    {
+      "CaseId": "AP823378",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-22T04:57:33.247149+00:00",
+      "VendorID": "V305"
+    },
+    {
+      "CaseId": "AP823378",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-22T08:36:28.384616+00:00",
+      "VendorID": "V305"
+    },
+    {
+      "CaseId": "AP359947",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-05-03T01:47:55.969309+00:00",
+      "VendorID": "V330"
+    },
+    {
+      "CaseId": "AP359947",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-05-03T04:21:30.314751+00:00",
+      "VendorID": "V330"
+    },
+    {
+      "CaseId": "AP359947",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-05-03T04:53:00.919322+00:00",
+      "VendorID": "V330"
+    },
+    {
+      "CaseId": "AP161733",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-08T16:26:30.343733+00:00",
+      "VendorID": "V334"
+    },
+    {
+      "CaseId": "AP161733",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-08T17:46:29.202126+00:00",
+      "VendorID": "V334"
+    },
+    {
+      "CaseId": "AP161733",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-08T20:36:58.322133+00:00",
+      "VendorID": "V334"
+    },
+    {
+      "CaseId": "AP161733",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-08T21:51:57.705906+00:00",
+      "VendorID": "V334"
+    },
+    {
+      "CaseId": "AP161733",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-08T22:49:44.835200+00:00",
+      "VendorID": "V334"
+    },
+    {
+      "CaseId": "AP161733",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-09T02:36:12.314631+00:00",
+      "VendorID": "V334"
+    },
+    {
+      "CaseId": "AP595631",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-28T02:18:50.246834+00:00",
+      "VendorID": "V348"
+    },
+    {
+      "CaseId": "AP595631",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-28T04:19:21.491732+00:00",
+      "VendorID": "V348"
+    },
+    {
+      "CaseId": "AP595631",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-28T06:18:18.582382+00:00",
+      "VendorID": "V348"
+    },
+    {
+      "CaseId": "AP595631",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-28T08:26:23.093199+00:00",
+      "VendorID": "V348"
+    },
+    {
+      "CaseId": "AP595631",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-28T11:29:29.448902+00:00",
+      "VendorID": "V348"
+    },
+    {
+      "CaseId": "AP595631",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-28T14:20:53.842198+00:00",
+      "VendorID": "V348"
+    },
+    {
+      "CaseId": "AP203198",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-23T21:21:40.465880+00:00",
+      "VendorID": "V162"
+    },
+    {
+      "CaseId": "AP203198",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-23T22:43:53.535687+00:00",
+      "VendorID": "V162"
+    },
+    {
+      "CaseId": "AP203198",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-23T23:53:50.167933+00:00",
+      "VendorID": "V162"
+    },
+    {
+      "CaseId": "AP203198",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-24T01:58:02.698636+00:00",
+      "VendorID": "V162"
+    },
+    {
+      "CaseId": "AP203198",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-24T03:56:38.407298+00:00",
+      "VendorID": "V162"
+    },
+    {
+      "CaseId": "AP203198",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-24T05:25:08.076121+00:00",
+      "VendorID": "V162"
+    },
+    {
+      "CaseId": "AP179046",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-05-02T06:47:16.840644+00:00",
+      "VendorID": "V553"
+    },
+    {
+      "CaseId": "AP179046",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-05-02T10:12:50.788216+00:00",
+      "VendorID": "V553"
+    },
+    {
+      "CaseId": "AP179046",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-05-02T14:06:20.141058+00:00",
+      "VendorID": "V553"
+    },
+    {
+      "CaseId": "AP179046",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-05-02T17:50:52.365044+00:00",
+      "VendorID": "V553"
+    },
+    {
+      "CaseId": "AP179046",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-05-02T21:19:05.931298+00:00",
+      "VendorID": "V553"
+    },
+    {
+      "CaseId": "AP179046",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-05-02T22:24:01.451292+00:00",
+      "VendorID": "V553"
+    },
+    {
+      "CaseId": "AP324130",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-28T19:55:12.386383+00:00",
+      "VendorID": "V985"
+    },
+    {
+      "CaseId": "AP324130",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-28T21:47:11.700529+00:00",
+      "VendorID": "V985"
+    },
+    {
+      "CaseId": "AP324130",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-29T01:31:45.828256+00:00",
+      "VendorID": "V985"
+    },
+    {
+      "CaseId": "AP324130",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-29T04:46:38.458152+00:00",
+      "VendorID": "V985"
+    },
+    {
+      "CaseId": "AP324130",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-29T06:16:32.598437+00:00",
+      "VendorID": "V985"
+    },
+    {
+      "CaseId": "AP324130",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-29T09:12:49.651382+00:00",
+      "VendorID": "V985"
+    },
+    {
+      "CaseId": "AP921414",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-19T12:26:28.824087+00:00",
+      "VendorID": "V669"
+    },
+    {
+      "CaseId": "AP921414",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-19T13:42:11.855407+00:00",
+      "VendorID": "V669"
+    },
+    {
+      "CaseId": "AP921414",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-19T14:24:28.744886+00:00",
+      "VendorID": "V669"
+    },
+    {
+      "CaseId": "AP921414",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-19T17:28:59.033339+00:00",
+      "VendorID": "V669"
+    },
+    {
+      "CaseId": "AP921414",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-19T18:11:47.098740+00:00",
+      "VendorID": "V669"
+    },
+    {
+      "CaseId": "AP921414",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-19T19:47:38.519343+00:00",
+      "VendorID": "V669"
+    },
+    {
+      "CaseId": "AP599948",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-05-02T00:41:21.164094+00:00",
+      "VendorID": "V614"
+    },
+    {
+      "CaseId": "AP599948",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-05-02T04:10:08.080165+00:00",
+      "VendorID": "V614"
+    },
+    {
+      "CaseId": "AP599948",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-05-02T04:54:31.448957+00:00",
+      "VendorID": "V614"
+    },
+    {
+      "CaseId": "AP599948",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-05-02T05:38:47.755836+00:00",
+      "VendorID": "V614"
+    },
+    {
+      "CaseId": "AP599948",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-05-02T09:09:46.677781+00:00",
+      "VendorID": "V614"
+    },
+    {
+      "CaseId": "AP599948",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-05-02T11:04:34.249728+00:00",
+      "VendorID": "V614"
+    },
+    {
+      "CaseId": "AP697347",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-05-02T11:07:36.281878+00:00",
+      "VendorID": "V352"
+    },
+    {
+      "CaseId": "AP697347",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-05-02T13:55:39.183750+00:00",
+      "VendorID": "V352"
+    },
+    {
+      "CaseId": "AP697347",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-05-02T16:24:21.042990+00:00",
+      "VendorID": "V352"
+    },
+    {
+      "CaseId": "AP697347",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-05-02T18:00:47.303049+00:00",
+      "VendorID": "V352"
+    },
+    {
+      "CaseId": "AP697347",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-05-02T19:25:32.950814+00:00",
+      "VendorID": "V352"
+    },
+    {
+      "CaseId": "AP697347",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-05-02T22:16:11.498096+00:00",
+      "VendorID": "V352"
+    },
+    {
+      "CaseId": "AP378517",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-14T22:49:54.253102+00:00",
+      "VendorID": "V505"
+    },
+    {
+      "CaseId": "AP378517",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-15T02:34:59.884081+00:00",
+      "VendorID": "V505"
+    },
+    {
+      "CaseId": "AP378517",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-15T06:21:30.136103+00:00",
+      "VendorID": "V505"
+    },
+    {
+      "CaseId": "AP378517",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-15T06:53:27.510860+00:00",
+      "VendorID": "V505"
+    },
+    {
+      "CaseId": "AP378517",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-15T09:33:54.117479+00:00",
+      "VendorID": "V505"
+    },
+    {
+      "CaseId": "AP378517",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-15T12:02:07.837414+00:00",
+      "VendorID": "V505"
+    },
+    {
+      "CaseId": "AP663750",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-29T19:31:54.328611+00:00",
+      "VendorID": "V318"
+    },
+    {
+      "CaseId": "AP663750",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-29T20:16:21.099168+00:00",
+      "VendorID": "V318"
+    },
+    {
+      "CaseId": "AP663750",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-29T21:37:39.082816+00:00",
+      "VendorID": "V318"
+    },
+    {
+      "CaseId": "AP663750",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-29T23:07:29.923945+00:00",
+      "VendorID": "V318"
+    },
+    {
+      "CaseId": "AP663750",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-30T01:09:31.049565+00:00",
+      "VendorID": "V318"
+    },
+    {
+      "CaseId": "AP663750",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-30T03:33:35.595889+00:00",
+      "VendorID": "V318"
+    },
+    {
+      "CaseId": "AP946305",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-14T07:36:29.945537+00:00",
+      "VendorID": "V769"
+    },
+    {
+      "CaseId": "AP946305",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-14T11:22:10.071634+00:00",
+      "VendorID": "V769"
+    },
+    {
+      "CaseId": "AP946305",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-14T12:13:55.261558+00:00",
+      "VendorID": "V769"
+    },
+    {
+      "CaseId": "AP946305",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-14T15:48:19.661317+00:00",
+      "VendorID": "V769"
+    },
+    {
+      "CaseId": "AP946305",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-14T17:13:51.931928+00:00",
+      "VendorID": "V769"
+    },
+    {
+      "CaseId": "AP946305",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-14T20:50:42.312036+00:00",
+      "VendorID": "V769"
+    },
+    {
+      "CaseId": "AP262998",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-27T13:06:06.628542+00:00",
+      "VendorID": "V378"
+    },
+    {
+      "CaseId": "AP262998",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-27T16:00:29.092365+00:00",
+      "VendorID": "V378"
+    },
+    {
+      "CaseId": "AP262998",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-27T19:29:35.793839+00:00",
+      "VendorID": "V378"
+    },
+    {
+      "CaseId": "AP262998",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-27T21:45:43.947971+00:00",
+      "VendorID": "V378"
+    },
+    {
+      "CaseId": "AP262998",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-27T23:08:28.075747+00:00",
+      "VendorID": "V378"
+    },
+    {
+      "CaseId": "AP262998",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-28T02:49:10.879729+00:00",
+      "VendorID": "V378"
+    },
+    {
+      "CaseId": "AP765095",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-05-03T14:43:52.023632+00:00",
+      "VendorID": "V533"
+    },
+    {
+      "CaseId": "AP765095",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-05-03T17:27:39.652186+00:00",
+      "VendorID": "V533"
+    },
+    {
+      "CaseId": "AP765095",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-05-03T18:52:40.288493+00:00",
+      "VendorID": "V533"
+    },
+    {
+      "CaseId": "AP765095",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-05-03T21:58:19.797938+00:00",
+      "VendorID": "V533"
+    },
+    {
+      "CaseId": "AP765095",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-05-04T00:24:10.971244+00:00",
+      "VendorID": "V533"
+    },
+    {
+      "CaseId": "AP765095",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-05-04T02:23:59.826423+00:00",
+      "VendorID": "V533"
+    },
+    {
+      "CaseId": "AP178898",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-05-02T14:43:00.018680+00:00",
+      "VendorID": "V807"
+    },
+    {
+      "CaseId": "AP178898",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-05-02T17:09:01.834899+00:00",
+      "VendorID": "V807"
+    },
+    {
+      "CaseId": "AP178898",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-05-02T19:09:17.147481+00:00",
+      "VendorID": "V807"
+    },
+    {
+      "CaseId": "AP178898",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-05-02T19:48:04.191094+00:00",
+      "VendorID": "V807"
+    },
+    {
+      "CaseId": "AP178898",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-05-02T21:34:38.800187+00:00",
+      "VendorID": "V807"
+    },
+    {
+      "CaseId": "AP178898",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-05-03T01:20:35.709120+00:00",
+      "VendorID": "V807"
+    },
+    {
+      "CaseId": "AP141832",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-26T09:11:13.485036+00:00",
+      "VendorID": "V466"
+    },
+    {
+      "CaseId": "AP141832",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-26T12:25:02.949684+00:00",
+      "VendorID": "V466"
+    },
+    {
+      "CaseId": "AP141832",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-26T16:00:43.046922+00:00",
+      "VendorID": "V466"
+    },
+    {
+      "CaseId": "AP141832",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-26T17:56:03.402034+00:00",
+      "VendorID": "V466"
+    },
+    {
+      "CaseId": "AP141832",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-26T20:36:23.737062+00:00",
+      "VendorID": "V466"
+    },
+    {
+      "CaseId": "AP141832",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-26T21:38:51.109125+00:00",
+      "VendorID": "V466"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-05-02T23:49:36.003972+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-05-03T01:29:21.540868+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-05-03T05:14:49.821032+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-05-03T08:33:17.983783+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-05-03T12:04:45.190541+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-05-03T15:25:00.631930+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-05-03T16:51:02.383871+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-05-03T20:06:23.302686+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-05-03T20:59:05.307579+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP270395",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-05-04T00:32:14.609044+00:00",
+      "VendorID": "V919"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-24T20:52:15.116085+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-24T22:10:02.819226+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-24T22:45:00.991103+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-24T23:55:34.426436+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-25T01:34:30.527021+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-25T05:06:01.374091+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-25T08:59:04.176802+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-25T10:27:41.151710+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-25T13:12:23.821616+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP333238",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-25T15:06:19.769259+00:00",
+      "VendorID": "V304"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-08T04:59:43.867431+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-08T07:31:39.298076+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-08T11:28:12.035294+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-08T12:06:14.075981+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-08T14:41:30.873794+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-08T16:24:06.531401+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-08T19:39:15.526446+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-08T21:40:54.089383+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-09T01:37:35.461084+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP662262",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-09T02:31:52.597963+00:00",
+      "VendorID": "V439"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-21T00:49:25.285668+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-21T04:08:47.322626+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-21T07:03:01.722677+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-21T10:50:29.037994+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-21T13:55:15.712932+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-21T15:06:38.355559+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-21T17:07:12.702794+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-21T20:56:28.521317+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-22T00:39:50.234105+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP299312",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-22T03:20:41.992270+00:00",
+      "VendorID": "V360"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-24T16:40:02.101019+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-24T18:34:32.345896+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-24T20:06:37.601448+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-24T21:03:21.427716+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-24T23:01:39.051522+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-25T02:49:07.633773+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-25T05:41:21.839883+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-25T09:20:57.189759+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-25T12:00:12.677700+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-25T13:33:24.646120+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-25T15:58:28.655006+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-25T16:28:33.769846+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP230679",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-25T17:58:48.882679+00:00",
+      "VendorID": "V837"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-20T04:24:56.803988+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-20T05:39:49.441640+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-20T07:49:11.587582+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-20T11:28:26.465987+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-20T14:45:36.377965+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-20T15:51:14.489557+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-20T16:39:02.913320+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-20T18:57:17.608645+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-20T21:40:12.663428+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-20T23:20:36.035446+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-21T02:42:28.171099+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-21T05:50:12.511632+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP708158",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-21T08:41:29.737081+00:00",
+      "VendorID": "V721"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-26T13:45:09.239494+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-26T17:13:35.934446+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-26T17:58:53.570134+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-26T19:55:55.526873+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-26T22:38:10.570670+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-26T23:49:00.454653+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-27T02:45:14.518209+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-27T04:59:03.670539+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-27T06:20:17.874478+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-27T09:08:04.205418+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-27T09:39:14.070127+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-27T12:46:56.222532+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP308802",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-27T15:58:38.804508+00:00",
+      "VendorID": "V250"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-18T14:10:37.812141+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-18T15:32:57.710465+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-18T19:01:06.748442+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-18T21:06:58.167443+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-19T00:25:16.016625+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-19T03:15:27.496056+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-19T07:12:54.940965+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-19T09:47:57.640178+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-19T13:37:28.139244+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-19T17:14:40.105909+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-19T19:53:19.525176+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-19T22:54:22.377088+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP545798",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-20T01:10:22.581965+00:00",
+      "VendorID": "V324"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-08T16:28:29.232988+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-08T19:36:21.620498+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-08T23:02:43.892885+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-09T00:30:58.015934+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-09T03:44:16.718859+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-09T05:56:02.641274+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-09T07:16:17.139158+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-09T09:18:39.533833+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-09T12:18:30.199102+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-09T13:37:44.818185+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-09T15:18:16.497146+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-09T18:55:48.635239+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP674485",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-09T19:42:43.913725+00:00",
+      "VendorID": "V556"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-27T11:02:27.006611+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-27T12:41:56.112138+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-27T14:49:46.758360+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-27T15:32:51.306313+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-27T18:57:45.735047+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-27T20:49:33.142887+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-28T00:01:12.569618+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-28T03:49:52.951241+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-28T04:23:59.053896+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-28T07:58:55.327973+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-28T10:29:49.026343+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-28T12:39:58.970973+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP501641",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-28T16:27:57.515857+00:00",
+      "VendorID": "V810"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-12T00:08:26.006912+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-12T02:45:06.989533+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-12T04:01:25.777081+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-12T05:17:30.489677+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-12T07:19:02.022975+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-12T07:55:07.735706+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-12T09:35:42.967957+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-12T12:28:20.155708+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-12T14:23:14.545739+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-12T15:27:54.109352+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-12T17:36:03.225232+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-12T18:32:51.335478+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP508930",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-12T21:13:31.773186+00:00",
+      "VendorID": "V973"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-05-02T21:53:11.758255+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-05-02T22:51:41.571794+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-05-03T00:58:38.972189+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-05-03T01:39:12.558571+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-05-03T03:28:49.267260+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-05-03T04:43:16.186841+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-05-03T06:21:54.443983+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-05-03T09:31:45.938302+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-05-03T11:21:22.928618+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-05-03T14:29:18.252395+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-05-03T17:54:00.498388+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-05-03T19:16:59.119688+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP513160",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-05-03T20:04:11.138221+00:00",
+      "VendorID": "V706"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-14T20:44:02.496378+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-14T23:30:54.605034+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-15T02:39:17.943405+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-15T06:28:43.051237+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-15T07:40:34.995835+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-15T08:14:51.784053+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-15T09:16:51.801610+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-15T10:13:22.185893+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-15T13:03:57.367335+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-15T15:32:23.384067+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-15T16:48:09.737282+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-15T19:45:02.995920+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-15T22:56:05.911959+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP665621",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-16T00:01:20.055165+00:00",
+      "VendorID": "V153"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-05T15:25:57.675332+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-05T16:01:21.223493+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-05T17:36:51.884772+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-05T20:29:06.460586+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-06T00:20:19.438347+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-06T02:13:37.284310+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-06T05:13:46.469594+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-06T05:59:44.025215+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-06T08:54:45.766856+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-06T11:36:29.021041+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-06T12:27:52.977490+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-06T15:40:06.236640+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-06T19:08:39.931453+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP884256",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-06T21:44:45.117800+00:00",
+      "VendorID": "V835"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-18T06:01:28.682243+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-18T06:45:57.537123+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-18T09:31:56.582124+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-18T10:04:35.999216+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-18T12:02:48.739351+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-18T14:15:45.280834+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-18T16:16:47.675691+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-18T18:02:51.244976+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-18T21:40:05.090163+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-18T23:46:37.805943+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-19T00:48:45.494422+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-19T01:55:44.820132+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-19T04:15:18.829143+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP693423",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-19T07:01:54.592560+00:00",
+      "VendorID": "V901"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-21T01:53:55.480629+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-21T03:20:17.264408+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-21T06:49:08.850224+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-21T10:13:36.061062+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-21T11:01:48.013578+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-21T14:36:56.566496+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-21T15:58:09.245830+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-21T18:05:44.572509+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-21T20:43:54.751982+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-21T22:33:30.017214+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-21T23:09:31.637186+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-22T02:38:13.642924+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-22T03:46:24.825124+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP664315",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-22T05:00:57.535236+00:00",
+      "VendorID": "V893"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-08T03:53:26.002680+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-08T06:11:55.506052+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-08T07:22:02.816988+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-08T08:42:43.903223+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-08T10:38:04.897594+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-08T13:04:40.117860+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-08T14:25:08.199455+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-08T16:35:06.972651+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-08T19:34:36.186973+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-08T21:38:43.186298+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-08T22:12:20.451366+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-08T23:44:07.819691+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-09T01:39:03.273912+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP456871",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-09T03:00:08.918977+00:00",
+      "VendorID": "V386"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-23T18:43:59.029673+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-23T21:09:33.924430+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-23T22:53:26.737078+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-24T00:58:43.927390+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-24T02:33:07.377081+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-24T03:51:32.156401+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-24T06:53:00.338976+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-24T08:29:16.243070+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-24T11:35:16.544472+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-24T15:24:57.601733+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-24T18:19:53.662515+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-24T19:30:07.078775+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-24T22:35:13.497409+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP486945",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-25T00:03:17.392709+00:00",
+      "VendorID": "V584"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-05T06:58:43.681691+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-05T08:30:56.387128+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-05T10:16:43.488599+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-05T11:50:12.060218+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-05T14:48:53.093138+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-05T15:45:28.038432+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-05T16:25:01.536264+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-05T17:06:28.564119+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-05T18:37:49.485840+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-05T22:26:05.014986+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-06T01:10:02.172640+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-06T04:18:07.354055+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-06T05:09:39.958405+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-06T05:42:14.502488+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-06T07:11:57.178010+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-06T09:22:28.977038+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP897135",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-06T11:04:01.871788+00:00",
+      "VendorID": "V637"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-09T19:42:35.952910+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-09T20:28:09.388255+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-09T23:10:20.404163+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-09T23:51:35.878499+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-10T00:52:55.768063+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-10T03:21:07.546986+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-10T04:54:55.874435+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-10T08:53:39.242781+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-10T09:48:31.732465+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-10T12:59:03.719876+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-10T15:36:23.322282+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-10T18:52:26.656738+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-10T20:09:50.314665+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-10T22:29:34.728608+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-11T00:34:11.210866+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-11T02:37:09.495517+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP364742",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-11T06:07:47.595506+00:00",
+      "VendorID": "V982"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-16T00:47:13.911528+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-16T04:36:13.548052+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-16T05:49:51.675665+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-16T07:04:10.593126+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-16T09:52:51.987655+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-16T10:55:50.907032+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-16T12:02:20.957741+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-16T12:48:06.775089+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-16T13:18:40.489194+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-16T15:23:16.835872+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-16T17:57:58.856931+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-16T19:29:08.723973+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-16T20:47:45.324528+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-16T23:46:12.967984+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-17T02:43:50.611216+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-17T04:49:11.405929+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP420214",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-17T07:43:32.455922+00:00",
+      "VendorID": "V682"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-14T13:35:03.990403+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-14T15:34:20.741376+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-14T17:58:42.227348+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-14T20:44:42.424863+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-15T00:25:28.409073+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-15T03:49:03.961685+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-15T04:34:03.725629+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-15T05:38:54.352773+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-15T07:13:30.261612+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-15T10:20:47.128910+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-15T12:50:19.137731+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-15T14:20:55.631144+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-15T15:17:02.487237+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-15T18:11:39.829926+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-15T21:08:36.474357+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-16T00:56:34.194990+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP926097",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-16T03:11:40.144422+00:00",
+      "VendorID": "V910"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-12T09:22:38.593692+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-12T09:58:04.491336+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-12T11:16:08.938974+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-12T14:07:45.098400+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-12T17:38:27.610997+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-12T20:11:45.359937+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-12T20:46:06.752685+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-12T23:56:42.733473+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-13T03:19:12.641163+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-13T05:50:13.353169+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-13T09:00:28.526622+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-13T10:07:15.929794+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-13T12:26:14.874190+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-13T14:29:06.964686+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-13T15:57:31.737499+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-13T19:56:53.250483+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP184349",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-13T21:58:25.401320+00:00",
+      "VendorID": "V712"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-24T00:51:46.171053+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-24T04:21:53.608042+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-24T06:01:09.134203+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-24T08:56:49.422495+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-24T10:27:20.966717+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-24T14:15:50.405315+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-24T17:36:41.337353+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-24T20:02:12.554626+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-24T22:07:43.361074+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-24T23:43:46.277254+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-25T01:21:39.526961+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-25T05:15:23.854519+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-25T07:10:16.460237+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-25T09:28:20.373016+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-25T13:25:50.675122+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-25T16:13:57.195992+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP195674",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-25T18:37:53.875281+00:00",
+      "VendorID": "V581"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-11T18:12:16.183349+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-11T21:21:52.064103+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-11T22:34:36.897906+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-12T00:59:57.065358+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-12T04:44:45.742145+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-12T06:46:46.004943+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-12T09:43:23.955310+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-12T10:38:53.923960+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-12T14:33:15.573839+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-12T17:11:07.356844+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-12T18:31:22.504869+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-12T19:34:38.069733+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-12T22:00:18.641221+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-13T00:26:17.008975+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-13T01:15:51.444911+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-13T05:14:13.884867+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP296694",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-13T08:55:56.801336+00:00",
+      "VendorID": "V630"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-06T14:23:41.948688+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-06T17:21:50.135225+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-06T19:19:05.313546+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-06T21:30:24.808216+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-06T23:39:34.777468+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-07T01:45:30.287024+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-07T02:45:52.775827+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-07T03:55:54.466501+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-07T06:31:46.624244+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-07T09:38:29.910317+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-07T10:37:09.915459+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-07T11:21:49.522462+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-07T14:34:05.229134+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-07T18:03:30.825122+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-07T19:44:53.253185+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-07T23:00:18.492498+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP223172",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-08T00:26:24.868053+00:00",
+      "VendorID": "V763"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-04T16:58:39.782229+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-04T17:59:52.084501+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-04T20:22:58.199780+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-04T22:05:26.761445+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-05T00:31:20.920900+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-05T02:55:28.139693+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-05T05:01:05.481866+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-05T06:38:39.876479+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-05T07:48:16.896388+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-05T10:44:45.376576+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-05T13:14:50.026865+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-05T14:33:52.913685+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-05T17:46:44.774071+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-05T18:25:54.730040+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-05T21:32:18.014950+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-06T00:30:23.886251+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP861319",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-06T03:50:47.638423+00:00",
+      "VendorID": "V405"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Invoice Received",
+      "ActivityTime": "2025-04-19T05:52:50.982624+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Invoice Scanned",
+      "ActivityTime": "2025-04-19T08:08:19.851116+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Invoice Validation",
+      "ActivityTime": "2025-04-19T10:42:16.124525+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Three-Way Match",
+      "ActivityTime": "2025-04-19T14:14:54.348473+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Price Variance Check",
+      "ActivityTime": "2025-04-19T17:48:29.147186+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Tax Calculation",
+      "ActivityTime": "2025-04-19T19:50:57.005429+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Approval Requested",
+      "ActivityTime": "2025-04-19T22:11:23.989123+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Manager Approval",
+      "ActivityTime": "2025-04-20T00:17:21.282861+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Vendor Master Data Review",
+      "ActivityTime": "2025-04-20T03:19:04.075088+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Payment Terms Verification",
+      "ActivityTime": "2025-04-20T05:15:09.805697+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "GL Account Assignment",
+      "ActivityTime": "2025-04-20T08:02:40.050410+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Cost Center Assignment",
+      "ActivityTime": "2025-04-20T09:05:05.001767+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Payment Block Release",
+      "ActivityTime": "2025-04-20T11:13:40.583339+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Payment Scheduled",
+      "ActivityTime": "2025-04-20T15:07:12.549084+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Payment Executed",
+      "ActivityTime": "2025-04-20T16:48:18.420633+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Payment Confirmed",
+      "ActivityTime": "2025-04-20T19:43:46.498575+00:00",
+      "VendorID": "V911"
+    },
+    {
+      "CaseId": "AP795928",
+      "ActivityName": "Invoice Posted",
+      "ActivityTime": "2025-04-20T22:30:14.440397+00:00",
+      "VendorID": "V911"
+    }
+  ],
+  "case_metadata": {
+    "AP770487": {
+      "VendorID": "V214",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Invoice Scanning",
+      "Status": "ok",
+      "StartDate": "2025-04-25T14:34:46.539894+00:00",
+      "LastActivityTime": "2025-04-25T15:51:38.995195+00:00",
+      "WaitingTimeHours": 1.2047068212460186,
+      "ActivityCount": 1,
+      "RequiresAttention": false
+    },
+    "AP809570": {
+      "VendorID": "V858",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Invoice Scanning",
+      "Status": "ok",
+      "StartDate": "2025-04-16T11:01:01.960808+00:00",
+      "LastActivityTime": "2025-04-16T11:37:42.422569+00:00",
+      "WaitingTimeHours": 0.24054285979238868,
+      "ActivityCount": 1,
+      "RequiresAttention": false
+    },
+    "AP343962": {
+      "VendorID": "V617",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Invoice Scanning",
+      "Status": "ok",
+      "StartDate": "2025-04-17T07:22:24.370301+00:00",
+      "LastActivityTime": "2025-04-17T10:22:46.217424+00:00",
+      "WaitingTimeHours": 1.151987460385354,
+      "ActivityCount": 1,
+      "RequiresAttention": false
+    },
+    "AP539898": {
+      "VendorID": "V325",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Invoice Scanning",
+      "Status": "ok",
+      "StartDate": "2025-04-25T12:22:45.361457+00:00",
+      "LastActivityTime": "2025-04-25T15:55:18.545499+00:00",
+      "WaitingTimeHours": 1.2382110506946509,
+      "ActivityCount": 1,
+      "RequiresAttention": false
+    },
+    "AP267414": {
+      "VendorID": "V814",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Services",
+      "WaitingStage": "Invoice Scanning",
+      "Status": "ok",
+      "StartDate": "2025-04-25T12:36:05.566308+00:00",
+      "LastActivityTime": "2025-04-25T13:51:18.519711+00:00",
+      "WaitingTimeHours": 1.245241193509786,
+      "ActivityCount": 1,
+      "RequiresAttention": false
+    },
+    "AP207175": {
+      "VendorID": "V194",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Invoice Scanning",
+      "Status": "ok",
+      "StartDate": "2025-04-23T04:09:01.264258+00:00",
+      "LastActivityTime": "2025-04-23T05:51:15.106361+00:00",
+      "WaitingTimeHours": 0.49678130083301963,
+      "ActivityCount": 1,
+      "RequiresAttention": false
+    },
+    "AP145561": {
+      "VendorID": "V847",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Invoice Scanning",
+      "Status": "warning",
+      "StartDate": "2025-04-29T23:07:15.566355+00:00",
+      "LastActivityTime": "2025-04-30T02:50:56.488043+00:00",
+      "WaitingTimeHours": 1.9782409507765994,
+      "ActivityCount": 1,
+      "RequiresAttention": true
+    },
+    "AP407419": {
+      "VendorID": "V949",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Invoice Scanning",
+      "Status": "warning",
+      "StartDate": "2025-04-07T21:43:32.100370+00:00",
+      "LastActivityTime": "2025-04-07T23:29:28.701700+00:00",
+      "WaitingTimeHours": 2.5229852332319678,
+      "ActivityCount": 1,
+      "RequiresAttention": true
+    },
+    "AP172933": {
+      "VendorID": "V146",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-11T03:56:39.965320+00:00",
+      "LastActivityTime": "2025-04-11T11:23:10.759765+00:00",
+      "WaitingTimeHours": 2.786099366941336,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP498591": {
+      "VendorID": "V384",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-09T09:27:32.915009+00:00",
+      "LastActivityTime": "2025-04-09T12:16:18.767456+00:00",
+      "WaitingTimeHours": 2.1775430405708494,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP835911": {
+      "VendorID": "V799",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-15T22:02:41.352201+00:00",
+      "LastActivityTime": "2025-04-16T02:11:44.696822+00:00",
+      "WaitingTimeHours": 0.606547730661978,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP497887": {
+      "VendorID": "V376",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-17T10:21:46.721998+00:00",
+      "LastActivityTime": "2025-04-17T16:42:32.795754+00:00",
+      "WaitingTimeHours": 2.505599725793359,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP340174": {
+      "VendorID": "V941",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-21T22:47:21.509637+00:00",
+      "LastActivityTime": "2025-04-22T03:13:01.001228+00:00",
+      "WaitingTimeHours": 1.8582581595833572,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP852787": {
+      "VendorID": "V422",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-19T02:32:06.156216+00:00",
+      "LastActivityTime": "2025-04-19T08:52:53.097520+00:00",
+      "WaitingTimeHours": 0.5429019303703942,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP246413": {
+      "VendorID": "V352",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-17T22:52:18.503010+00:00",
+      "LastActivityTime": "2025-04-18T03:59:09.143261+00:00",
+      "WaitingTimeHours": 1.9089520673315346,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP479580": {
+      "VendorID": "V324",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-19T06:30:46.724101+00:00",
+      "LastActivityTime": "2025-04-19T13:10:19.475948+00:00",
+      "WaitingTimeHours": 0.5738080899796093,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP267753": {
+      "VendorID": "V911",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Services",
+      "WaitingStage": "Validation",
+      "Status": "ok",
+      "StartDate": "2025-04-16T06:53:57.532598+00:00",
+      "LastActivityTime": "2025-04-16T11:19:53.794922+00:00",
+      "WaitingTimeHours": 1.5509546521324997,
+      "ActivityCount": 2,
+      "RequiresAttention": false
+    },
+    "AP363626": {
+      "VendorID": "V666",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Validation",
+      "Status": "warning",
+      "StartDate": "2025-04-12T16:22:39.409411+00:00",
+      "LastActivityTime": "2025-04-12T21:38:34.786224+00:00",
+      "WaitingTimeHours": 4.907681215696274,
+      "ActivityCount": 2,
+      "RequiresAttention": true
+    },
+    "AP772097": {
+      "VendorID": "V448",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "Validation",
+      "Status": "warning",
+      "StartDate": "2025-04-20T23:24:12.187923+00:00",
+      "LastActivityTime": "2025-04-21T05:19:47.187310+00:00",
+      "WaitingTimeHours": 8.805458818420444,
+      "ActivityCount": 2,
+      "RequiresAttention": true
+    },
+    "AP376183": {
+      "VendorID": "V612",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Validation",
+      "Status": "warning",
+      "StartDate": "2025-04-07T02:48:39.685738+00:00",
+      "LastActivityTime": "2025-04-07T07:54:08.624090+00:00",
+      "WaitingTimeHours": 7.289276767142434,
+      "ActivityCount": 2,
+      "RequiresAttention": true
+    },
+    "AP738551": {
+      "VendorID": "V303",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "Three-Way Match",
+      "Status": "ok",
+      "StartDate": "2025-04-11T11:17:32.939332+00:00",
+      "LastActivityTime": "2025-04-11T19:15:42.265013+00:00",
+      "WaitingTimeHours": 0.10085784419191526,
+      "ActivityCount": 3,
+      "RequiresAttention": false
+    },
+    "AP439902": {
+      "VendorID": "V600",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Three-Way Match",
+      "Status": "ok",
+      "StartDate": "2025-04-06T15:20:50.507087+00:00",
+      "LastActivityTime": "2025-04-06T23:54:36.066398+00:00",
+      "WaitingTimeHours": 0.18688774974128133,
+      "ActivityCount": 3,
+      "RequiresAttention": false
+    },
+    "AP694916": {
+      "VendorID": "V180",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Three-Way Match",
+      "Status": "ok",
+      "StartDate": "2025-04-19T11:45:02.295114+00:00",
+      "LastActivityTime": "2025-04-19T18:50:07.473938+00:00",
+      "WaitingTimeHours": 0.2925871967496442,
+      "ActivityCount": 3,
+      "RequiresAttention": false
+    },
+    "AP598369": {
+      "VendorID": "V662",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "Three-Way Match",
+      "Status": "ok",
+      "StartDate": "2025-04-18T06:44:20.558245+00:00",
+      "LastActivityTime": "2025-04-18T16:59:18.924233+00:00",
+      "WaitingTimeHours": 1.2328977949537083,
+      "ActivityCount": 3,
+      "RequiresAttention": false
+    },
+    "AP823378": {
+      "VendorID": "V305",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Services",
+      "WaitingStage": "Three-Way Match",
+      "Status": "ok",
+      "StartDate": "2025-04-22T00:18:04.893126+00:00",
+      "LastActivityTime": "2025-04-22T08:36:28.384616+00:00",
+      "WaitingTimeHours": 0.7772292120866946,
+      "ActivityCount": 3,
+      "RequiresAttention": false
+    },
+    "AP359947": {
+      "VendorID": "V330",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "Three-Way Match",
+      "Status": "warning",
+      "StartDate": "2025-05-02T23:21:36.558126+00:00",
+      "LastActivityTime": "2025-05-03T04:53:00.919322+00:00",
+      "WaitingTimeHours": 4.997636543432581,
+      "ActivityCount": 3,
+      "RequiresAttention": true
+    },
+    "AP161733": {
+      "VendorID": "V334",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-04-08T15:41:37.541124+00:00",
+      "LastActivityTime": "2025-04-09T02:36:12.314631+00:00",
+      "WaitingTimeHours": 11.006923082512934,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP595631": {
+      "VendorID": "V348",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Services",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-04-28T01:28:28.918575+00:00",
+      "LastActivityTime": "2025-04-28T14:20:53.842198+00:00",
+      "WaitingTimeHours": 18.897555537089957,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP203198": {
+      "VendorID": "V162",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-04-23T17:50:43.391922+00:00",
+      "LastActivityTime": "2025-04-24T05:25:08.076121+00:00",
+      "WaitingTimeHours": 4.871303154548119,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP179046": {
+      "VendorID": "V553",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-05-02T02:47:25.881542+00:00",
+      "LastActivityTime": "2025-05-02T22:24:01.451292+00:00",
+      "WaitingTimeHours": 9.375745496108722,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP324130": {
+      "VendorID": "V985",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-04-28T19:24:45.228616+00:00",
+      "LastActivityTime": "2025-04-29T09:12:49.651382+00:00",
+      "WaitingTimeHours": 14.0526515626354,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP921414": {
+      "VendorID": "V669",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-04-19T11:16:36.110959+00:00",
+      "LastActivityTime": "2025-04-19T19:47:38.519343+00:00",
+      "WaitingTimeHours": 1.0577186417415132,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP599948": {
+      "VendorID": "V614",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-05-01T22:24:42.525032+00:00",
+      "LastActivityTime": "2025-05-02T11:04:34.249728+00:00",
+      "WaitingTimeHours": 18.08448603007561,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP697347": {
+      "VendorID": "V352",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-05-02T10:20:23.290969+00:00",
+      "LastActivityTime": "2025-05-02T22:16:11.498096+00:00",
+      "WaitingTimeHours": 6.100911779395504,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP378517": {
+      "VendorID": "V505",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-04-14T20:43:53.223488+00:00",
+      "LastActivityTime": "2025-04-15T12:02:07.837414+00:00",
+      "WaitingTimeHours": 2.00964185445964,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP663750": {
+      "VendorID": "V318",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Services",
+      "WaitingStage": "Approval",
+      "Status": "ok",
+      "StartDate": "2025-04-29T17:48:36.817290+00:00",
+      "LastActivityTime": "2025-04-30T03:33:35.595889+00:00",
+      "WaitingTimeHours": 5.878077430896797,
+      "ActivityCount": 6,
+      "RequiresAttention": false
+    },
+    "AP946305": {
+      "VendorID": "V769",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Approval",
+      "Status": "warning",
+      "StartDate": "2025-04-14T05:10:01.956778+00:00",
+      "LastActivityTime": "2025-04-14T20:50:42.312036+00:00",
+      "WaitingTimeHours": 47.70880066487035,
+      "ActivityCount": 6,
+      "RequiresAttention": true
+    },
+    "AP262998": {
+      "VendorID": "V378",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Approval",
+      "Status": "warning",
+      "StartDate": "2025-04-27T11:24:06.336916+00:00",
+      "LastActivityTime": "2025-04-28T02:49:10.879729+00:00",
+      "WaitingTimeHours": 21.15067751664118,
+      "ActivityCount": 6,
+      "RequiresAttention": true
+    },
+    "AP765095": {
+      "VendorID": "V533",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Approval",
+      "Status": "warning",
+      "StartDate": "2025-05-03T11:31:55.921422+00:00",
+      "LastActivityTime": "2025-05-04T02:23:59.826423+00:00",
+      "WaitingTimeHours": 19.57131646496026,
+      "ActivityCount": 6,
+      "RequiresAttention": true
+    },
+    "AP178898": {
+      "VendorID": "V807",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Approval",
+      "Status": "critical",
+      "StartDate": "2025-05-02T12:55:27.897275+00:00",
+      "LastActivityTime": "2025-05-03T01:20:35.709120+00:00",
+      "WaitingTimeHours": 106.59869175686993,
+      "ActivityCount": 6,
+      "RequiresAttention": true
+    },
+    "AP141832": {
+      "VendorID": "V466",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Approval",
+      "Status": "critical",
+      "StartDate": "2025-04-26T08:19:38.285403+00:00",
+      "LastActivityTime": "2025-04-26T21:38:51.109125+00:00",
+      "WaitingTimeHours": 104.46600319096119,
+      "ActivityCount": 6,
+      "RequiresAttention": true
+    },
+    "AP270395": {
+      "VendorID": "V919",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "GL Assignment",
+      "Status": "ok",
+      "StartDate": "2025-05-02T20:44:55.291628+00:00",
+      "LastActivityTime": "2025-05-04T00:32:14.609044+00:00",
+      "WaitingTimeHours": 1.3878898770066725,
+      "ActivityCount": 10,
+      "RequiresAttention": false
+    },
+    "AP333238": {
+      "VendorID": "V304",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Services",
+      "WaitingStage": "GL Assignment",
+      "Status": "ok",
+      "StartDate": "2025-04-24T17:35:13.762796+00:00",
+      "LastActivityTime": "2025-04-25T15:06:19.769259+00:00",
+      "WaitingTimeHours": 1.5717245307973902,
+      "ActivityCount": 10,
+      "RequiresAttention": false
+    },
+    "AP662262": {
+      "VendorID": "V439",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Goods",
+      "WaitingStage": "GL Assignment",
+      "Status": "ok",
+      "StartDate": "2025-04-08T03:34:52.555956+00:00",
+      "LastActivityTime": "2025-04-09T02:31:52.597963+00:00",
+      "WaitingTimeHours": 1.4492570993667995,
+      "ActivityCount": 10,
+      "RequiresAttention": false
+    },
+    "AP299312": {
+      "VendorID": "V360",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "GL Assignment",
+      "Status": "ok",
+      "StartDate": "2025-04-20T22:30:14.289276+00:00",
+      "LastActivityTime": "2025-04-22T03:20:41.992270+00:00",
+      "WaitingTimeHours": 1.0950812143983164,
+      "ActivityCount": 10,
+      "RequiresAttention": false
+    },
+    "AP230679": {
+      "VendorID": "V837",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Payment Scheduling",
+      "Status": "ok",
+      "StartDate": "2025-04-24T14:44:16.350370+00:00",
+      "LastActivityTime": "2025-04-25T17:58:48.882679+00:00",
+      "WaitingTimeHours": 1.4326532649684873,
+      "ActivityCount": 13,
+      "RequiresAttention": false
+    },
+    "AP708158": {
+      "VendorID": "V721",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Services",
+      "WaitingStage": "Payment Scheduling",
+      "Status": "ok",
+      "StartDate": "2025-04-20T02:22:05.590517+00:00",
+      "LastActivityTime": "2025-04-21T08:41:29.737081+00:00",
+      "WaitingTimeHours": 0.7963860645915937,
+      "ActivityCount": 13,
+      "RequiresAttention": false
+    },
+    "AP308802": {
+      "VendorID": "V250",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Payment Scheduling",
+      "Status": "ok",
+      "StartDate": "2025-04-26T11:35:22.521557+00:00",
+      "LastActivityTime": "2025-04-27T15:58:38.804508+00:00",
+      "WaitingTimeHours": 0.43042061934697073,
+      "ActivityCount": 13,
+      "RequiresAttention": false
+    },
+    "AP545798": {
+      "VendorID": "V324",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Payment Scheduling",
+      "Status": "ok",
+      "StartDate": "2025-04-18T13:30:05.060488+00:00",
+      "LastActivityTime": "2025-04-20T01:10:22.581965+00:00",
+      "WaitingTimeHours": 2.6747644261363868,
+      "ActivityCount": 13,
+      "RequiresAttention": false
+    },
+    "AP674485": {
+      "VendorID": "V556",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Payment Scheduling",
+      "Status": "ok",
+      "StartDate": "2025-04-08T14:23:58.354047+00:00",
+      "LastActivityTime": "2025-04-09T19:42:43.913725+00:00",
+      "WaitingTimeHours": 0.5675750398405685,
+      "ActivityCount": 13,
+      "RequiresAttention": false
+    },
+    "AP501641": {
+      "VendorID": "V810",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Payment Scheduling",
+      "Status": "ok",
+      "StartDate": "2025-04-27T09:05:19.671123+00:00",
+      "LastActivityTime": "2025-04-28T16:27:57.515857+00:00",
+      "WaitingTimeHours": 1.0256992223543888,
+      "ActivityCount": 13,
+      "RequiresAttention": false
+    },
+    "AP508930": {
+      "VendorID": "V973",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Payment Scheduling",
+      "Status": "warning",
+      "StartDate": "2025-04-11T21:43:44.739809+00:00",
+      "LastActivityTime": "2025-04-12T21:13:31.773186+00:00",
+      "WaitingTimeHours": 3.3725852921928814,
+      "ActivityCount": 13,
+      "RequiresAttention": true
+    },
+    "AP513160": {
+      "VendorID": "V706",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Payment Scheduling",
+      "Status": "warning",
+      "StartDate": "2025-05-02T19:08:13.112690+00:00",
+      "LastActivityTime": "2025-05-03T20:04:11.138221+00:00",
+      "WaitingTimeHours": 3.3240530371200685,
+      "ActivityCount": 13,
+      "RequiresAttention": true
+    },
+    "AP665621": {
+      "VendorID": "V153",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Payment Execution",
+      "Status": "ok",
+      "StartDate": "2025-04-14T17:29:58.959953+00:00",
+      "LastActivityTime": "2025-04-16T00:01:20.055165+00:00",
+      "WaitingTimeHours": 3.9256592115128703,
+      "ActivityCount": 14,
+      "RequiresAttention": false
+    },
+    "AP884256": {
+      "VendorID": "V835",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Payment Execution",
+      "Status": "ok",
+      "StartDate": "2025-04-05T14:33:15.631086+00:00",
+      "LastActivityTime": "2025-04-06T21:44:45.117800+00:00",
+      "WaitingTimeHours": 0.8626469099240853,
+      "ActivityCount": 14,
+      "RequiresAttention": false
+    },
+    "AP693423": {
+      "VendorID": "V901",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "Payment Execution",
+      "Status": "ok",
+      "StartDate": "2025-04-18T03:12:33.513350+00:00",
+      "LastActivityTime": "2025-04-19T07:01:54.592560+00:00",
+      "WaitingTimeHours": 3.980247830537372,
+      "ActivityCount": 14,
+      "RequiresAttention": false
+    },
+    "AP664315": {
+      "VendorID": "V893",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Services",
+      "WaitingStage": "Payment Execution",
+      "Status": "ok",
+      "StartDate": "2025-04-20T22:50:24.550329+00:00",
+      "LastActivityTime": "2025-04-22T05:00:57.535236+00:00",
+      "WaitingTimeHours": 5.126343848017008,
+      "ActivityCount": 14,
+      "RequiresAttention": false
+    },
+    "AP456871": {
+      "VendorID": "V386",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Payment Execution",
+      "Status": "ok",
+      "StartDate": "2025-04-08T01:26:43.035728+00:00",
+      "LastActivityTime": "2025-04-09T03:00:08.918977+00:00",
+      "WaitingTimeHours": 4.282948136059941,
+      "ActivityCount": 14,
+      "RequiresAttention": false
+    },
+    "AP486945": {
+      "VendorID": "V584",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Payment Execution",
+      "Status": "warning",
+      "StartDate": "2025-04-23T14:44:41.473227+00:00",
+      "LastActivityTime": "2025-04-25T00:03:17.392709+00:00",
+      "WaitingTimeHours": 13.946712396298125,
+      "ActivityCount": 14,
+      "RequiresAttention": true
+    },
+    "AP897135": {
+      "VendorID": "V637",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Services",
+      "WaitingStage": "Document Archiving",
+      "Status": "ok",
+      "StartDate": "2025-04-05T03:33:52.564313+00:00",
+      "LastActivityTime": "2025-04-06T11:04:01.871788+00:00",
+      "WaitingTimeHours": 18.541004983941434,
+      "ActivityCount": 17,
+      "RequiresAttention": false
+    },
+    "AP364742": {
+      "VendorID": "V982",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Document Archiving",
+      "Status": "ok",
+      "StartDate": "2025-04-09T17:48:27.039138+00:00",
+      "LastActivityTime": "2025-04-11T06:07:47.595506+00:00",
+      "WaitingTimeHours": 19.009597074915842,
+      "ActivityCount": 17,
+      "RequiresAttention": false
+    },
+    "AP420214": {
+      "VendorID": "V682",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Document Archiving",
+      "Status": "ok",
+      "StartDate": "2025-04-15T21:41:48.786279+00:00",
+      "LastActivityTime": "2025-04-17T07:43:32.455922+00:00",
+      "WaitingTimeHours": 17.74670094961668,
+      "ActivityCount": 17,
+      "RequiresAttention": false
+    },
+    "AP926097": {
+      "VendorID": "V910",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Document Archiving",
+      "Status": "ok",
+      "StartDate": "2025-04-14T09:48:59.767827+00:00",
+      "LastActivityTime": "2025-04-16T03:11:40.144422+00:00",
+      "WaitingTimeHours": 9.53148868949111,
+      "ActivityCount": 17,
+      "RequiresAttention": false
+    },
+    "AP184349": {
+      "VendorID": "V712",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "Document Archiving",
+      "Status": "ok",
+      "StartDate": "2025-04-12T06:45:51.801816+00:00",
+      "LastActivityTime": "2025-04-13T21:58:25.401320+00:00",
+      "WaitingTimeHours": 15.652078440725525,
+      "ActivityCount": 17,
+      "RequiresAttention": false
+    },
+    "AP195674": {
+      "VendorID": "V581",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Services",
+      "WaitingStage": "Document Archiving",
+      "Status": "ok",
+      "StartDate": "2025-04-23T22:01:02.488833+00:00",
+      "LastActivityTime": "2025-04-25T18:37:53.875281+00:00",
+      "WaitingTimeHours": 7.993028602267041,
+      "ActivityCount": 17,
+      "RequiresAttention": false
+    },
+    "AP296694": {
+      "VendorID": "V630",
+      "VendorCategory": "Preferred",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Document Archiving",
+      "Status": "ok",
+      "StartDate": "2025-04-11T15:30:56.033198+00:00",
+      "LastActivityTime": "2025-04-13T08:55:56.801336+00:00",
+      "WaitingTimeHours": 8.913654778814763,
+      "ActivityCount": 17,
+      "RequiresAttention": false
+    },
+    "AP223172": {
+      "VendorID": "V763",
+      "VendorCategory": "Strategic",
+      "InvoiceType": "Services",
+      "WaitingStage": "Document Archiving",
+      "Status": "ok",
+      "StartDate": "2025-04-06T12:52:24.493029+00:00",
+      "LastActivityTime": "2025-04-08T00:26:24.868053+00:00",
+      "WaitingTimeHours": 0.14899645374882473,
+      "ActivityCount": 17,
+      "RequiresAttention": false
+    },
+    "AP861319": {
+      "VendorID": "V405",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Expenses",
+      "WaitingStage": "Document Archiving",
+      "Status": "warning",
+      "StartDate": "2025-04-04T14:45:50.313861+00:00",
+      "LastActivityTime": "2025-04-06T03:50:47.638423+00:00",
+      "WaitingTimeHours": 34.025424095653726,
+      "ActivityCount": 17,
+      "RequiresAttention": true
+    },
+    "AP795928": {
+      "VendorID": "V911",
+      "VendorCategory": "Standard",
+      "InvoiceType": "Goods",
+      "WaitingStage": "Document Archiving",
+      "Status": "warning",
+      "StartDate": "2025-04-19T05:15:04.535521+00:00",
+      "LastActivityTime": "2025-04-20T22:30:14.440397+00:00",
+      "WaitingTimeHours": 51.90778722626655,
+      "ActivityCount": 17,
+      "RequiresAttention": true
+    }
+  }
+}

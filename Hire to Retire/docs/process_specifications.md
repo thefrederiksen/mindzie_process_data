@@ -16,46 +16,40 @@ The Hire to Retire process encompasses all major HR touchpoints in an employee's
 
 ## Activities Tracked
 
-### Core Activities (25 activities)
+### Core Activities (15 activities)
 **Legend**: 
 - 🏢 = Customer Organization performs this activity
 - 🤝 = XYZ Company (outsourced HR) performs this activity
 - 🔄 = Joint activity between Customer and XYZ
 
-1. **Job Requisition Created** 🏢 - Manager creates request for new position
-2. **Job Posted** 🤝 - Position advertised internally/externally by XYZ
-3. **Application Received** 🤝 - Candidate submits application via XYZ portal
-4. **Application Screened** 🤝 - Initial HR screening by XYZ recruiters
-5. **Phone Interview Scheduled** 🤝 - Initial screening call arranged by XYZ
-6. **Phone Interview Completed** 🤝 - Screening call conducted by XYZ
-7. **Technical Assessment Sent** 🔄 - Skills test assigned (Customer defines, XYZ administers)
-8. **Technical Assessment Completed** 🤝 - Skills test submitted and scored by XYZ
-9. **Onsite Interview Scheduled** 🤝 - In-person/video interviews arranged by XYZ
-10. **Onsite Interview Completed** 🏢 - Interviews conducted by Customer hiring team
-11. **Reference Check Initiated** 🤝 - Background verification started by XYZ
-12. **Reference Check Completed** 🤝 - Background verification finished by XYZ
-13. **Offer Extended** 🔄 - Job offer made (Customer approves, XYZ communicates)
-14. **Offer Accepted** 🤝 - Candidate accepts position via XYZ
-15. **Onboarding Initiated** 🤝 - New hire process begins with XYZ coordination
-16. **IT Equipment Assigned** 🏢 - Computer, accounts, access provided by Customer IT
-17. **Orientation Completed** 🔄 - Company orientation (Customer content, XYZ delivery)
-18. **Probation Period Started** 🤝 - Initial employment period tracked by XYZ
-19. **Probation Review Completed** 🔄 - Assessment (Customer reviews, XYZ documents)
-20. **Annual Performance Review** 🏢 - Yearly evaluation by Customer managers
-21. **Promotion Processed** 🔄 - Role change (Customer approves, XYZ processes)
-22. **Transfer Processed** 🔄 - Department change (Customer approves, XYZ processes)
-23. **Leave Requested** 🤝 - Time off requested via XYZ system
-24. **Leave Approved** 🏢 - Time off approved by Customer manager
-25. **Exit Process Initiated** 🔄 - Resignation/retirement (Customer decides, XYZ processes)
+#### Recruitment (5 activities)
+1. **Job Posted** 🤝 - Position advertised by XYZ
+2. **Application Received** 🤝 - Candidate submits application
+3. **Interview Completed** 🔄 - All interviews conducted (phone/onsite combined)
+4. **Offer Extended** 🔄 - Job offer made (Customer approves, XYZ communicates)
+5. **Offer Accepted** 🤝 - Candidate accepts position
 
-### Optional Activities
-- **Salary Adjustment Processed** 🔄 - Compensation change (Customer approves, XYZ processes)
-- **Training Enrolled** 🤝 - Learning program registration via XYZ LMS
-- **Training Completed** 🤝 - Learning program finished, tracked by XYZ
-- **Disciplinary Action Taken** 🔄 - Performance issue (Customer decides, XYZ documents)
-- **Benefits Change Processed** 🤝 - Insurance/benefits modification by XYZ
-- **Exit Interview Conducted** 🤝 - Departure feedback session by XYZ
-- **Final Settlement Processed** 🤝 - Last payment/benefits calculated by XYZ
+#### Onboarding (3 activities)
+6. **Onboarding Started** 🤝 - New hire process begins
+7. **Equipment Assigned** 🏢 - IT equipment and access provided
+8. **Probation Completed** 🔄 - 90-day review passed
+
+#### Employment (5 activities)
+9. **Performance Review** 🏢 - Annual evaluation completed
+10. **Promotion Approved** 🔄 - Role/level change processed
+11. **Leave Requested** 🤝 - Time off requested
+12. **Leave Approved** 🏢 - Time off approved
+13. **Training Completed** 🤝 - Learning program finished
+
+#### Exit (2 activities)
+14. **Resignation Submitted** 🔄 - Employee initiates departure
+15. **Employment Ended** 🤝 - Final exit processed
+
+### Rejection Activities (for incomplete journeys)
+- **Application Rejected** 🤝 - Candidate not selected after screening
+- **Interview Failed** 🔄 - Candidate not progressing after interviews
+- **Offer Rejected** 🤝 - Candidate declines offer
+- **Probation Failed** 🔄 - Employee doesn't pass probation period
 
 ## Division of Responsibilities
 
@@ -111,88 +105,76 @@ The Hire to Retire process encompasses all major HR touchpoints in an employee's
 
 ## Process Flow
 
-### Standard Hiring Path (80% of cases)
-1. Job Requisition Created
-2. Job Posted (internal: 30%, external: 70%)
-3. Application Received (average 50 per position)
-4. Application Screened (40% pass screening)
-5. Phone Interview Scheduled → Completed (75% pass)
-6. Technical Assessment (60% of technical roles)
-7. Onsite Interview Scheduled → Completed (50% receive offers)
-8. Reference Check Initiated → Completed
-9. Offer Extended (85% acceptance rate)
-10. Offer Accepted
-11. Onboarding Initiated
-12. IT Equipment Assigned
-13. Orientation Completed
-14. Probation Period Started
+### Recruitment Path
+1. **Job Posted** → Applications received (average 50 per position)
+2. **Application Received** → 40% pass initial screening
+3. **Interview Completed** → 30% of interviewed candidates receive offers
+4. **Offer Extended** → 85% acceptance rate
+5. **Offer Accepted** → Proceed to onboarding
 
-### Ongoing Employment Activities
-- **Annual Performance Review**: Once per year per employee
-- **Promotion Processed**: 15% of employees annually
-- **Transfer Processed**: 10% of employees annually
-- **Leave Requested/Approved**: Average 3-4 times per year
-- **Salary Adjustment**: With promotions or annual reviews
-- **Training**: 2-3 programs per employee per year
+### Onboarding Path (New Hires)
+6. **Onboarding Started** → Within 2-4 weeks of offer acceptance
+7. **Equipment Assigned** → Within first 3 days
+8. **Probation Completed** → 90% pass probation at 90 days
 
-### Exit Paths (20% annual turnover)
-- **Voluntary Resignation**: 60% of exits
-- **Retirement**: 20% of exits
-- **Involuntary Termination**: 15% of exits
-- **End of Contract**: 5% of exits
+### Employment Activities (Active Employees)
+9. **Performance Review** → Annual for all employees
+10. **Promotion Approved** → 15% of employees annually
+11. **Leave Requested** → Average 3-4 times per year per employee
+12. **Leave Approved** → 95% approval rate
+13. **Training Completed** → 2-3 programs per employee per year
+
+### Exit Path (20% annual turnover)
+14. **Resignation Submitted** → 80% of exits are voluntary
+15. **Employment Ended** → Final processing within 2-4 weeks
+
+### Rejection Points
+- **Application Rejected** → 60% of applications
+- **Interview Failed** → 70% of interviewed candidates
+- **Offer Rejected** → 15% of offers extended
+- **Probation Failed** → 10% of new hires
 
 ## Stage Definitions and Thresholds
 
 ### Recruitment Stages
-1. **Waiting for Screening**: Application Received → Application Screened
-   - Medium threshold: 3 days
-   - High threshold: 7 days
-
-2. **Waiting for Phone Interview**: Phone Interview Scheduled → Phone Interview Completed
-   - Medium threshold: 5 days
-   - High threshold: 10 days
-
-3. **Waiting for Onsite Interview**: Onsite Interview Scheduled → Onsite Interview Completed
+1. **Waiting for Interview**: Application Received → Interview Completed
    - Medium threshold: 7 days
    - High threshold: 14 days
 
-4. **Waiting for Offer Decision**: Onsite Interview Completed → Offer Extended
+2. **Waiting for Offer Decision**: Interview Completed → Offer Extended
    - Medium threshold: 5 days
    - High threshold: 10 days
 
-5. **Waiting for Offer Response**: Offer Extended → Offer Accepted/Rejected
+3. **Waiting for Offer Response**: Offer Extended → Offer Accepted/Rejected
    - Medium threshold: 5 days
    - High threshold: 10 days
 
 ### Onboarding Stages
-6. **Waiting for Start Date**: Offer Accepted → Onboarding Initiated
+4. **Waiting to Start**: Offer Accepted → Onboarding Started
    - Medium threshold: 14 days
    - High threshold: 30 days
 
-7. **Waiting for IT Setup**: Onboarding Initiated → IT Equipment Assigned
+5. **Waiting for Equipment**: Onboarding Started → Equipment Assigned
    - Medium threshold: 1 day
    - High threshold: 3 days
 
-8. **Waiting for Orientation**: IT Equipment Assigned → Orientation Completed
-   - Medium threshold: 5 days
-   - High threshold: 10 days
+6. **Waiting for Probation Review**: Equipment Assigned → Probation Completed
+   - Medium threshold: 85 days
+   - High threshold: 95 days
 
 ### Employment Stages
-9. **Waiting for Performance Review**: Review cycle started → Annual Performance Review
+7. **Waiting for Performance Review**: Review due → Performance Review
    - Medium threshold: 7 days
    - High threshold: 14 days
 
-10. **Waiting for Leave Approval**: Leave Requested → Leave Approved
-    - Medium threshold: 1 day
-    - High threshold: 3 days
+8. **Waiting for Leave Approval**: Leave Requested → Leave Approved
+   - Medium threshold: 1 day
+   - High threshold: 3 days
 
-11. **Waiting for Promotion Approval**: Promotion submitted → Promotion Processed
-    - Medium threshold: 14 days
-    - High threshold: 30 days
-
-12. **Waiting for Exit Completion**: Exit Process Initiated → Employment Ended
-    - Medium threshold: 14 days
-    - High threshold: 30 days
+### Exit Stages
+9. **Waiting for Exit Processing**: Resignation Submitted → Employment Ended
+   - Medium threshold: 14 days
+   - High threshold: 30 days
 
 ## Time Scales
 - **Recruitment Phase**: Days to weeks
@@ -263,6 +245,122 @@ The Hire to Retire process encompasses all major HR touchpoints in an employee's
 CaseId,ActivityName,ActivityTime,EmployeeID,Department,Location,JobLevel,EmploymentType,HiringManager,RecruitmentSource,CurrentSalary,PerformanceRating,TenureYears,PerformedBy,SystemUsed
 HR2024_E123456,Onboarding Initiated,2024-03-15T09:00:00Z,E123456,Engineering,New York,3,Full-time,M098765,External,95000,,0,XYZ,XYZ_HRIS
 ```
+
+## Industry Problems & Process Mining Opportunities
+
+### Top HR Process Challenges (2024 Industry Data)
+1. **92% of organizations** struggle with recruiting and retaining qualified personnel
+2. **75% of employers** report difficulty filling roles (Manpower Global Talent Shortage)
+3. **51% of employees** are actively looking for new jobs
+4. **40% average increase** in time-to-fill from 36 to 40+ days
+5. **$30,000 per employee** annual cost for routine HR transactions (Fortune 500)
+6. **30% of new hires** leave within first 90 days
+7. **51% of HR professionals** report poor technology integration
+
+### Common Process Mining Findings in HR
+
+#### 1. **Recruitment & Talent Acquisition Bottlenecks**
+- **Ghost Jobs**: 8-10% of posted positions never filled (budget frozen, role changes)
+- **Extended Time-to-Fill**: 15% of positions take 90+ days to fill
+- **Application Black Hole**: 25% of applications never receive any response
+- **Interview Scheduling Delays**: 30% experience 2+ week delays between stages
+- **Candidate Dropout**: 40% of candidates withdraw due to slow process
+- **Offer Delays**: 20% of offers extended 2+ weeks after final interview
+- **Background Check Delays**: 10% take longer than 2 weeks
+- **Multiple Approval Loops**: 35% go through redundant approval cycles
+
+#### 2. **Onboarding & Early Experience Issues**
+- **Pre-boarding Gaps**: 25% have no contact between offer acceptance and start date
+- **Equipment Not Ready**: 20% don't have equipment/access on day 1
+- **Incomplete Onboarding**: 15% miss critical orientation activities
+- **Manager Unavailability**: 10% of managers absent for new hire's first week
+- **System Access Delays**: 30% wait 3+ days for all system access
+- **Early Turnover**: 12% leave within 90 days (probation fail or resignation)
+- **Documentation Delays**: 25% of paperwork incomplete after 30 days
+
+#### 3. **Performance Management Inefficiencies**
+- **Delayed Reviews**: 35% of annual reviews happen 30+ days late
+- **Missing Reviews**: 10% of employees never receive scheduled reviews
+- **Calibration Delays**: 20% of reviews stuck in calibration for 2+ weeks
+- **Goal Setting Gaps**: 40% don't have documented goals within first 60 days
+- **Feedback Void**: 60% receive no formal feedback between annual reviews
+- **Rating Inconsistency**: 25% variance in ratings across similar roles
+
+#### 4. **Career Development & Retention Problems**
+- **Training No-Shows**: 25% of enrolled employees don't complete training
+- **Promotion Delays**: 40% of approved promotions take 60+ days to process
+- **Transfer Blocks**: 30% of internal transfer requests denied or delayed
+- **Career Path Opacity**: 70% unclear about advancement opportunities
+- **Skill Gap Tracking**: 80% of organizations can't identify critical skill gaps
+- **Succession Planning Void**: 65% of critical roles have no identified successor
+
+#### 5. **Leave & Absence Management Issues**
+- **Leave Approval Delays**: 20% of requests take 3+ days for approval
+- **Leave Balance Errors**: 15% of employees report incorrect balances
+- **Unplanned Absences**: 8% show patterns of no-notice absences
+- **Return-to-Work Delays**: 25% of long-term leave returns poorly managed
+- **Policy Confusion**: 40% unclear about leave policies and entitlements
+
+#### 6. **Compensation & Benefits Administration**
+- **Salary Adjustment Delays**: 35% of approved changes take 2+ pay cycles
+- **Benefits Enrollment Issues**: 20% miss initial enrollment window
+- **Compensation Errors**: 5% of paychecks contain errors requiring correction
+- **Bonus Processing Delays**: 30% of bonuses paid late
+- **Benefits Questions**: 45% of HR inquiries are benefits-related
+
+#### 7. **Exit Process & Knowledge Transfer**
+- **Sudden Resignations**: 20% give less than standard notice period
+- **Exit Interview No-Shows**: 35% skip exit interviews entirely
+- **Knowledge Transfer Gaps**: 50% leave without proper documentation
+- **Access Revocation Delays**: 15% retain system access 7+ days post-exit
+- **Final Pay Delays**: 10% experience issues with final settlement
+- **Alumni Disconnect**: 90% lose touch with organization post-exit
+
+#### 8. **Systemic & Technology Issues**
+- **Data Quality Problems**: 10% of employee records have critical errors
+- **System Integration Gaps**: Multiple data entry for same information
+- **Approval Bottlenecks**: 40% of delays caused by senior approver availability
+- **Communication Failures**: 25% of employees miss important HR updates
+- **Document Management**: 30% of time spent on document creation/routing
+- **Reporting Delays**: Monthly HR reports take 5+ days to compile
+
+## Process Problems and Bottlenecks Injected in Dataset
+
+Based on industry research and process mining findings, we inject the following realistic problems:
+
+### Recruitment Problems (Affecting ~85% of cases)
+- **Ghost Jobs**: 8% of posted positions never actually filled
+- **Extended Time-to-Fill**: 15% of positions take 90+ days to fill
+- **Interview Scheduling Delays**: 30% experience significant delays
+- **Candidate Ghosting**: 10% of candidates stop responding mid-process
+- **Offer Delays**: 20% of offers take 2+ weeks after final interview
+
+### Onboarding Problems (Affecting hired employees)
+- **Equipment Delays**: 20% don't have equipment ready on day 1
+- **System Access Issues**: 30% wait 3+ days for full access
+- **Manager Unavailability**: 10% have absent managers in first week
+- **Documentation Delays**: 25% have incomplete paperwork after 30 days
+- **Early Turnover**: 12% leave within 90 days
+
+### Employment Lifecycle Problems
+- **Performance Review Delays**: 35% happen 30+ days late
+- **Missing Reviews**: 10% of scheduled reviews never happen
+- **Leave Approval Delays**: 20% take 3+ days to approve
+- **Training Incompletion**: 25% don't complete enrolled training
+- **Promotion Processing**: 40% of promotions take 60+ days
+- **Transfer Blocks**: 30% of transfer requests blocked
+
+### Exit Process Problems
+- **Short Notice**: 20% give insufficient notice
+- **Exit Interview Skips**: 35% skip exit process
+- **Knowledge Gaps**: 50% leave without proper handover
+- **Access Issues**: 15% retain access too long
+
+### Data Quality & System Issues
+- **Missing Data**: 10% of records have missing critical fields
+- **Duplicate Processing**: 15% of activities require rework
+- **System Unavailability**: Affects 2% of transactions
+- **Approval Delays**: 40% of multi-level approvals delayed
 
 ## Domain-Specific Considerations
 

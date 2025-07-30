@@ -1,0 +1,9 @@
+# Core dependencies for SAP Accounts Payable process mining dataset
+pandas>=2.0.0
+numpy>=1.24.0
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# Optional dependencies for enhanced functionality
+# matplotlib>=3.7.0  # For plotting if needed
+# seaborn>=0.12.0    # For statistical visualizations if needed 

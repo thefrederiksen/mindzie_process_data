@@ -62,8 +62,8 @@ def random_case_id(year, employee_id, case_type="HR"):
     return f"{case_type}{year}_{employee_id}"
 
 def generate_employee_attributes():
-    """Generate random employee attributes"""
-    return {
+    """Generate random employee attributes with occasional data quality issues"""
+    attrs = {
         "Department": random.choice(DEPARTMENTS),
         "Location": random.choice(LOCATIONS),
         "JobLevel": random.randint(1, 10),
@@ -76,129 +76,121 @@ def generate_employee_attributes():
         "PerformanceRating": None,
         "TenureYears": 0
     }
+    
+    # Data quality issues (10% have missing critical fields)
+    if random.random() < 0.1:
+        missing_field = random.choice(["Department", "Location", "HiringManager"])
+        attrs[missing_field] = None
+    
+    return attrs
 
-def generate_recruitment_process(start_time, activities_def, employee_attrs):
-    """Generate recruitment and onboarding activities"""
+def generate_recruitment_process(start_time, activities_def, employee_attrs, end_date):
+    """Generate recruitment activities with simplified 15-activity model"""
     events = []
     current_time = start_time
     requisition_id = f"REQ{random.randint(10000, 99999)}"
     
-    # Job Requisition Created
-    events.append({
-        "ActivityName": "Job Requisition Created",
-        "ActivityTime": current_time,
-        "RequisitionID": requisition_id
-    })
-    current_time = add_business_time(current_time, random.randint(8, 24))  # 1-3 days
+    # Check if this is a recent application (within last 2 months of dataset)
+    days_from_end = (end_date - start_time).days
+    is_recent = days_from_end < 60
     
     # Job Posted
     events.append({
         "ActivityName": "Job Posted",
+        "ActivityTime": current_time,
+        "RequisitionID": requisition_id
+    })
+    
+    # Extended time-to-fill problem (15% take 90+ days)
+    if random.random() < 0.15:
+        current_time = add_business_time(current_time, random.randint(720, 1440))  # 90-180 days
+    # Ghost jobs (8% never progress beyond posting)
+    elif random.random() < 0.08:
+        current_time = add_business_time(current_time, random.randint(960, 1920))  # 120-240 days
+        # These will be filtered out as "too recent" eventually
+    else:
+        current_time = add_business_time(current_time, random.randint(24, 240))  # 3-30 days
+    
+    # Application Received
+    events.append({
+        "ActivityName": "Application Received",
         "ActivityTime": current_time
     })
-    current_time = add_business_time(current_time, random.randint(24, 72))  # 3-9 days
     
-    # Applications (multiple)
-    num_applications = random.randint(20, 80)
-    applications = []
+    # Application Screening (internal process, not tracked as separate activity)
+    current_time = add_business_time(current_time, random.randint(8, 24))  # 1-3 days
     
-    for _ in range(num_applications):
-        app_time = current_time + timedelta(days=random.randint(0, 14))
-        applications.append({
-            "ActivityName": "Application Received",
-            "ActivityTime": app_time
+    # Check if recent and still pending screening
+    if is_recent and random.random() < 0.15:  # 15% of recent applications still pending
+        return events, current_time, False
+    
+    # 15% pass screening (more realistic)
+    if random.random() >= 0.15:
+        # Application rejected
+        current_time = add_business_time(current_time, random.randint(1, 4))
+        events.append({
+            "ActivityName": "Application Rejected",
+            "ActivityTime": current_time
         })
+        return events, current_time, False
     
-    # Process best candidate (simplified - in reality would track all)
-    if applications:
-        # Pick winning application
-        winner = random.choice(applications)
-        events.append(winner)
-        current_time = winner["ActivityTime"]
-        
-        # Application Screened
+    # Interview Completed (combines phone and onsite interviews)
+    # Interview scheduling delays (20% experience 2+ weeks delay)
+    if random.random() < 0.2:
+        current_time = add_business_time(current_time, random.randint(160, 320))  # 20-40 days
+    else:
+        current_time = add_business_time(current_time, random.randint(40, 160))  # 5-20 days
+    
+    # Check if recent and still pending interview
+    if is_recent and random.random() < 0.1:
+        return events, current_time, False
+    
+    events.append({
+        "ActivityName": "Interview Completed",
+        "ActivityTime": current_time
+    })
+    
+    # 40% of interviewed candidates receive offers (balanced for demo)
+    if random.random() >= 0.4:
         current_time = add_business_time(current_time, random.randint(8, 24))
-        if random.random() < 0.4:  # 40% pass screening
-            events.append({
-                "ActivityName": "Application Screened",
-                "ActivityTime": current_time
-            })
-            
-            # Phone Interview
-            current_time = add_business_time(current_time, random.randint(16, 40))
-            events.append({
-                "ActivityName": "Phone Interview Scheduled",
-                "ActivityTime": current_time
-            })
-            
-            current_time = add_business_time(current_time, random.randint(24, 80))
-            if random.random() < 0.75:  # 75% pass phone interview
-                events.append({
-                    "ActivityName": "Phone Interview Completed",
-                    "ActivityTime": current_time
-                })
-                
-                # Technical Assessment (60% for technical roles)
-                if employee_attrs["Department"] in ["Engineering", "Operations"] and random.random() < 0.6:
-                    current_time = add_business_time(current_time, random.randint(8, 16))
-                    events.append({
-                        "ActivityName": "Technical Assessment Sent",
-                        "ActivityTime": current_time
-                    })
-                    current_time = add_business_time(current_time, random.randint(24, 72))
-                    events.append({
-                        "ActivityName": "Technical Assessment Completed",
-                        "ActivityTime": current_time
-                    })
-                
-                # Onsite Interview
-                current_time = add_business_time(current_time, random.randint(24, 80))
-                events.append({
-                    "ActivityName": "Onsite Interview Scheduled",
-                    "ActivityTime": current_time
-                })
-                
-                current_time = add_business_time(current_time, random.randint(40, 120))
-                if random.random() < 0.5:  # 50% receive offers
-                    events.append({
-                        "ActivityName": "Onsite Interview Completed",
-                        "ActivityTime": current_time
-                    })
-                    
-                    # Reference Check
-                    current_time = add_business_time(current_time, random.randint(8, 24))
-                    events.append({
-                        "ActivityName": "Reference Check Initiated",
-                        "ActivityTime": current_time
-                    })
-                    
-                    current_time = add_business_time(current_time, random.randint(24, 72))
-                    events.append({
-                        "ActivityName": "Reference Check Completed",
-                        "ActivityTime": current_time
-                    })
-                    
-                    # Offer
-                    current_time = add_business_time(current_time, random.randint(8, 40))
-                    events.append({
-                        "ActivityName": "Offer Extended",
-                        "ActivityTime": current_time
-                    })
-                    
-                    current_time = add_business_time(current_time, random.randint(24, 120))
-                    if random.random() < 0.85:  # 85% acceptance rate
-                        events.append({
-                            "ActivityName": "Offer Accepted",
-                            "ActivityTime": current_time
-                        })
-                        return events, current_time, True
-                    else:
-                        events.append({
-                            "ActivityName": "Offer Rejected",
-                            "ActivityTime": current_time
-                        })
+        events.append({
+            "ActivityName": "Interview Failed",
+            "ActivityTime": current_time
+        })
+        return events, current_time, False
     
-    return events, current_time, False
+    # Offer Extended
+    # Offer delays (20% take 2+ weeks after interview)
+    if random.random() < 0.2:
+        current_time = add_business_time(current_time, random.randint(160, 320))  # 20-40 days
+    else:
+        current_time = add_business_time(current_time, random.randint(24, 80))  # 3-10 days
+    
+    events.append({
+        "ActivityName": "Offer Extended",
+        "ActivityTime": current_time
+    })
+    
+    # Offer Response
+    current_time = add_business_time(current_time, random.randint(24, 120))  # 3-15 days
+    
+    # Check if recent and still pending offer response
+    if is_recent and random.random() < 0.05:
+        return events, current_time, False
+    
+    # 85% accept offer
+    if random.random() < 0.85:
+        events.append({
+            "ActivityName": "Offer Accepted",
+            "ActivityTime": current_time
+        })
+        return events, current_time, True
+    else:
+        events.append({
+            "ActivityName": "Offer Rejected",
+            "ActivityTime": current_time
+        })
+        return events, current_time, False
 
 def generate_onboarding_process(start_time, activities_def):
     """Generate onboarding activities"""
@@ -208,30 +200,20 @@ def generate_onboarding_process(start_time, activities_def):
     # Wait for start date (2-4 weeks typically)
     current_time = add_business_time(current_time, random.randint(80, 160))
     
-    # Onboarding Initiated
+    # Onboarding Started
     events.append({
-        "ActivityName": "Onboarding Initiated",
+        "ActivityName": "Onboarding Started",
         "ActivityTime": current_time
     })
     
-    # IT Equipment (1-3 days)
-    current_time = add_business_time(current_time, random.randint(8, 24))
+    # Equipment Assigned (within first 3 days)
+    # Equipment not ready problem (15% don't have equipment on day 1)
+    if random.random() < 0.15:
+        current_time = add_business_time(current_time, random.randint(40, 120))  # 5-15 days delay
+    else:
+        current_time = add_business_time(current_time, random.randint(8, 24))
     events.append({
-        "ActivityName": "IT Equipment Assigned",
-        "ActivityTime": current_time
-    })
-    
-    # Orientation (within first week)
-    current_time = add_business_time(current_time, random.randint(8, 40))
-    events.append({
-        "ActivityName": "Orientation Completed",
-        "ActivityTime": current_time
-    })
-    
-    # Probation Period Started
-    current_time = add_business_time(current_time, random.randint(1, 8))
-    events.append({
-        "ActivityName": "Probation Period Started",
+        "ActivityName": "Equipment Assigned",
         "ActivityTime": current_time
     })
     
@@ -244,19 +226,25 @@ def generate_employment_events(hire_date, exit_date, employee_attrs, activities_
     # Calculate employment duration
     employment_months = (exit_date.year - hire_date.year) * 12 + (exit_date.month - hire_date.month)
     
-    # Probation Review (after 90 days)
+    # Probation Completed (after 90 days)
     probation_date = hire_date + timedelta(days=90)
     if probation_date < exit_date:
         events.append({
-            "ActivityName": "Probation Review Completed",
+            "ActivityName": "Probation Completed",
             "ActivityTime": probation_date
         })
         
         # 90% pass probation
         if random.random() > 0.9:
-            return events, probation_date, "probation_fail"
+            # Probation failed
+            fail_date = probation_date + timedelta(days=random.randint(1, 7))
+            events.append({
+                "ActivityName": "Probation Failed",
+                "ActivityTime": fail_date
+            })
+            return events, fail_date, "probation_fail"
     
-    # Annual Performance Reviews
+    # Performance Reviews (annual)
     current_year = hire_date.year
     while True:
         review_date = datetime(current_year + 1, hire_date.month, 1)
@@ -266,63 +254,51 @@ def generate_employment_events(hire_date, exit_date, employee_attrs, activities_
         # Add some randomness to review date
         review_date = add_business_time(review_date, random.randint(-40, 40))
         
+        # Missing reviews (10% never happen)
+        if random.random() < 0.1:
+            current_year += 1
+            continue
+            
+        # Delayed performance reviews (35% happen 30+ days late)
+        if random.random() < 0.35:
+            review_date = add_business_time(review_date, random.randint(240, 480))  # 30-60 days late
+        
         events.append({
-            "ActivityName": "Annual Performance Review",
+            "ActivityName": "Performance Review",
             "ActivityTime": review_date
         })
         
         # Update performance rating
         employee_attrs["PerformanceRating"] = random.randint(2, 5)  # 2-5 rating
         
-        # Possible outcomes from review
-        if employee_attrs["PerformanceRating"] >= 4 and random.random() < 0.3:
-            # Promotion
+        # Possible promotion after review (15% annually)
+        if employee_attrs["PerformanceRating"] >= 4 and random.random() < 0.15:
             promo_date = add_business_time(review_date, random.randint(40, 160))
+            
+            # Promotion processing delays (30% take 2+ months)
+            if random.random() < 0.3:
+                promo_date = add_business_time(promo_date, random.randint(320, 640))  # 40-80 days extra
+                
             if promo_date < exit_date:
                 events.append({
-                    "ActivityName": "Promotion Processed",
+                    "ActivityName": "Promotion Approved",
                     "ActivityTime": promo_date
                 })
                 employee_attrs["JobLevel"] = min(10, employee_attrs["JobLevel"] + 1)
                 employee_attrs["CurrentSalary"] = int(employee_attrs["CurrentSalary"] * 1.15)
         
-        # Salary adjustment
-        if random.random() < 0.7:
-            salary_date = add_business_time(review_date, random.randint(8, 40))
-            if salary_date < exit_date:
-                events.append({
-                    "ActivityName": "Salary Adjustment Processed",
-                    "ActivityTime": salary_date
-                })
-                employee_attrs["CurrentSalary"] = int(employee_attrs["CurrentSalary"] * random.uniform(1.02, 1.08))
-        
         current_year += 1
     
-    # Transfers (10% annually)
-    if employment_months > 12 and random.random() < (0.1 * employment_months / 12):
-        transfer_date = hire_date + timedelta(days=random.randint(365, min(employment_months * 30, 3650)))
-        if transfer_date < exit_date:
-            events.append({
-                "ActivityName": "Transfer Processed",
-                "ActivityTime": transfer_date
-            })
-            employee_attrs["Department"] = random.choice([d for d in DEPARTMENTS if d != employee_attrs["Department"]])
-    
-    # Training events (2-3 per year)
+    # Training events (2-3 per year with 25% incompletion rate)
     training_count = int(employment_months / 12 * random.uniform(2, 3))
     for _ in range(training_count):
-        training_start = hire_date + timedelta(days=random.randint(90, min(employment_months * 30, 3650)))
-        if training_start < exit_date:
-            events.append({
-                "ActivityName": "Training Enrolled",
-                "ActivityTime": training_start
-            })
-            
-            training_end = training_start + timedelta(days=random.randint(7, 30))
-            if training_end < exit_date:
+        training_date = hire_date + timedelta(days=random.randint(90, min(employment_months * 30, 3650)))
+        if training_date < exit_date:
+            # 25% of training is not completed (enrolled but not finished)
+            if random.random() > 0.25:
                 events.append({
                     "ActivityName": "Training Completed",
-                    "ActivityTime": training_end
+                    "ActivityTime": training_date
                 })
     
     # Leave requests (3-4 per year)
@@ -335,54 +311,40 @@ def generate_employment_events(hire_date, exit_date, employee_attrs, activities_
                 "ActivityTime": leave_date
             })
             
-            approval_date = add_business_time(leave_date, random.randint(1, 8))
+            # Leave approval delays (15% take 3+ days)
+            if random.random() < 0.15:
+                approval_date = add_business_time(leave_date, random.randint(24, 72))  # 3-9 days
+            else:
+                approval_date = add_business_time(leave_date, random.randint(1, 8))
+                
             if approval_date < exit_date:
                 events.append({
                     "ActivityName": "Leave Approved",
                     "ActivityTime": approval_date
                 })
     
-    # Disciplinary actions (rare - 5% of employees)
-    if random.random() < 0.05 and employment_months > 6:
-        disciplinary_date = hire_date + timedelta(days=random.randint(180, min(employment_months * 30, 3650)))
-        if disciplinary_date < exit_date:
-            events.append({
-                "ActivityName": "Disciplinary Action Taken",
-                "ActivityTime": disciplinary_date
-            })
-    
     return events, exit_date, "normal"
 
 def generate_exit_process(exit_date, exit_type, activities_def):
     """Generate exit process activities"""
     events = []
-    current_time = exit_date - timedelta(days=random.randint(14, 60))  # Notice period
     
-    # Exit Process Initiated
-    events.append({
-        "ActivityName": "Exit Process Initiated",
-        "ActivityTime": current_time
-    })
-    
-    # Exit Interview (80% of voluntary exits)
-    if exit_type in ["resignation", "retirement"] and random.random() < 0.8:
-        interview_date = exit_date - timedelta(days=random.randint(3, 10))
+    # For voluntary exits, add resignation
+    if exit_type == "resignation":
+        # Sudden resignations (15% give less than required notice)
+        if random.random() < 0.15:
+            resignation_date = exit_date - timedelta(days=random.randint(1, 7))  # 1-7 days notice only
+        else:
+            resignation_date = exit_date - timedelta(days=random.randint(14, 30))  # 2-4 weeks notice
         events.append({
-            "ActivityName": "Exit Interview Conducted",
-            "ActivityTime": interview_date
+            "ActivityName": "Resignation Submitted",
+            "ActivityTime": resignation_date
         })
-    
-    # Final Settlement
-    settlement_date = exit_date + timedelta(days=random.randint(5, 15))
-    events.append({
-        "ActivityName": "Final Settlement Processed",
-        "ActivityTime": settlement_date
-    })
     
     # Employment Ended
     events.append({
         "ActivityName": "Employment Ended",
-        "ActivityTime": settlement_date
+        "ActivityTime": exit_date
     })
     
     return events
@@ -402,10 +364,11 @@ def generate_employee_lifecycle(start_date, end_date, activities_def, used_emplo
     recruitment_events, offer_accepted_time, hired = generate_recruitment_process(
         hire_date - timedelta(days=random.randint(30, 90)), 
         activities_def, 
-        employee_attrs
+        employee_attrs,
+        end_date
     )
     
-    # Add recruitment events even if not hired
+    # Add recruitment events
     for event in recruitment_events:
         event_data = {
             "CaseId": case_id,
@@ -460,16 +423,11 @@ def generate_employee_lifecycle(start_date, end_date, activities_def, used_emplo
         exit_date = end_date
         exit_type = "active"
     else:
-        # Determine exit type
-        exit_rand = random.random()
-        if exit_rand < 0.6:
+        # Determine exit type (80% voluntary resignation)
+        if random.random() < 0.8:
             exit_type = "resignation"
-        elif exit_rand < 0.8:
-            exit_type = "retirement"
-        elif exit_rand < 0.95:
-            exit_type = "termination"
         else:
-            exit_type = "contract_end"
+            exit_type = "termination"
     
     # Generate employment events
     employment_events, _, exit_reason = generate_employment_events(
@@ -478,6 +436,15 @@ def generate_employee_lifecycle(start_date, end_date, activities_def, used_emplo
         employee_attrs,
         activities_def
     )
+    
+    # Handle probation failures
+    if exit_reason == "probation_fail":
+        exit_type = "probation_fail"
+        # Find the probation failed event to get the correct exit date
+        for event in employment_events:
+            if event["ActivityName"] == "Probation Failed":
+                exit_date = event["ActivityTime"]
+                break
     
     # Update tenure
     for event in employment_events:
@@ -495,8 +462,8 @@ def generate_employee_lifecycle(start_date, end_date, activities_def, used_emplo
         event_data["SystemUsed"] = activity_info.get("system", "Unknown")
         all_events.append(event_data)
     
-    # Generate exit process if not still active
-    if exit_type != "active":
+    # Generate exit process if not still active and not probation fail
+    if exit_type != "active" and exit_type != "probation_fail":
         exit_events = generate_exit_process(exit_date, exit_type, activities_def)
         
         for event in exit_events:
@@ -557,7 +524,7 @@ def main():
     
     # Generate employee lifecycles
     all_events = []
-    num_employees = 3000  # Generate 3000 employee lifecycles
+    num_employees = 5000  # Generate 5000 employee lifecycles for better problem distribution
     used_employee_ids = set()
     
     for i in range(num_employees):
@@ -570,47 +537,168 @@ def main():
     # Sort all events by time
     all_events.sort(key=lambda x: x["ActivityTime"])
     
-    # Format events for output
-    formatted_events = [format_event_for_output(event) for event in all_events]
+    # Group events by CaseId for nested JSON structure
+    cases_dict = defaultdict(list)
+    for event in all_events:
+        cases_dict[event["CaseId"]].append(event)
+    
+    # Create case-centric JSON structure
+    cases_json = {"cases": []}
+    for case_id, events in sorted(cases_dict.items()):
+        if not events:
+            continue
+            
+        # Get case-level attributes from first event
+        first_event = events[0]
+        case_data = {
+            "CaseId": case_id,
+            "EmployeeID": first_event["EmployeeID"],
+            "activities": []
+        }
+        
+        # Add case-level attributes (constant across all activities)
+        case_attributes = [
+            "Department", "Location", "JobLevel", "EmploymentType",
+            "HiringManager", "RecruitmentSource", "CurrentSalary",
+            "PerformanceRating", "HireDate"
+        ]
+        
+        for attr in case_attributes:
+            if attr in first_event:
+                case_data[attr] = first_event[attr]
+        
+        # Add activities with activity-specific attributes
+        for event in events:
+            activity = {
+                "ActivityName": event["ActivityName"],
+                "ActivityTime": event["ActivityTime"].strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3] + "Z",
+                "PerformedBy": event["PerformedBy"],
+                "SystemUsed": event["SystemUsed"]
+            }
+            
+            # Add tenure years which changes per activity
+            if "TenureYears" in event:
+                activity["TenureYears"] = event["TenureYears"]
+                
+            # Update case-level attributes that may have changed
+            if event.get("CurrentSalary") != case_data.get("CurrentSalary"):
+                case_data["CurrentSalary"] = event["CurrentSalary"]
+            if event.get("PerformanceRating") != case_data.get("PerformanceRating"):
+                case_data["PerformanceRating"] = event["PerformanceRating"]
+            if event.get("Department") != case_data.get("Department"):
+                case_data["Department"] = event["Department"]
+            if event.get("JobLevel") != case_data.get("JobLevel"):
+                case_data["JobLevel"] = event["JobLevel"]
+                
+            case_data["activities"].append(activity)
+        
+        cases_json["cases"].append(case_data)
     
     # Create output directory if it doesn't exist
     output_dir = os.path.join(src_dir, "output")
     os.makedirs(output_dir, exist_ok=True)
     
-    # Write JSON output
+    # Write nested JSON output
     json_path = os.path.join(output_dir, "hire_to_retire_year_to_date.json")
     with open(json_path, 'w') as f:
-        json.dump(formatted_events, f, indent=2)
+        json.dump(cases_json, f, indent=2)
+    
+    # Generate CSV from the JSON structure
+    csv_rows = []
+    for case in cases_json["cases"]:
+        case_attrs = {k: v for k, v in case.items() if k not in ["activities", "CaseId", "EmployeeID"]}
+        for activity in case["activities"]:
+            row = {
+                "CaseId": case["CaseId"],
+                "EmployeeID": case["EmployeeID"],
+                "ActivityName": activity["ActivityName"],
+                "ActivityTime": activity["ActivityTime"],
+                "PerformedBy": activity["PerformedBy"],
+                "SystemUsed": activity["SystemUsed"]
+            }
+            # Add case-level attributes
+            row.update(case_attrs)
+            # Add activity-specific attributes
+            if "TenureYears" in activity:
+                row["TenureYears"] = activity["TenureYears"]
+            csv_rows.append(row)
     
     # Write CSV output
     csv_path = os.path.join(output_dir, "hire_to_retire_year_to_date.csv")
-    if formatted_events:
+    if csv_rows:
+        fieldnames = [
+            "CaseId", "ActivityName", "ActivityTime", "EmployeeID",
+            "Department", "Location", "JobLevel", "EmploymentType",
+            "HiringManager", "RecruitmentSource", "CurrentSalary",
+            "PerformanceRating", "TenureYears", "PerformedBy", 
+            "SystemUsed", "HireDate"
+        ]
         with open(csv_path, 'w', newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=formatted_events[0].keys())
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
-            writer.writerows(formatted_events)
+            writer.writerows(csv_rows)
     
     # Generate statistics
     print("\n=== Event Log Statistics ===")
-    print(f"Total events generated: {len(formatted_events)}")
-    print(f"Total employees: {len(set(e['EmployeeID'] for e in formatted_events))}")
-    print(f"Total cases: {len(set(e['CaseId'] for e in formatted_events))}")
+    print(f"Total events generated: {len(all_events)}")
+    print(f"Total cases: {len(cases_json['cases'])}")
+    print(f"Total employees: {len(set(case['EmployeeID'] for case in cases_json['cases']))}")
+    
+    # Count case outcomes
+    hired_count = 0
+    rejected_count = 0
+    open_count = 0
+    active_employees = 0
+    exited_employees = 0
+    
+    for case in cases_json['cases']:
+        activities = [a['ActivityName'] for a in case['activities']]
+        
+        if 'Onboarding Started' in activities:
+            hired_count += 1
+            if 'Employment Ended' in activities:
+                exited_employees += 1
+            else:
+                active_employees += 1
+        elif any(activity in activities for activity in [
+            'Application Rejected', 'Interview Failed', 'Offer Rejected'
+        ]):
+            rejected_count += 1
+        else:
+            open_count += 1
+    
+    print(f"\nCase Outcomes:")
+    print(f"  Hired: {hired_count}")
+    print(f"    - Active employees: {active_employees}")
+    print(f"    - Exited employees: {exited_employees}")
+    print(f"  Rejected: {rejected_count}")
+    print(f"  Open/In Progress: {open_count}")
     
     # Activity frequency
-    activity_counts = Counter(e['ActivityName'] for e in formatted_events)
+    activity_counts = Counter()
+    for case in cases_json['cases']:
+        for activity in case['activities']:
+            activity_counts[activity['ActivityName']] += 1
+    
     print("\nActivity Frequency:")
-    for activity, count in sorted(activity_counts.items(), key=lambda x: x[1], reverse=True):
+    for activity, count in sorted(activity_counts.items(), key=lambda x: x[1], reverse=True)[:20]:
         print(f"  {activity}: {count}")
     
     # Department distribution
-    dept_counts = Counter(e['Department'] for e in formatted_events)
+    dept_counts = Counter(case.get('Department', 'Unknown') for case in cases_json['cases'])
     print("\nDepartment Distribution:")
-    for dept, count in sorted(dept_counts.items()):
-        unique_employees = len(set(e['EmployeeID'] for e in formatted_events if e['Department'] == dept))
-        print(f"  {dept}: {unique_employees} employees")
+    for dept, count in sorted(dept_counts.items(), key=lambda x: (x[0] is None, x[0])):
+        if dept is None:
+            print(f"  [Missing]: {count} employees")
+        else:
+            print(f"  {dept}: {count} employees")
     
     # Performance by organization
-    org_counts = Counter(e['PerformedBy'] for e in formatted_events)
+    org_counts = Counter()
+    for case in cases_json['cases']:
+        for activity in case['activities']:
+            org_counts[activity['PerformedBy']] += 1
+    
     print("\nActivities by Organization:")
     for org, count in sorted(org_counts.items()):
         print(f"  {org}: {count} activities")

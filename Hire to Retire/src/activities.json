@@ -1,10 +1,5 @@
 {
   "activities": {
-    "Job Requisition Created": {
-      "description": "Manager creates request for new position",
-      "performed_by": "Customer",
-      "system": "Customer_System"
-    },
     "Job Posted": {
       "description": "Position advertised internally/externally by XYZ",
       "performed_by": "XYZ",
@@ -15,49 +10,9 @@
       "performed_by": "XYZ",
       "system": "XYZ_HRIS"
     },
-    "Application Screened": {
-      "description": "Initial HR screening by XYZ recruiters",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Phone Interview Scheduled": {
-      "description": "Initial screening call arranged by XYZ",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Phone Interview Completed": {
-      "description": "Screening call conducted by XYZ",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Technical Assessment Sent": {
-      "description": "Skills test assigned (Customer defines, XYZ administers)",
+    "Interview Completed": {
+      "description": "All interviews conducted (phone/onsite combined)",
       "performed_by": "Joint",
-      "system": "XYZ_HRIS"
-    },
-    "Technical Assessment Completed": {
-      "description": "Skills test submitted and scored by XYZ",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Onsite Interview Scheduled": {
-      "description": "In-person/video interviews arranged by XYZ",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Onsite Interview Completed": {
-      "description": "Interviews conducted by Customer hiring team",
-      "performed_by": "Customer",
-      "system": "Customer_System"
-    },
-    "Reference Check Initiated": {
-      "description": "Background verification started by XYZ",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Reference Check Completed": {
-      "description": "Background verification finished by XYZ",
-      "performed_by": "XYZ",
       "system": "XYZ_HRIS"
     },
     "Offer Extended": {
@@ -70,48 +25,28 @@
       "performed_by": "XYZ",
       "system": "XYZ_HRIS"
     },
-    "Offer Rejected": {
-      "description": "Candidate declines position",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Onboarding Initiated": {
+    "Onboarding Started": {
       "description": "New hire process begins with XYZ coordination",
       "performed_by": "XYZ",
       "system": "XYZ_HRIS"
     },
-    "IT Equipment Assigned": {
-      "description": "Computer, accounts, access provided by Customer IT",
+    "Equipment Assigned": {
+      "description": "IT equipment and access provided by Customer",
       "performed_by": "Customer",
       "system": "Customer_System"
     },
-    "Orientation Completed": {
-      "description": "Company orientation (Customer content, XYZ delivery)",
+    "Probation Completed": {
+      "description": "90-day review passed (Customer evaluates, XYZ documents)",
       "performed_by": "Joint",
       "system": "XYZ_HRIS"
     },
-    "Probation Period Started": {
-      "description": "Initial employment period tracked by XYZ",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Probation Review Completed": {
-      "description": "Assessment (Customer reviews, XYZ documents)",
-      "performed_by": "Joint",
-      "system": "XYZ_HRIS"
-    },
-    "Annual Performance Review": {
-      "description": "Yearly evaluation by Customer managers",
+    "Performance Review": {
+      "description": "Annual evaluation completed by Customer managers",
       "performed_by": "Customer",
       "system": "Customer_System"
     },
-    "Promotion Processed": {
-      "description": "Role change (Customer approves, XYZ processes)",
-      "performed_by": "Joint",
-      "system": "XYZ_HRIS"
-    },
-    "Transfer Processed": {
-      "description": "Department change (Customer approves, XYZ processes)",
+    "Promotion Approved": {
+      "description": "Role/level change processed (Customer approves, XYZ processes)",
       "performed_by": "Joint",
       "system": "XYZ_HRIS"
     },
@@ -125,44 +60,39 @@
       "performed_by": "Customer",
       "system": "Customer_System"
     },
-    "Salary Adjustment Processed": {
-      "description": "Compensation change (Customer approves, XYZ processes)",
-      "performed_by": "Joint",
-      "system": "XYZ_HRIS"
-    },
-    "Training Enrolled": {
-      "description": "Learning program registration via XYZ LMS",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
     "Training Completed": {
       "description": "Learning program finished, tracked by XYZ",
       "performed_by": "XYZ",
       "system": "XYZ_HRIS"
     },
-    "Disciplinary Action Taken": {
-      "description": "Performance issue (Customer decides, XYZ documents)",
+    "Resignation Submitted": {
+      "description": "Employee initiates departure (via XYZ system)",
       "performed_by": "Joint",
-      "system": "XYZ_HRIS"
-    },
-    "Exit Process Initiated": {
-      "description": "Resignation/retirement (Customer decides, XYZ processes)",
-      "performed_by": "Joint",
-      "system": "XYZ_HRIS"
-    },
-    "Exit Interview Conducted": {
-      "description": "Departure feedback session by XYZ",
-      "performed_by": "XYZ",
-      "system": "XYZ_HRIS"
-    },
-    "Final Settlement Processed": {
-      "description": "Last payment/benefits calculated by XYZ",
-      "performed_by": "XYZ",
       "system": "XYZ_HRIS"
     },
     "Employment Ended": {
-      "description": "Final termination of employment",
+      "description": "Final exit processed by XYZ",
       "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Application Rejected": {
+      "description": "Candidate not selected after screening",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Interview Failed": {
+      "description": "Candidate not progressing after interviews",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Offer Rejected": {
+      "description": "Candidate declines offer",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Probation Failed": {
+      "description": "Employee doesn't pass probation period",
+      "performed_by": "Joint",
       "system": "XYZ_HRIS"
     }
   }

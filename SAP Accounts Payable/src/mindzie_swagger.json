@@ -1,0 +1,280 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Mindzie Studio API",
+    "description": "API for uploading and managing SAP Accounts Payable process mining datasets",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Mindzie Studio Support",
+      "url": "https://www.mindziestudio.com/support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.mindziestudio.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/v1/tenants/{tenantId}/projects/{projectId}/datasets": {
+      "post": {
+        "summary": "Upload dataset",
+        "description": "Upload a new dataset to Mindzie Studio for process mining analysis",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your Mindzie Studio tenant ID"
+          },
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Your Mindzie Studio project ID"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Dataset name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Dataset description"
+                  },
+                  "datasetType": {
+                    "type": "string",
+                    "enum": ["EVENT_LOG"],
+                    "description": "Type of dataset"
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "CaseId": {
+                          "type": "string",
+                          "description": "Unique case identifier"
+                        },
+                        "ActivityName": {
+                          "type": "string",
+                          "description": "Name of the activity"
+                        },
+                        "ActivityTime": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Timestamp of the activity"
+                        },
+                        "VendorID": {
+                          "type": "string",
+                          "description": "Vendor identifier"
+                        }
+                      }
+                    },
+                    "description": "Array of event log records"
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "description": "Additional metadata about the dataset"
+                  }
+                }
+              },
+              "example": {
+                "name": "SAP AP Historical Dataset",
+                "description": "SAP Accounts Payable historical dataset with 1,500 completed invoice processing cases",
+                "datasetType": "EVENT_LOG",
+                "data": [
+                  {
+                    "CaseId": "AP123456",
+                    "ActivityName": "Invoice Received",
+                    "ActivityTime": "2025-05-04T08:15:00+00:00",
+                    "VendorID": "V001"
+                  }
+                ],
+                "metadata": {
+                  "source": "SAP ERP Accounts Payable",
+                  "timeRange": "2024-01-01 to 2025-05-04",
+                  "totalCases": 1500,
+                  "totalEvents": 30000,
+                  "activities": ["Invoice Received", "Invoice Scanned", "Invoice Validation"],
+                  "uploadedAt": "2025-05-04T14:00:00+00:00"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Dataset uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Dataset ID"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Dataset name"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Upload status"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Success message"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid data format"
+          },
+          "401": {
+            "description": "Unauthorized - invalid API key"
+          },
+          "403": {
+            "description": "Forbidden - insufficient permissions"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/tenants/{tenantId}/projects/{projectId}/datasets/{datasetId}": {
+      "get": {
+        "summary": "Get dataset",
+        "description": "Retrieve dataset information and status",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "datasetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dataset information retrieved successfully"
+          },
+          "404": {
+            "description": "Dataset not found"
+          }
+        }
+      }
+    },
+    "/api/v1/tenants/{tenantId}/projects/{projectId}/datasets/{datasetId}/status": {
+      "get": {
+        "summary": "Get dataset processing status",
+        "description": "Check the processing status of an uploaded dataset",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "datasetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Status retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": ["UPLOADING", "PROCESSING", "COMPLETED", "FAILED"],
+                      "description": "Current processing status"
+                    },
+                    "progress": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100,
+                      "description": "Processing progress percentage"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "Status message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "JWT token for API authentication"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+} 
