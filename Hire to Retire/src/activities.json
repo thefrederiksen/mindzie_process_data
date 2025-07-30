@@ -1,0 +1,169 @@
+{
+  "activities": {
+    "Job Requisition Created": {
+      "description": "Manager creates request for new position",
+      "performed_by": "Customer",
+      "system": "Customer_System"
+    },
+    "Job Posted": {
+      "description": "Position advertised internally/externally by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Application Received": {
+      "description": "Candidate submits application via XYZ portal",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Application Screened": {
+      "description": "Initial HR screening by XYZ recruiters",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Phone Interview Scheduled": {
+      "description": "Initial screening call arranged by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Phone Interview Completed": {
+      "description": "Screening call conducted by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Technical Assessment Sent": {
+      "description": "Skills test assigned (Customer defines, XYZ administers)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Technical Assessment Completed": {
+      "description": "Skills test submitted and scored by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Onsite Interview Scheduled": {
+      "description": "In-person/video interviews arranged by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Onsite Interview Completed": {
+      "description": "Interviews conducted by Customer hiring team",
+      "performed_by": "Customer",
+      "system": "Customer_System"
+    },
+    "Reference Check Initiated": {
+      "description": "Background verification started by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Reference Check Completed": {
+      "description": "Background verification finished by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Offer Extended": {
+      "description": "Job offer made (Customer approves, XYZ communicates)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Offer Accepted": {
+      "description": "Candidate accepts position via XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Offer Rejected": {
+      "description": "Candidate declines position",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Onboarding Initiated": {
+      "description": "New hire process begins with XYZ coordination",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "IT Equipment Assigned": {
+      "description": "Computer, accounts, access provided by Customer IT",
+      "performed_by": "Customer",
+      "system": "Customer_System"
+    },
+    "Orientation Completed": {
+      "description": "Company orientation (Customer content, XYZ delivery)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Probation Period Started": {
+      "description": "Initial employment period tracked by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Probation Review Completed": {
+      "description": "Assessment (Customer reviews, XYZ documents)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Annual Performance Review": {
+      "description": "Yearly evaluation by Customer managers",
+      "performed_by": "Customer",
+      "system": "Customer_System"
+    },
+    "Promotion Processed": {
+      "description": "Role change (Customer approves, XYZ processes)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Transfer Processed": {
+      "description": "Department change (Customer approves, XYZ processes)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Leave Requested": {
+      "description": "Time off requested via XYZ system",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Leave Approved": {
+      "description": "Time off approved by Customer manager",
+      "performed_by": "Customer",
+      "system": "Customer_System"
+    },
+    "Salary Adjustment Processed": {
+      "description": "Compensation change (Customer approves, XYZ processes)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Training Enrolled": {
+      "description": "Learning program registration via XYZ LMS",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Training Completed": {
+      "description": "Learning program finished, tracked by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Disciplinary Action Taken": {
+      "description": "Performance issue (Customer decides, XYZ documents)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Exit Process Initiated": {
+      "description": "Resignation/retirement (Customer decides, XYZ processes)",
+      "performed_by": "Joint",
+      "system": "XYZ_HRIS"
+    },
+    "Exit Interview Conducted": {
+      "description": "Departure feedback session by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Final Settlement Processed": {
+      "description": "Last payment/benefits calculated by XYZ",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    },
+    "Employment Ended": {
+      "description": "Final termination of employment",
+      "performed_by": "XYZ",
+      "system": "XYZ_HRIS"
+    }
+  }
+}
