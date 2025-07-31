@@ -2,6 +2,30 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## VS Code Title Bar Color Instructions
+
+To change the VS Code title bar color for this workspace, update the workspace file (.code-workspace) with:
+
+```json
+"settings": {
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#COLOR_HEX",
+        "titleBar.activeForeground": "#ffffff",
+        "titleBar.inactiveBackground": "#DARKER_COLOR_HEX",
+        "titleBar.inactiveForeground": "#e3e3e3"
+    }
+}
+```
+
+Color suggestions:
+- Blue: #1a73e8 (inactive: #135db5)
+- Green: #2e7d32 (inactive: #1b5e20)
+- Purple: #7b1fa2 (inactive: #4a148c)
+- Orange: #ef6c00 (inactive: #bf360c)
+- Red: #c62828 (inactive: #8e0000)
+- Teal: #00796b (inactive: #004d40)
+- Pink: #c2185b (inactive: #880e4f)
+
 ## Repository Overview
 
 This repository contains process mining datasets and projects for research and education. The main focus is on demonstrating real-time process flow monitoring using process mining techniques. Currently features an Emergency Department project with plans for additional process mining datasets (SAP Accounts Payable and others).
