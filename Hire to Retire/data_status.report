@@ -1,0 +1,319 @@
+# Process Mining Dataset Analysis Report
+Generated: 2025-08-01 16:18:12.016698
+==================================================
+
+## Executive Summary
+- Total Cases: 9,986
+- Total Activities: 40,720
+- Date Range: 2023-01-02 to 2026-03-04
+- Average Case Duration: 47.6 days
+- Case Completion Rate: 91.5%
+
+## Attribute Analysis
+
+### Case-Level Attributes
+
+#### Department
+- Engineering: 3002 (30.1%)
+- Sales: 2448 (24.5%)
+- Operations: 1511 (15.1%)
+- Finance: 1446 (14.5%)
+- HR: 1056 (10.6%)
+- Marketing: 523 (5.2%)
+
+#### Location
+- New York: 3058 (30.6%)
+- London: 2499 (25.0%)
+- Singapore: 1961 (19.6%)
+- Sydney: 1500 (15.0%)
+- Berlin: 968 (9.7%)
+
+#### JobLevel
+- 4: 1945 (19.5%)
+- 3: 1903 (19.1%)
+- 5: 1570 (15.7%)
+- 1: 1533 (15.4%)
+- 2: 1459 (14.6%)
+- 6: 926 (9.3%)
+- 7: 435 (4.4%)
+- 8: 155 (1.6%)
+- 9: 49 (0.5%)
+- 10: 11 (0.1%)
+
+#### EmploymentType
+- Full-time: 8020 (80.3%)
+- Contract: 997 (10.0%)
+- Part-time: 969 (9.7%)
+
+#### RecruitmentSource
+- External: 5000 (50.1%)
+- Referral: 2465 (24.7%)
+- Agency: 1533 (15.4%)
+- Internal: 988 (9.9%)
+
+#### CurrentSalary
+- 87743: 2 (0.0%)
+- 114522: 2 (0.0%)
+- 36995: 1 (0.0%)
+- 36050: 1 (0.0%)
+- 63929: 1 (0.0%)
+- 137944: 1 (0.0%)
+- 136377: 1 (0.0%)
+- 90386: 1 (0.0%)
+- 76062: 1 (0.0%)
+- 74689: 1 (0.0%)
+
+#### PerformanceRating
+- 3.2: 19 (0.2%)
+- 3.8: 18 (0.2%)
+- 3.7: 18 (0.2%)
+- 3.5: 17 (0.2%)
+- 3.4: 17 (0.2%)
+- 3.6: 16 (0.2%)
+- 3.9: 14 (0.1%)
+- 3.3: 14 (0.1%)
+- 4.0: 13 (0.1%)
+- 3.0: 10 (0.1%)
+
+## Activity Distribution
+- Job Posted: 10,000 (24.6%)
+- Application Received: 10,000 (24.6%)
+- Application Rejected: 5,924 (14.5%)
+- Interview Completed: 5,624 (13.8%)
+- Interview Failed: 2,876 (7.1%)
+- Offer Extended: 1,466 (3.6%)
+- Offer Accepted: 1,008 (2.5%)
+- Onboarding Started: 1,008 (2.5%)
+- Equipment Assigned: 1,008 (2.5%)
+- Probation Completed: 911 (2.2%)
+- Performance Review: 268 (0.7%)
+- Offer Rejected: 192 (0.5%)
+- Probation Failed: 97 (0.2%)
+- Leave Requested: 65 (0.2%)
+- Resignation Submitted: 64 (0.2%)
+- Employment Ended: 64 (0.2%)
+- Leave Approved: 62 (0.2%)
+- Training Completed: 42 (0.1%)
+- Promotion Approved: 41 (0.1%)
+
+## Resource Utilization
+
+### Mike
+- Activities: 1,168
+- Avg Duration: 24.0 hours
+- Performance Factor: 0.32x
+
+### Peter
+- Activities: 10,916
+- Avg Duration: 24.0 hours
+- Performance Factor: 2.95x
+
+### David
+- Activities: 6,990
+- Avg Duration: 24.0 hours
+- Performance Factor: 1.89x
+
+### Robert
+- Activities: 12,574
+- Avg Duration: 24.0 hours
+- Performance Factor: 3.40x
+
+### James
+- Activities: 717
+- Avg Duration: 24.0 hours
+- Performance Factor: 0.19x
+
+### Lisa
+- Activities: 741
+- Avg Duration: 24.0 hours
+- Performance Factor: 0.20x
+
+### System
+- Activities: 4,975
+- Avg Duration: 24.0 hours
+- Performance Factor: 1.34x
+
+### Emma
+- Activities: 1,259
+- Avg Duration: 24.0 hours
+- Performance Factor: 0.34x
+
+### Sarah
+- Activities: 1,229
+- Avg Duration: 24.0 hours
+- Performance Factor: 0.33x
+
+### Jennifer
+- Activities: 149
+- Avg Duration: 24.0 hours
+- Performance Factor: 0.04x
+
+### Michael
+- Activities: 2
+- Avg Duration: 24.0 hours
+- Performance Factor: 0.00x
+
+## Process Flow Patterns
+- Main Path Success Rate: 85.0%
+- Rework Rate: 12.0%
+- Abandonment Rate: 8.5%
+
+============================================================
+# MINDZIE STUDIO ANALYSIS RECOMMENDATIONS
+============================================================
+
+## Required Business Intelligence Analyses
+Based on the process specifications and business problems identified, create the following analyses in Mindzie Studio:
+
+### Process Performance Dashboards
+1. **Time to Fill Dashboard**
+   - Metric: Days from Job Posted to Offer Accepted
+   - Current Target: 30
+   - Visualization: Time series chart showing trend over time
+   - Filters: Department, Location, JobLevel
+   - Alert Threshold: 45
+
+2. **First Year Retention Rate Dashboard**
+   - Metric: (Employees staying 12+ months) / (Total hired)
+   - Current Target: 85
+   - Visualization: Time series chart showing trend over time
+   - Filters: Department, Location, JobLevel
+   - Alert Threshold: Monitor for deviation
+
+3. **Time to Productivity Dashboard**
+   - Metric: Days from Onboarding Started to full productivity
+   - Current Target: 90
+   - Visualization: Time series chart showing trend over time
+   - Filters: Department, Location, JobLevel
+   - Alert Threshold: 120
+
+4. **Offer Acceptance Rate Dashboard**
+   - Metric: (Offers Accepted) / (Offers Extended)
+   - Current Target: 85
+   - Visualization: Time series chart showing trend over time
+   - Filters: Department, Location, JobLevel
+   - Alert Threshold: Monitor for deviation
+
+5. **Process Compliance Rate Dashboard**
+   - Metric: (Cases following standard flow) / (Total cases)
+   - Current Target: 95
+   - Visualization: Time series chart showing trend over time
+   - Filters: Department, Location, JobLevel
+   - Alert Threshold: Monitor for deviation
+
+### Bottleneck Identification & Root Cause Analysis
+6. **Interview Scheduling Delays Analysis**
+   - Focus Activities: A3
+   - Problem Resource: Peter
+   - Expected Impact: 0.7 performance factor
+   - Analysis Type: Resource utilization heatmap
+   - Comparison: Performance by resource for these activities
+   - Recommendation: Identify training needs or resource reallocation
+
+7. **Equipment Provisioning Delays Analysis**
+   - Focus Activities: A7
+   - Problem Resource: David
+   - Expected Impact: 0.6 performance factor
+   - Analysis Type: Resource utilization heatmap
+   - Comparison: Performance by resource for these activities
+   - Recommendation: Identify training needs or resource reallocation
+
+8. **Review Processing Delays Analysis**
+   - Focus Activities: A9
+   - Problem Resource: Robert
+   - Expected Impact: 0.5 performance factor
+   - Analysis Type: Resource utilization heatmap
+   - Comparison: Performance by resource for these activities
+   - Recommendation: Identify training needs or resource reallocation
+
+9. **System Integration Delays Analysis**
+   - Focus Activities: A2, A6, A7, A15
+   - Problem Resource: System
+   - Expected Impact: 0.3 performance factor
+   - Analysis Type: Resource utilization heatmap
+   - Comparison: Performance by resource for these activities
+   - Recommendation: Identify training needs or resource reallocation
+
+### Process Flow & Variant Analysis
+10. **Process Variant Analysis**
+   - Chart Type: Process map with frequency overlay
+   - Focus: Identify most common paths vs. exceptions
+   - Filters: Department, EmploymentType, RecruitmentSource
+   - Goal: Understand which variants cause delays
+
+11. **Rejection Point Analysis**
+   - Activities: Application Rejected, Interview Failed, Offer Rejected, Probation Failed
+   - Visualization: Funnel chart showing drop-off rates
+   - Segmentation: By Department, Location, RecruitmentSource
+   - Goal: Identify patterns in candidate rejection
+
+### Operational Efficiency Analysis
+12. **Resource Workload Distribution**
+   - Chart: Resource utilization bar chart
+   - Metrics: Cases handled, average processing time
+   - Highlight: Identify overloaded vs. underutilized resources
+   - Action: Resource balancing recommendations
+
+13. **Department Performance Comparison**
+   - Visualization: Department-wise KPI comparison dashboard
+   - Metrics: Time-to-fill, retention rate, offer acceptance
+   - Benchmarking: Identify best and worst performing departments
+   - Filters: Location, JobLevel, EmploymentType
+
+### Predictive & Advanced Analytics
+14. **Turnover Risk Prediction**
+   - Focus: Cases with early resignation (Employment Ended)
+   - Variables: Time-to-fill, Onboarding duration, Department
+   - Goal: Predict which new hires are at risk
+   - Action: Proactive retention strategies
+
+15. **Seasonal Hiring Pattern Analysis**
+   - Time Analysis: Monthly/quarterly hiring volumes
+   - Correlation: Success rates by hiring period
+   - Planning: Optimize recruitment calendar
+
+### Compliance & Risk Monitoring
+16. **SLA Compliance Dashboard**
+   - Track: Interview Completed, Offer Extended, Equipment Assigned timeframes
+   - Alert: Cases exceeding defined SLA hours
+   - Visualization: Compliance rate by activity and time period
+
+17. **Process Conformance Analysis**
+   - Standard Path: Job Posted → Application → Interview → Offer → Onboarding
+   - Deviations: Identify non-conforming cases
+   - Impact: Measure effect of deviations on outcomes
+
+
+## Implementation Guidelines for Mindzie Studio
+
+### Data Import Configuration
+- **Case ID Field**: CaseId
+- **Activity Field**: ActivityName
+- **Timestamp Field**: ActivityTime
+- **Resource Field**: Resource
+- **Case Attributes**: Department, Location, JobLevel, EmploymentType, etc.
+
+### Key Process Mining Questions to Answer
+1. **Efficiency**: Why does our time-to-fill exceed target by 50%?
+2. **Quality**: What factors contribute to first-year turnover?
+3. **Bottlenecks**: Which resources create the most delays?
+4. **Optimization**: How can we improve offer acceptance rates?
+5. **Compliance**: Are we meeting SLA requirements consistently?
+6. **Equity**: Do hiring outcomes vary unfairly by demographics?
+
+### Expected Business Outcomes
+After implementing these analyses, stakeholders should be able to:
+- Reduce time-to-fill by identifying and addressing bottlenecks
+- Improve retention by understanding early turnover patterns
+- Optimize resource allocation across HR functions
+- Enhance candidate experience by streamlining processes
+- Ensure compliance with labor regulations and company policies
+- Make data-driven decisions for HR strategy and operations
+
+### Recommended Analysis Priority
+**Phase 1 (Immediate)**: Time to Fill Dashboard, Bottleneck Analysis
+**Phase 2 (Month 2)**: Process Variant Analysis, Resource Workload
+**Phase 3 (Month 3)**: Predictive Analytics, Advanced Compliance
+
+---
+*This report was generated automatically based on the process specifications and provides a comprehensive guide for process mining analysis in Mindzie Studio.*
