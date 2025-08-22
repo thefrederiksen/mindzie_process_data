@@ -94,46 +94,45 @@ def maybe_system_delay(resource: str, probability: float = 0.25) -> str:
     return resource
 
 def select_resource(activity_type: str, activity_name: str = "") -> str:
-    """Select resource based on activity type and bottleneck rules"""
+    """Select resource based on activity type with realistic bottlenecks"""
     base_resources = RESOURCES.get(activity_type, ["Unknown"])
     
-    # Global bottleneck assignments - these resources should appear frequently across all activities
-    # to achieve overall target percentages: Peter 30%, David 20%, Robert 35%
+    # More realistic bottleneck logic - specific resources are slow at specific activities
+    # This creates natural bottlenecks without overwhelming the system
     
-    # First, check for forced bottleneck assignments across all activities
-    rand = random.random()
-    if rand < 0.30:  # 30% of all activities go to Peter
-        return "Peter"
-    elif rand < 0.50:  # Next 20% go to David (30% + 20% = 50%)
-        return "David" 
-    elif rand < 0.85:  # Next 35% go to Robert (50% + 35% = 85%)
-        return "Robert"
-    
-    # For remaining 15% of activities, use normal resource selection logic
-    
-    # Equipment assignments
+    # Equipment assignments - David is slow at equipment tasks
     if activity_type == "equipment":
-        return "Jennifer"  # Normal resource for remaining equipment activities
+        if random.random() < 0.4:  # 40% chance David handles equipment (creates bottleneck)
+            return "David"
+        return "Jennifer"
     
-    # Interview assignments  
+    # Interview assignments - Peter is slow at interviews
     elif activity_type == "interview":
+        if random.random() < 0.3:  # 30% chance Peter does interviews (creates bottleneck)
+            return "Peter"
         # Distribute among others
-        others = ["James", "Lisa"]
+        others = ["James", "Lisa", "Robert"]
         return random.choice(others)
     
-    # Management activities
+    # Management activities - Robert is slow at reviews
     elif activity_type == "management":
+        if "Review" in activity_name and random.random() < 0.5:  # 50% of reviews go to Robert
+            return "Robert"
         return random.choice(["James", "Lisa"])
     
-    # Recruitment activities
+    # Recruitment activities - balanced distribution
     elif activity_type == "recruitment":
         return random.choice(["Sarah", "Mike", "Emma"])
     
-    # Training activities
+    # Training activities - balanced distribution
     elif activity_type == "training":
         return random.choice(["Jennifer", "Michael"])
     
-    # Default
+    # System activities - always slow
+    elif activity_type == "system":
+        return "System"
+    
+    # Default - use base resources
     return random.choice(base_resources)
 
 def calculate_duration(base_hours: float, resource: str) -> float:
@@ -637,14 +636,16 @@ def generate_dataset():
             
             cases_dict[case_id] = {
                 "CaseId": case_id,
+                "EmployeeID": activity["EmployeeID"],
                 "Department": activity["Department"],
                 "Location": activity["Location"],
                 "JobLevel": activity["JobLevel"],
                 "EmploymentType": activity["EmploymentType"],
                 "RecruitmentSource": recruitment_source,
+                "HiringManager": activity["HiringManager"],
                 "CurrentSalary": final_salary,
                 "PerformanceRating": final_rating,
-                "Activities": []
+                "activities": []
             }
         
         # Add activity without duplicating case attributes
@@ -660,7 +661,7 @@ def generate_dataset():
         if activity.get("TenureYears", 0) > 0:
             activity_only["TenureYears"] = activity["TenureYears"]
             
-        cases_dict[case_id]["Activities"].append(activity_only)
+        cases_dict[case_id]["activities"].append(activity_only)
     
     cases_list = list(cases_dict.values())
     
@@ -669,6 +670,9 @@ def generate_dataset():
     print(f"Completed cases: {completed_cases}")
     print(f"Completion rate: {completed_cases/len(cases_list)*100:.1f}%")
     print(f"Total activities: {len(all_activities)}")
+    
+    # Create output directory if it doesn't exist
+    os.makedirs("output", exist_ok=True)
     
     # Save JSON
     json_path = os.path.join("output", "hire_to_retire_historical.json")
@@ -705,7 +709,7 @@ def calculate_kpis(cases: List[Dict], activities: List[Dict]):
     # Time to Fill
     hired_cases = []
     for case in cases:
-        acts = case["Activities"]
+        acts = case["activities"]
         job_posted = next((a for a in acts if a["ActivityName"] == "Job Posted"), None)
         offer_accepted = next((a for a in acts if a["ActivityName"] == "Offer Accepted"), None)
         
@@ -726,7 +730,7 @@ def calculate_kpis(cases: List[Dict], activities: List[Dict]):
     employees_left_first_year = 0
     
     for case in cases:
-        acts = case["Activities"]
+        acts = case["activities"]
         onboarding = next((a for a in acts if a["ActivityName"] == "Onboarding Started"), None)
         exit_activity = next((a for a in acts if a["ActivityName"] in ["Employment Ended", "Probation Failed"]), None)
         

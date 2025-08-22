@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Place Order",
+    "description": "Purchase requisition initiated by requester"
+  },
+  {
+    "name": "Receive Order",
+    "description": "Order received by procurement department"
+  },
+  {
+    "name": "Request Payment by Credit Card",
+    "description": "Alternative payment method request for credit card processing"
+  },
+  {
+    "name": "Request Payment by Bank Transfer",
+    "description": "Alternative payment method request for bank transfer processing"
+  },
+  {
+    "name": "Process Order",
+    "description": "Initial order processing and validation"
+  },
+  {
+    "name": "Call Centers",
+    "description": "Contact vendor call centers for order clarification or issues"
+  },
+  {
+    "name": "Review Order Info",
+    "description": "Detailed review of order information by buyer"
+  },
+  {
+    "name": "Capture Customer Info",
+    "description": "Record or update customer/requester information"
+  },
+  {
+    "name": "Receive Invoice",
+    "description": "Invoice received from vendor (either electronically or physically)"
+  },
+  {
+    "name": "Receive Hard Copy",
+    "description": "Physical invoice or documents received"
+  },
+  {
+    "name": "Update Profile",
+    "description": "Update vendor or customer profile information"
+  },
+  {
+    "name": "Manage Account",
+    "description": "Account management activities and maintenance"
+  },
+  {
+    "name": "Review Invoice",
+    "description": "Detailed review of invoice for accuracy and compliance"
+  },
+  {
+    "name": "Create Payment",
+    "description": "Create payment record in the system"
+  },
+  {
+    "name": "Charge Credit",
+    "description": "Process credit card payment"
+  },
+  {
+    "name": "Notify Client",
+    "description": "Send notification to client/requester about order or payment status"
+  },
+  {
+    "name": "Authorize Payment",
+    "description": "Approval of payment by authorized personnel"
+  },
+  {
+    "name": "Update Customer Balance",
+    "description": "Update the customer's account balance after payment"
+  },
+  {
+    "name": "Make Billing Inquiry",
+    "description": "Query regarding billing or invoice details"
+  },
+  {
+    "name": "Sign In (Payroll Account)",
+    "description": "Access payroll system for payment processing"
+  },
+  {
+    "name": "Pay Cash",
+    "description": "Process cash payment (rare scenario)"
+  },
+  {
+    "name": "Identify or Verify Credit Card Info",
+    "description": "Validate credit card information"
+  },
+  {
+    "name": "Fill in Settlement Info",
+    "description": "Complete settlement details for payment"
+  },
+  {
+    "name": "Manage Payment",
+    "description": "Overall payment management and tracking"
+  },
+  {
+    "name": "Payment Method Selection",
+    "description": "Choose appropriate payment method"
+  },
+  {
+    "name": "Abstract Payment Method",
+    "description": "Abstract payment processing for various methods"
+  },
+  {
+    "name": "Default Payment Method",
+    "description": "Process using default payment configuration"
+  },
+  {
+    "name": "Verify Successful Payment",
+    "description": "Confirm payment has been processed successfully"
+  },
+  {
+    "name": "Cancel Invoice",
+    "description": "Cancel an invoice due to errors or changes"
+  },
+  {
+    "name": "Start Event",
+    "description": "Process initiation marker"
+  },
+  {
+    "name": "End Event",
+    "description": "Process completion marker"
+  },
+  {
+    "name": "Place Order (Credit Card)",
+    "description": "Direct credit card order placement"
+  },
+  {
+    "name": "Receive Order (Credit Card)",
+    "description": "Receive credit card order"
+  },
+  {
+    "name": "Request Payment by Credit Card (Direct)",
+    "description": "Direct credit card payment request"
+  },
+  {
+    "name": "Receive E-Invoice",
+    "description": "Electronic invoice receipt for credit card purchases"
+  }
+]

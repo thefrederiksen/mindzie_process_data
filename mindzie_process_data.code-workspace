@@ -10,6 +10,8 @@
 			"titleBar.activeForeground": "#ffffff",
 			"titleBar.inactiveBackground": "#00ccb1",
 			"titleBar.inactiveForeground": "#cccccc"
-		}
+		},
+		"window.title": "mindzie_process_data",
+		"window.titleBarStyle": "custom"
 	}
 }

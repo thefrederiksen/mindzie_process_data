@@ -1,0 +1,14 @@
+# Mindzie Studio API Configuration
+# Copy this file to .env and fill in your actual values
+
+# Your Mindzie tenant ID
+TENANT_ID=your-tenant-id-here
+
+# Your Mindzie project ID  
+PROJECT_ID=your-project-id-here
+
+# Your Mindzie API key
+API_KEY=your-api-key-here
+
+# Optional: API endpoint (defaults to production)
+# API_ENDPOINT=https://api.mindzie.com/v1

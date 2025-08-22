@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             id="definitions_1"
+             targetNamespace="http://example.org/bpmn"
+             exporter="BPMN Modeler"
+             exporterVersion="1.0">
+
+  <process id="SourceToPayProcess" name="Source to Pay Process" isExecutable="true">
+    
+    <!-- Start Event -->
+    <startEvent id="StartEvent_PlaceOrder" name="Place order">
+      <outgoing>Flow_1</outgoing>
+    </startEvent>
+    
+    <!-- Receive Order -->
+    <task id="Task_ReceiveOrder" name="Receive order">
+      <incoming>Flow_1</incoming>
+      <outgoing>Flow_2</outgoing>
+    </task>
+    
+    <!-- Orders OK Gateway -->
+    <exclusiveGateway id="Gateway_OrdersOk" name="Orders ok?">
+      <incoming>Flow_2</incoming>
+      <outgoing>Flow_3</outgoing>
+      <outgoing>Flow_4</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Call Centers Path -->
+    <task id="Task_CallCenters" name="Call centers">
+      <incoming>Flow_3</incoming>
+      <outgoing>Flow_5</outgoing>
+    </task>
+    
+    <!-- Online Shop Processing -->
+    <task id="Task_ProcessingOrder" name="Processing order">
+      <incoming>Flow_4</incoming>
+      <outgoing>Flow_6</outgoing>
+    </task>
+    
+    <!-- Send Invoice Gateway -->
+    <exclusiveGateway id="Gateway_SendInvoice" name="Send invoice to customer">
+      <incoming>Flow_5</incoming>
+      <incoming>Flow_6</incoming>
+      <outgoing>Flow_7</outgoing>
+      <outgoing>Flow_8</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Invoice Type Abstract -->
+    <task id="Task_InvoiceType" name="Invoice type">
+      <incoming>Flow_7</incoming>
+      <outgoing>Flow_9</outgoing>
+    </task>
+    
+    <!-- Receive E-Invoice -->
+    <task id="Task_ReceiveEInvoice" name="Receive e-invoice">
+      <incoming>Flow_8</incoming>
+      <outgoing>Flow_10</outgoing>
+    </task>
+    
+    <!-- Receive Hard Copy -->
+    <task id="Task_ReceiveHardCopy" name="Receive hard-copy">
+      <incoming>Flow_9</incoming>
+      <outgoing>Flow_11</outgoing>
+    </task>
+    
+    <!-- Capture Customer Info -->
+    <task id="Task_CaptureCustomerInfo" name="Capture customer info">
+      <incoming>Flow_11</incoming>
+      <outgoing>Flow_12</outgoing>
+    </task>
+    
+    <!-- Invoice Received Gateway -->
+    <exclusiveGateway id="Gateway_InvoiceReceived" name="Invoice received">
+      <incoming>Flow_10</incoming>
+      <incoming>Flow_12</incoming>
+      <outgoing>Flow_13</outgoing>
+      <outgoing>Flow_14</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Update Profile -->
+    <task id="Task_UpdateProfile" name="Update profile">
+      <incoming>Flow_13</incoming>
+      <outgoing>Flow_15</outgoing>
+    </task>
+    
+    <!-- Perform Tasks Gateway -->
+    <exclusiveGateway id="Gateway_PerformTasks" name="Perform tasks">
+      <incoming>Flow_14</incoming>
+      <outgoing>Flow_16</outgoing>
+      <outgoing>Flow_17</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Manage Account -->
+    <task id="Task_ManageAccount" name="Manage account">
+      <incoming>Flow_15</incoming>
+      <incoming>Flow_16</incoming>
+      <outgoing>Flow_18</outgoing>
+    </task>
+    
+    <!-- Handcopy Invoice Gateway -->
+    <exclusiveGateway id="Gateway_HandcopyInvoice" name="Handcopy invoice received">
+      <incoming>Flow_17</incoming>
+      <outgoing>Flow_19</outgoing>
+      <outgoing>Flow_20</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Review Invoice -->
+    <task id="Task_ReviewInvoice" name="Review invoice">
+      <incoming>Flow_19</incoming>
+      <outgoing>Flow_21</outgoing>
+    </task>
+    
+    <!-- Create Payment -->
+    <task id="Task_CreatePayment" name="Create payment">
+      <incoming>Flow_18</incoming>
+      <incoming>Flow_20</incoming>
+      <outgoing>Flow_22</outgoing>
+    </task>
+    
+    <!-- Ready to Pay Gateway -->
+    <exclusiveGateway id="Gateway_ReadyToPay" name="Ready to pay?">
+      <incoming>Flow_21</incoming>
+      <incoming>Flow_22</incoming>
+      <outgoing>Flow_23</outgoing>
+      <outgoing>Flow_24</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Make Billing Inquiry -->
+    <task id="Task_MakeBillingInquiry" name="Make billing inquiry">
+      <incoming>Flow_23</incoming>
+      <outgoing>Flow_25</outgoing>
+    </task>
+    
+    <!-- Pay Cash -->
+    <task id="Task_PayCash" name="Pay cash">
+      <incoming>Flow_24</incoming>
+      <outgoing>Flow_26</outgoing>
+    </task>
+    
+    <!-- Paypal Sign In -->
+    <task id="Task_PaypalSignIn" name="Paypal account sign in">
+      <incoming>Flow_25</incoming>
+      <outgoing>Flow_27</outgoing>
+    </task>
+    
+    <!-- Manage Payment Gateway -->
+    <exclusiveGateway id="Gateway_ManagePayment" name="Manage payment">
+      <incoming>Flow_26</incoming>
+      <incoming>Flow_27</incoming>
+      <outgoing>Flow_28</outgoing>
+      <outgoing>Flow_29</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Manage Payment Task -->
+    <task id="Task_ManagePayment" name="Manage payment">
+      <incoming>Flow_28</incoming>
+      <outgoing>Flow_30</outgoing>
+    </task>
+    
+    <!-- Payment Method -->
+    <task id="Task_PaymentMethod" name="Payment method">
+      <incoming>Flow_29</incoming>
+      <outgoing>Flow_31</outgoing>
+    </task>
+    
+    <!-- Identify Credit Card -->
+    <task id="Task_IdentifyCreditCard" name="Identify or verify credit card info">
+      <incoming>Flow_30</incoming>
+      <outgoing>Flow_32</outgoing>
+    </task>
+    
+    <!-- Fill Settlement Info -->
+    <task id="Task_FillSettlementInfo" name="Fill in the settlement info">
+      <incoming>Flow_31</incoming>
+      <outgoing>Flow_33</outgoing>
+    </task>
+    
+    <!-- Charge Credit Gateway -->
+    <exclusiveGateway id="Gateway_ChargeCredit" name="Charge credit">
+      <incoming>Flow_32</incoming>
+      <incoming>Flow_33</incoming>
+      <outgoing>Flow_34</outgoing>
+      <outgoing>Flow_35</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Enough Credit Gateway -->
+    <exclusiveGateway id="Gateway_EnoughCredit" name="Enough credit?">
+      <incoming>Flow_34</incoming>
+      <outgoing>Flow_36</outgoing>
+      <outgoing>Flow_37</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Update Customer Balance -->
+    <task id="Task_UpdateCustomerBalance" name="Update customer balance">
+      <incoming>Flow_35</incoming>
+      <incoming>Flow_36</incoming>
+      <outgoing>Flow_38</outgoing>
+    </task>
+    
+    <!-- Notify Client -->
+    <task id="Task_NotifyClient" name="Notify client">
+      <incoming>Flow_37</incoming>
+      <outgoing>Flow_39</outgoing>
+    </task>
+    
+    <!-- Merge Gateway -->
+    <exclusiveGateway id="Gateway_Merge1">
+      <incoming>Flow_38</incoming>
+      <incoming>Flow_39</incoming>
+      <outgoing>Flow_40</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Authorize Payment -->
+    <task id="Task_AuthorizePayment" name="Authorize payment">
+      <incoming>Flow_40</incoming>
+      <outgoing>Flow_41</outgoing>
+    </task>
+    
+    <!-- Verify Successful Payment Gateway -->
+    <exclusiveGateway id="Gateway_VerifySuccessful" name="Verify successful payment">
+      <incoming>Flow_41</incoming>
+      <outgoing>Flow_42</outgoing>
+      <outgoing>Flow_43</outgoing>
+    </exclusiveGateway>
+    
+    <!-- Cancel Invoice -->
+    <task id="Task_CancelInvoice" name="Cancel invoice">
+      <incoming>Flow_43</incoming>
+      <outgoing>Flow_44</outgoing>
+    </task>
+    
+    <!-- Final Merge Gateway -->
+    <exclusiveGateway id="Gateway_FinalMerge">
+      <incoming>Flow_42</incoming>
+      <incoming>Flow_44</incoming>
+      <outgoing>Flow_45</outgoing>
+    </exclusiveGateway>
+    
+    <!-- End Event -->
+    <endEvent id="EndEvent_1" name="Process completed">
+      <incoming>Flow_45</incoming>
+    </endEvent>
+    
+    <!-- Sequence Flows -->
+    <sequenceFlow id="Flow_1" sourceRef="StartEvent_PlaceOrder" targetRef="Task_ReceiveOrder"/>
+    <sequenceFlow id="Flow_2" sourceRef="Task_ReceiveOrder" targetRef="Gateway_OrdersOk"/>
+    <sequenceFlow id="Flow_3" sourceRef="Gateway_OrdersOk" targetRef="Task_CallCenters"/>
+    <sequenceFlow id="Flow_4" sourceRef="Gateway_OrdersOk" targetRef="Task_ProcessingOrder"/>
+    <sequenceFlow id="Flow_5" sourceRef="Task_CallCenters" targetRef="Gateway_SendInvoice"/>
+    <sequenceFlow id="Flow_6" sourceRef="Task_ProcessingOrder" targetRef="Gateway_SendInvoice"/>
+    <sequenceFlow id="Flow_7" sourceRef="Gateway_SendInvoice" targetRef="Task_InvoiceType"/>
+    <sequenceFlow id="Flow_8" sourceRef="Gateway_SendInvoice" targetRef="Task_ReceiveEInvoice"/>
+    <sequenceFlow id="Flow_9" sourceRef="Task_InvoiceType" targetRef="Task_ReceiveHardCopy"/>
+    <sequenceFlow id="Flow_10" sourceRef="Task_ReceiveEInvoice" targetRef="Gateway_InvoiceReceived"/>
+    <sequenceFlow id="Flow_11" sourceRef="Task_ReceiveHardCopy" targetRef="Task_CaptureCustomerInfo"/>
+    <sequenceFlow id="Flow_12" sourceRef="Task_CaptureCustomerInfo" targetRef="Gateway_InvoiceReceived"/>
+    <sequenceFlow id="Flow_13" sourceRef="Gateway_InvoiceReceived" targetRef="Task_UpdateProfile"/>
+    <sequenceFlow id="Flow_14" sourceRef="Gateway_InvoiceReceived" targetRef="Gateway_PerformTasks"/>
+    <sequenceFlow id="Flow_15" sourceRef="Task_UpdateProfile" targetRef="Task_ManageAccount"/>
+    <sequenceFlow id="Flow_16" sourceRef="Gateway_PerformTasks" targetRef="Task_ManageAccount"/>
+    <sequenceFlow id="Flow_17" sourceRef="Gateway_PerformTasks" targetRef="Gateway_HandcopyInvoice"/>
+    <sequenceFlow id="Flow_18" sourceRef="Task_ManageAccount" targetRef="Task_CreatePayment"/>
+    <sequenceFlow id="Flow_19" sourceRef="Gateway_HandcopyInvoice" targetRef="Task_ReviewInvoice"/>
+    <sequenceFlow id="Flow_20" sourceRef="Gateway_HandcopyInvoice" targetRef="Task_CreatePayment"/>
+    <sequenceFlow id="Flow_21" sourceRef="Task_ReviewInvoice" targetRef="Gateway_ReadyToPay"/>
+    <sequenceFlow id="Flow_22" sourceRef="Task_CreatePayment" targetRef="Gateway_ReadyToPay"/>
+    <sequenceFlow id="Flow_23" sourceRef="Gateway_ReadyToPay" targetRef="Task_MakeBillingInquiry" name="No"/>
+    <sequenceFlow id="Flow_24" sourceRef="Gateway_ReadyToPay" targetRef="Task_PayCash" name="Yes"/>
+    <sequenceFlow id="Flow_25" sourceRef="Task_MakeBillingInquiry" targetRef="Task_PaypalSignIn"/>
+    <sequenceFlow id="Flow_26" sourceRef="Task_PayCash" targetRef="Gateway_ManagePayment"/>
+    <sequenceFlow id="Flow_27" sourceRef="Task_PaypalSignIn" targetRef="Gateway_ManagePayment"/>
+    <sequenceFlow id="Flow_28" sourceRef="Gateway_ManagePayment" targetRef="Task_ManagePayment"/>
+    <sequenceFlow id="Flow_29" sourceRef="Gateway_ManagePayment" targetRef="Task_PaymentMethod"/>
+    <sequenceFlow id="Flow_30" sourceRef="Task_ManagePayment" targetRef="Task_IdentifyCreditCard"/>
+    <sequenceFlow id="Flow_31" sourceRef="Task_PaymentMethod" targetRef="Task_FillSettlementInfo"/>
+    <sequenceFlow id="Flow_32" sourceRef="Task_IdentifyCreditCard" targetRef="Gateway_ChargeCredit"/>
+    <sequenceFlow id="Flow_33" sourceRef="Task_FillSettlementInfo" targetRef="Gateway_ChargeCredit"/>
+    <sequenceFlow id="Flow_34" sourceRef="Gateway_ChargeCredit" targetRef="Gateway_EnoughCredit"/>
+    <sequenceFlow id="Flow_35" sourceRef="Gateway_ChargeCredit" targetRef="Task_UpdateCustomerBalance"/>
+    <sequenceFlow id="Flow_36" sourceRef="Gateway_EnoughCredit" targetRef="Task_UpdateCustomerBalance" name="Yes"/>
+    <sequenceFlow id="Flow_37" sourceRef="Gateway_EnoughCredit" targetRef="Task_NotifyClient" name="No"/>
+    <sequenceFlow id="Flow_38" sourceRef="Task_UpdateCustomerBalance" targetRef="Gateway_Merge1"/>
+    <sequenceFlow id="Flow_39" sourceRef="Task_NotifyClient" targetRef="Gateway_Merge1"/>
+    <sequenceFlow id="Flow_40" sourceRef="Gateway_Merge1" targetRef="Task_AuthorizePayment"/>
+    <sequenceFlow id="Flow_41" sourceRef="Task_AuthorizePayment" targetRef="Gateway_VerifySuccessful"/>
+    <sequenceFlow id="Flow_42" sourceRef="Gateway_VerifySuccessful" targetRef="Gateway_FinalMerge" name="Success"/>
+    <sequenceFlow id="Flow_43" sourceRef="Gateway_VerifySuccessful" targetRef="Task_CancelInvoice" name="Failed"/>
+    <sequenceFlow id="Flow_44" sourceRef="Task_CancelInvoice" targetRef="Gateway_FinalMerge"/>
+    <sequenceFlow id="Flow_45" sourceRef="Gateway_FinalMerge" targetRef="EndEvent_1"/>
+    
+  </process>
+  
+  <!-- BPMN Diagram -->
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="SourceToPayProcess">
+      <bpmndi:BPMNShape id="StartEvent_PlaceOrder_di" bpmnElement="StartEvent_PlaceOrder">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ReceiveOrder_di" bpmnElement="Task_ReceiveOrder">
+        <dc:Bounds x="200" y="80" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_OrdersOk_di" bpmnElement="Gateway_OrdersOk" isMarkerVisible="true">
+        <dc:Bounds x="350" y="95" width="50" height="50"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="136" y="118"/>
+        <di:waypoint x="200" y="120"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  
+</definitions>

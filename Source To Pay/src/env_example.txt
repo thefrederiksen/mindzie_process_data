@@ -1,0 +1,17 @@
+# Mindzie Studio Configuration
+# Copy this file to .env and fill in your actual values
+
+TENANT_ID=your-tenant-id-here
+PROJECT_ID=your-project-id-here
+API_KEY=your-api-key-here
+
+# Example values:
+# TENANT_ID=abc123
+# PROJECT_ID=def456
+# API_KEY=ghi789xyz
+
+# To get these values:
+# 1. Log into Mindzie Studio (https://www.mindziestudio.com)
+# 2. Go to your project settings
+# 3. Find the API section for your tenant and project IDs
+# 4. Generate an API key if needed

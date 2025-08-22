@@ -2,33 +2,9 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## VS Code Title Bar Color Instructions
-
-To change the VS Code title bar color for this workspace, update the workspace file (.code-workspace) with:
-
-```json
-"settings": {
-    "workbench.colorCustomizations": {
-        "titleBar.activeBackground": "#COLOR_HEX",
-        "titleBar.activeForeground": "#ffffff",
-        "titleBar.inactiveBackground": "#DARKER_COLOR_HEX",
-        "titleBar.inactiveForeground": "#e3e3e3"
-    }
-}
-```
-
-Color suggestions:
-- Blue: #1a73e8 (inactive: #135db5)
-- Green: #2e7d32 (inactive: #1b5e20)
-- Purple: #7b1fa2 (inactive: #4a148c)
-- Orange: #ef6c00 (inactive: #bf360c)
-- Red: #c62828 (inactive: #8e0000)
-- Teal: #00796b (inactive: #004d40)
-- Pink: #c2185b (inactive: #880e4f)
-
 ## Repository Overview
 
-This repository contains process mining datasets and projects for research and education. The main focus is on demonstrating real-time process flow monitoring using process mining techniques. Currently features an Emergency Department project with plans for additional process mining datasets (SAP Accounts Payable and others).
+Process mining datasets and projects repository for research and education, demonstrating real-time process flow monitoring using process mining techniques.
 
 ## Key Architecture
 
@@ -37,13 +13,12 @@ This repository contains process mining datasets and projects for research and e
 - **Current State Dataset**: Real-time process flow monitoring (daily data with open cases)
 
 ### Project Structure Pattern
-Each process mining project follows this structure:
 ```
 [domain_name]/
 ├── docs/                    # Process specifications and documentation
 ├── src/                     # Data generation and upload scripts
 │   └── output/             # Generated datasets (CSV/JSON)
-├── mindzie_studio/         # Mindzie Studio project files
+├── mindzie_studio/         # Mindzie Studio project files (.mpz, .mcl files)
 └── README.md               # Project-specific documentation
 ```
 
@@ -51,8 +26,10 @@ Each process mining project follows this structure:
 
 ### Data Generation
 ```bash
+# Navigate to project src directory first
+cd "[Project Name]/src"
+
 # Generate historical dataset (1-2 years of completed cases)
-cd "Emergency Department/src"
 python historical_event_log.py
 
 # Generate current state dataset (daily snapshot with open cases)
@@ -64,7 +41,7 @@ python daily_event_log_stats.py
 ```
 
 ### Mindzie Studio Integration
-Before uploading datasets, create a `.env` file in the project's `src` directory:
+Create `.env` file in project's `src` directory:
 ```
 TENANT_ID=your-tenant-id-here
 PROJECT_ID=your-project-id-here
@@ -77,16 +54,18 @@ python daily_dataset_upload.py
 python historical_dataset_upload.py
 ```
 
-### Testing
-No specific test framework is configured. Verify data generation by:
-1. Running the statistics scripts to check data quality
-2. Reviewing generated CSV/JSON files in `src/output/`
-3. Testing uploads to Mindzie Studio
+### Data Validation (Hire to Retire project)
+```bash
+cd "Hire to Retire/src"
+python data_validator.py
+python enhanced_data_validator.py
+python final_validator.py
+```
 
 ## Key Technical Details
 
 ### Dependencies
-- Python 3.7+ (standard library only for core functionality)
+- Python 3.7+ (standard library for core functionality)
 - `requests` library for API uploads
 - `python-dotenv` for environment configuration
 - Fixed random seed (42) for reproducible data generation
@@ -96,37 +75,44 @@ Event logs contain:
 - **CaseId**: Unique identifier for each process instance
 - **ActivityName**: Process step completed
 - **ActivityTime**: ISO 8601 timestamp
-- **Additional attributes**: Domain-specific (PatientID, age, etc.)
+- **Additional attributes**: Domain-specific (PatientID, EmployeeID, etc.)
 
 ### FreezeTime Concept
 Current state datasets use a "FreezeTime" - a snapshot timestamp for calculating waiting times and determining which cases are in-progress vs completed.
 
-## Important Patterns
-
-### Creating New Process Mining Datasets
-Follow the structure defined in `agent_instructions.md`:
-1. Create directory structure following the pattern
-2. Define activities in `activities.json`
-3. Implement data generators based on Emergency Department examples
-4. Create process specifications in `docs/`
-5. Generate MCL files for Mindzie Studio stages
-
-### Code Style
-- Use descriptive variable names
-- Include docstrings for main functions
-- Handle errors gracefully in upload scripts
-- Maintain consistent timestamp formats (ISO 8601)
-- Keep random seed fixed (42) for reproducibility
+### Resource Performance Modeling
+Data generators include realistic performance variations:
+- Individual resource performance factors (e.g., PERFORMANCE_FACTORS dictionary)
+- Time-based patterns (business hours, weekday variations)
+- Bottleneck injection for specific resources/activities
 
 ## Current Projects
 
 ### Emergency Department
 - Complete implementation with real-time monitoring
 - 16 key activities tracking patient flow
-- Demonstrates waiting time alerts and bottleneck identification
+- Waiting time alerts and bottleneck identification
+- Resources: doctors, nurses, clerks, technicians
 - Location: `Emergency Department/`
 
-### SAP Accounts Payable (In Progress)
+### SAP Accounts Payable
 - Finance domain process mining dataset
-- Currently only specifications defined
+- Invoice processing workflow (PO-based and non-PO)
+- 15+ activities from invoice receipt to payment
 - Location: `SAP Accounts Payable/`
+
+### Hire to Retire
+- HR process lifecycle from recruitment to termination
+- Complex validation scripts for data quality
+- Performance bottlenecks in equipment and reviews
+- Location: `Hire to Retire/`
+
+## Creating New Process Mining Datasets
+
+1. Create directory structure following the pattern
+2. Define activities in `activities.json`
+3. Implement data generators based on existing examples
+4. Include resource pools and performance factors
+5. Create process specifications in `docs/`
+6. Generate MCL files for Mindzie Studio stages
+7. Implement validation scripts if needed

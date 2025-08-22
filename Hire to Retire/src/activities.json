@@ -1,0 +1,326 @@
+{
+  "activities": [
+    {
+      "name": "Job Posted",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "Position advertised and posted to job boards",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Application Received",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "Candidate submits application through portal",
+      "typical_duration_hours": 0.25
+    },
+    {
+      "name": "Application Screened",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "Initial screening of application against requirements",
+      "typical_duration_hours": 2
+    },
+    {
+      "name": "Phone Interview Scheduled",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "Phone screening interview scheduled with candidate",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Phone Interview Completed",
+      "category": "Recruitment",
+      "responsible": "Joint",
+      "description": "Initial phone screening conducted",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "Onsite Interview Scheduled",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "In-person or video interview scheduled",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Onsite Interview Completed",
+      "category": "Recruitment",
+      "responsible": "Joint",
+      "description": "Technical and behavioral interviews conducted",
+      "typical_duration_hours": 4
+    },
+    {
+      "name": "Reference Check Completed",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "Professional references verified",
+      "typical_duration_hours": 3
+    },
+    {
+      "name": "Background Check Initiated",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "Criminal and employment background check started",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Background Check Completed",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "Background verification completed",
+      "typical_duration_hours": 72
+    },
+    {
+      "name": "Offer Extended",
+      "category": "Recruitment",
+      "responsible": "Joint",
+      "description": "Job offer made to candidate",
+      "typical_duration_hours": 2
+    },
+    {
+      "name": "Offer Accepted",
+      "category": "Recruitment",
+      "responsible": "XYZ Company",
+      "description": "Candidate accepts position",
+      "typical_duration_hours": 48
+    },
+    {
+      "name": "Onboarding Started",
+      "category": "Onboarding",
+      "responsible": "XYZ Company",
+      "description": "New hire onboarding process begins",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Documents Submitted",
+      "category": "Onboarding",
+      "responsible": "XYZ Company",
+      "description": "I-9, tax forms, and other documents collected",
+      "typical_duration_hours": 2
+    },
+    {
+      "name": "Benefits Enrolled",
+      "category": "Onboarding",
+      "responsible": "XYZ Company",
+      "description": "Health, dental, 401k enrollment completed",
+      "typical_duration_hours": 3
+    },
+    {
+      "name": "Equipment Requested",
+      "category": "Onboarding",
+      "responsible": "Customer Organization",
+      "description": "IT equipment request submitted",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Equipment Assigned",
+      "category": "Onboarding",
+      "responsible": "Customer Organization",
+      "description": "Laptop, phone, and access badges provided",
+      "typical_duration_hours": 4
+    },
+    {
+      "name": "System Access Granted",
+      "category": "Onboarding",
+      "responsible": "Customer Organization",
+      "description": "Email, applications, and network access provisioned",
+      "typical_duration_hours": 2
+    },
+    {
+      "name": "Orientation Completed",
+      "category": "Onboarding",
+      "responsible": "Joint",
+      "description": "Company orientation and training completed",
+      "typical_duration_hours": 8
+    },
+    {
+      "name": "Manager Introduction",
+      "category": "Onboarding",
+      "responsible": "Customer Organization",
+      "description": "Meeting with direct manager and team",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "30-Day Check-in",
+      "category": "Onboarding",
+      "responsible": "Joint",
+      "description": "First month progress review",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "60-Day Check-in",
+      "category": "Onboarding",
+      "responsible": "Joint",
+      "description": "Second month progress review",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "Probation Completed",
+      "category": "Onboarding",
+      "responsible": "Joint",
+      "description": "90-day probation period successfully completed",
+      "typical_duration_hours": 2
+    },
+    {
+      "name": "Performance Review",
+      "category": "Employment",
+      "responsible": "Customer Organization",
+      "description": "Annual performance evaluation completed",
+      "typical_duration_hours": 3
+    },
+    {
+      "name": "Salary Review",
+      "category": "Employment",
+      "responsible": "Joint",
+      "description": "Compensation review and adjustment",
+      "typical_duration_hours": 2
+    },
+    {
+      "name": "Promotion Approved",
+      "category": "Employment",
+      "responsible": "Joint",
+      "description": "Role advancement or level change approved",
+      "typical_duration_hours": 4
+    },
+    {
+      "name": "Transfer Requested",
+      "category": "Employment",
+      "responsible": "XYZ Company",
+      "description": "Internal transfer to different department/location",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "Transfer Approved",
+      "category": "Employment",
+      "responsible": "Joint",
+      "description": "Transfer request approved and processed",
+      "typical_duration_hours": 3
+    },
+    {
+      "name": "Leave Requested",
+      "category": "Employment",
+      "responsible": "XYZ Company",
+      "description": "Time off or leave of absence requested",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Leave Approved",
+      "category": "Employment",
+      "responsible": "Customer Organization",
+      "description": "Leave request approved by manager",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "Training Enrolled",
+      "category": "Employment",
+      "responsible": "XYZ Company",
+      "description": "Enrolled in professional development program",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Training Completed",
+      "category": "Employment",
+      "responsible": "XYZ Company",
+      "description": "Learning program or certification completed",
+      "typical_duration_hours": 40
+    },
+    {
+      "name": "Disciplinary Action",
+      "category": "Employment",
+      "responsible": "Joint",
+      "description": "Performance improvement plan or disciplinary measure",
+      "typical_duration_hours": 3
+    },
+    {
+      "name": "Resignation Submitted",
+      "category": "Exit",
+      "responsible": "Joint",
+      "description": "Employee submits resignation notice",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Exit Interview Scheduled",
+      "category": "Exit",
+      "responsible": "XYZ Company",
+      "description": "Exit interview appointment set",
+      "typical_duration_hours": 0.25
+    },
+    {
+      "name": "Exit Interview Completed",
+      "category": "Exit",
+      "responsible": "XYZ Company",
+      "description": "Exit interview conducted and feedback collected",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "Equipment Returned",
+      "category": "Exit",
+      "responsible": "Customer Organization",
+      "description": "Company property returned",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "System Access Revoked",
+      "category": "Exit",
+      "responsible": "Customer Organization",
+      "description": "All system and facility access terminated",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Final Paycheck Processed",
+      "category": "Exit",
+      "responsible": "XYZ Company",
+      "description": "Final salary and benefits payout",
+      "typical_duration_hours": 2
+    },
+    {
+      "name": "Employment Ended",
+      "category": "Exit",
+      "responsible": "XYZ Company",
+      "description": "Employment officially terminated in system",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Application Rejected",
+      "category": "Rejection",
+      "responsible": "XYZ Company",
+      "description": "Application does not meet requirements",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Interview Failed",
+      "category": "Rejection",
+      "responsible": "Joint",
+      "description": "Candidate not selected after interviews",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "Background Check Failed",
+      "category": "Rejection",
+      "responsible": "XYZ Company",
+      "description": "Failed background verification",
+      "typical_duration_hours": 0.5
+    },
+    {
+      "name": "Offer Rejected",
+      "category": "Rejection",
+      "responsible": "XYZ Company",
+      "description": "Candidate declines job offer",
+      "typical_duration_hours": 1
+    },
+    {
+      "name": "Probation Failed",
+      "category": "Rejection",
+      "responsible": "Joint",
+      "description": "Employee does not pass probation period",
+      "typical_duration_hours": 2
+    },
+    {
+      "name": "Termination Initiated",
+      "category": "Exit",
+      "responsible": "Joint",
+      "description": "Involuntary termination process started",
+      "typical_duration_hours": 2
+    }
+  ]
+}
