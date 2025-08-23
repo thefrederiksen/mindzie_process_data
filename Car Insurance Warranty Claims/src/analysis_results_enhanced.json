@@ -1,0 +1,634 @@
+{
+  "dataset_overview": {
+    "total_cases": 1443,
+    "total_events": 6890,
+    "date_range": {
+      "start_date": "2024-09-01",
+      "end_date": "2024-12-05",
+      "duration_days": 95
+    },
+    "activities": {
+      "unique_activities": 12,
+      "activity_list": [
+        "Approve Settlement",
+        "Assignment",
+        "Claim Closure",
+        "Claim Investigation",
+        "Damage Assessment",
+        "First Notice of Loss",
+        "Generate Payment Confirmation",
+        "Liability Determination",
+        "Payment Processing",
+        "Request Documentation",
+        "Resolution and Settlement",
+        "Verify Coverage"
+      ],
+      "activity_frequency": {
+        "Verify Coverage": 1446,
+        "First Notice of Loss": 1443,
+        "Approve Settlement": 1190,
+        "Damage Assessment": 793,
+        "Liability Determination": 693,
+        "Request Documentation": 672,
+        "Resolution and Settlement": 202,
+        "Claim Investigation": 181,
+        "Assignment": 123,
+        "Payment Processing": 83,
+        "Claim Closure": 54,
+        "Generate Payment Confirmation": 10
+      }
+    },
+    "resources": {
+      "unique_resources": 37,
+      "resource_list": [
+        "ApprovalManager",
+        "AutoApproval",
+        "AutoDenial",
+        "AutoFraudSystem",
+        "AutoPayment",
+        "AutoValidator",
+        "ComplianceTeam",
+        "CoverageAnalyst1",
+        "CoverageAnalyst2",
+        "CoverageAnalyst3",
+        "DealerRep1",
+        "DealerRep2",
+        "DealerRep3",
+        "DealerTech1",
+        "DealerTech2",
+        "DealerTech3",
+        "DealerTech4",
+        "DenialSpecialist",
+        "FinanceTeam",
+        "FraudAnalyst",
+        "LaborAnalyst1",
+        "LaborAnalyst2",
+        "LaborAnalyst3",
+        "Manager",
+        "OnlinePortal",
+        "PartsCatalog",
+        "PartsSpecialist1",
+        "PartsSpecialist2",
+        "PartsSpecialist3",
+        "PaymentProcessor",
+        "QualityAuditor",
+        "RiskTeam",
+        "SeniorApprover",
+        "SeniorAuditor",
+        "SeniorReviewer",
+        "TechExpert1",
+        "TechExpert2"
+      ],
+      "resource_workload": {
+        "ApprovalManager": 405,
+        "AutoApproval": 403,
+        "AutoValidator": 402,
+        "CoverageAnalyst3": 389,
+        "SeniorApprover": 382,
+        "DealerRep1": 379,
+        "CoverageAnalyst2": 375,
+        "DealerRep2": 362,
+        "DealerRep3": 353,
+        "OnlinePortal": 349,
+        "CoverageAnalyst1": 334,
+        "LaborAnalyst3": 247,
+        "LaborAnalyst2": 228,
+        "LaborAnalyst1": 218,
+        "DealerTech2": 211,
+        "DealerTech4": 209,
+        "DealerTech3": 189,
+        "DealerTech1": 184,
+        "PartsSpecialist2": 181,
+        "PartsCatalog": 180,
+        "PartsSpecialist1": 166,
+        "PartsSpecialist3": 145,
+        "Manager": 71,
+        "DenialSpecialist": 70,
+        "TechExpert1": 66,
+        "SeniorReviewer": 63,
+        "AutoDenial": 61,
+        "TechExpert2": 52,
+        "AutoFraudSystem": 46,
+        "FraudAnalyst": 43,
+        "RiskTeam": 34,
+        "PaymentProcessor": 31,
+        "AutoPayment": 26,
+        "FinanceTeam": 26,
+        "SeniorAuditor": 4,
+        "QualityAuditor": 3,
+        "ComplianceTeam": 3
+      }
+    },
+    "systems": {
+      "unique_systems": 4,
+      "system_distribution": {
+        "System2_SAP": 2073,
+        "System4_Manual": 1717,
+        "System1_Legacy": 1679,
+        "System3_Cloud": 1421
+      }
+    },
+    "business_attributes": {
+      "vehicle_makes": {
+        "Chevrolet": 985,
+        "Ford": 929,
+        "Toyota": 913,
+        "Honda": 741,
+        "Nissan": 519,
+        "Audi": 370,
+        "Kia": 353,
+        "BMW": 321,
+        "Hyundai": 318,
+        "Volkswagen": 269,
+        "Mercedes": 265,
+        "Jeep": 249,
+        "Subaru": 232,
+        "Mazda": 223,
+        "Ram": 203
+      },
+      "dealer_regions": {
+        "Southeast": 1787,
+        "Midwest": 1417,
+        "West": 1381,
+        "Northeast": 1289,
+        "Southwest": 1016
+      },
+      "contract_types": {
+        "DOWC": 1659,
+        "TransmissionPlus": 1448,
+        "TechShield": 1378,
+        "BasicWarranty": 1354,
+        "PremiumCare": 1051
+      },
+      "claim_value_stats": {
+        "mean": 4119.690667634252,
+        "median": 3171.0,
+        "std": 3208.8481032308246,
+        "min": 251.0,
+        "max": 15000.0
+      }
+    },
+    "case_completion": {
+      "completed_cases": 1443,
+      "pending_cases": 0,
+      "completion_rate": 100.0
+    }
+  },
+  "process_performance": {
+    "case_processing_times": {
+      "average_hours": 32.37966832216832,
+      "median_hours": 24.6575,
+      "min_hours": 0.6044444444444445,
+      "max_hours": 163.23166666666665,
+      "std_dev_hours": 33.120921857434276,
+      "percentile_25": 0.8955555555555555,
+      "percentile_75": 51.815,
+      "percentile_90": 77.34033333333333,
+      "percentile_95": 94.77163888888889
+    },
+    "case_complexity": {
+      "simple": 596,
+      "moderate": 584,
+      "complex": 263
+    },
+    "straight_through_processing": {
+      "count": 539,
+      "rate_percentage": 37.35273735273735,
+      "target_rate": 60,
+      "current_vs_target": -22.64726264726265
+    },
+    "approval_rates": {
+      "approved_count": 1190,
+      "denied_count": 202,
+      "pending_count": 51,
+      "approval_rate": 82.46708246708246,
+      "denial_rate": 13.998613998614,
+      "pending_rate": 3.5343035343035343
+    },
+    "activity_performance": {
+      "First Notice of Loss": {
+        "count": 1443,
+        "avg_time_to_next_hours": 3.0727979902979903,
+        "median_time_to_next_hours": 0.2861111111111111,
+        "max_time_to_next_hours": 24.2825,
+        "resource_diversity": 4
+      },
+      "Verify Coverage": {
+        "count": 1446,
+        "avg_time_to_next_hours": 0.554061203319502,
+        "median_time_to_next_hours": 0.5556944444444445,
+        "max_time_to_next_hours": 0.7,
+        "resource_diversity": 4
+      },
+      "Approve Settlement": {
+        "count": 1190,
+        "avg_time_to_next_hours": 0.42269444444444443,
+        "median_time_to_next_hours": 0.27625,
+        "max_time_to_next_hours": 13.707777777777778,
+        "resource_diversity": 3
+      },
+      "Damage Assessment": {
+        "count": 793,
+        "avg_time_to_next_hours": 43.34177420484797,
+        "median_time_to_next_hours": 42.795833333333334,
+        "max_time_to_next_hours": 119.8463888888889,
+        "resource_diversity": 4
+      },
+      "Request Documentation": {
+        "count": 672,
+        "avg_time_to_next_hours": 3.244890873015873,
+        "median_time_to_next_hours": 1.5747222222222224,
+        "max_time_to_next_hours": 39.80305555555555,
+        "resource_diversity": 4
+      },
+      "Liability Determination": {
+        "count": 693,
+        "avg_time_to_next_hours": 2.065436507936508,
+        "median_time_to_next_hours": 0.8525,
+        "max_time_to_next_hours": 39.21222222222222,
+        "resource_diversity": 3
+      },
+      "Claim Investigation": {
+        "count": 181,
+        "avg_time_to_next_hours": 15.04555095150399,
+        "median_time_to_next_hours": 17.09638888888889,
+        "max_time_to_next_hours": 48.43194444444445,
+        "resource_diversity": 3
+      },
+      "Claim Closure": {
+        "count": 54,
+        "avg_time_to_next_hours": 2.2667592592592594,
+        "median_time_to_next_hours": 2.1038888888888887,
+        "max_time_to_next_hours": 2.7394444444444446,
+        "resource_diversity": 4
+      },
+      "Payment Processing": {
+        "count": 83,
+        "avg_time_to_next_hours": 0.26462962962962966,
+        "median_time_to_next_hours": 0.23194444444444445,
+        "max_time_to_next_hours": 0.3358333333333333,
+        "resource_diversity": 3
+      },
+      "Assignment": {
+        "count": 123,
+        "avg_time_to_next_hours": 5.998527551942186,
+        "median_time_to_next_hours": 2.5619444444444444,
+        "max_time_to_next_hours": 40.11555555555555,
+        "resource_diversity": 3
+      }
+    }
+  },
+  "bottleneck_analysis": {
+    "resource_bottlenecks": {
+      "DealerTech3": {
+        "activity": "Damage Assessment",
+        "event_count": 189,
+        "avg_duration_hours": 65.71972517730497,
+        "overall_avg_duration_hours": 43.28170805274972,
+        "performance_factor": 1.5184180138456838,
+        "expected_factor": 0.6,
+        "bottleneck_confirmed": true,
+        "impact_severity": "High",
+        "median_duration_hours": 70.31875,
+        "max_duration_hours": 119.8463888888889,
+        "duration_std": 29.410536538086735
+      },
+      "LaborAnalyst1": {
+        "activity": "Liability Determination",
+        "event_count": 218,
+        "avg_duration_hours": 3.2197235023041473,
+        "overall_avg_duration_hours": 2.0672499197174052,
+        "performance_factor": 1.5574911729803265,
+        "expected_factor": 0.7,
+        "bottleneck_confirmed": true,
+        "impact_severity": "High",
+        "median_duration_hours": 1.1727777777777777,
+        "max_duration_hours": 39.21222222222222,
+        "duration_std": 6.745005022299198
+      },
+      "TechExpert1": {
+        "activity": "Claim Investigation",
+        "event_count": 66,
+        "avg_duration_hours": 21.369751683501683,
+        "overall_avg_duration_hours": 15.04555095150399,
+        "performance_factor": 1.4203369323185542,
+        "expected_factor": 0.5,
+        "bottleneck_confirmed": true,
+        "impact_severity": "Medium",
+        "median_duration_hours": 20.99125,
+        "max_duration_hours": 48.43194444444445,
+        "duration_std": 11.225085029736176
+      },
+      "FraudAnalyst": {
+        "activity": "Assignment",
+        "event_count": 43,
+        "avg_duration_hours": 7.377480620155039,
+        "overall_avg_duration_hours": 6.038520036429873,
+        "performance_factor": 1.2217365473075077,
+        "expected_factor": 0.6,
+        "bottleneck_confirmed": true,
+        "impact_severity": "Medium",
+        "median_duration_hours": 3.4758333333333336,
+        "max_duration_hours": 18.275833333333335,
+        "duration_std": 6.616888468242357
+      }
+    },
+    "activity_bottlenecks": {
+      "Verify Coverage": {
+        "event_count": 1446,
+        "avg_waiting_time_hours": 3.0711257107730137,
+        "max_waiting_time_hours": 24.2825,
+        "median_waiting_time_hours": 0.2863888888888889,
+        "waiting_time_std": 6.881762690071307,
+        "bottleneck_risk": "Low",
+        "percentile_90_waiting": 18.051944444444445
+      },
+      "Approve Settlement": {
+        "event_count": 1190,
+        "avg_waiting_time_hours": 3.040280578898226,
+        "max_waiting_time_hours": 48.43194444444445,
+        "median_waiting_time_hours": 0.6655555555555556,
+        "waiting_time_std": 6.824652200865293,
+        "bottleneck_risk": "Low",
+        "percentile_90_waiting": 14.249833333333333
+      },
+      "Damage Assessment": {
+        "event_count": 793,
+        "avg_waiting_time_hours": 0.5533743169398907,
+        "max_waiting_time_hours": 0.7,
+        "median_waiting_time_hours": 0.5561111111111111,
+        "waiting_time_std": 0.08660532110086054,
+        "bottleneck_risk": "Low",
+        "percentile_90_waiting": 0.6707777777777778
+      },
+      "Request Documentation": {
+        "event_count": 672,
+        "avg_waiting_time_hours": 43.024711888227515,
+        "max_waiting_time_hours": 119.8463888888889,
+        "median_waiting_time_hours": 42.31125,
+        "waiting_time_std": 25.677108061836293,
+        "bottleneck_risk": "High",
+        "percentile_90_waiting": 74.74480555555556
+      },
+      "Liability Determination": {
+        "event_count": 693,
+        "avg_waiting_time_hours": 8.468520121853455,
+        "max_waiting_time_hours": 114.85027777777778,
+        "median_waiting_time_hours": 1.646111111111111,
+        "waiting_time_std": 17.405413005686825,
+        "bottleneck_risk": "Medium",
+        "percentile_90_waiting": 26.37916666666668
+      },
+      "Resolution and Settlement": {
+        "event_count": 202,
+        "avg_waiting_time_hours": 11.240093509350935,
+        "max_waiting_time_hours": 75.04583333333333,
+        "median_waiting_time_hours": 1.5929166666666665,
+        "waiting_time_std": 18.41090893215713,
+        "bottleneck_risk": "Medium",
+        "percentile_90_waiting": 43.33558333333333
+      },
+      "Claim Investigation": {
+        "event_count": 181,
+        "avg_waiting_time_hours": 1.95737722529159,
+        "max_waiting_time_hours": 38.7325,
+        "median_waiting_time_hours": 0.8816666666666667,
+        "waiting_time_std": 5.345135686246884,
+        "bottleneck_risk": "Low",
+        "percentile_90_waiting": 1.3177777777777777
+      },
+      "Claim Closure": {
+        "event_count": 54,
+        "avg_waiting_time_hours": 2.5923611111111113,
+        "max_waiting_time_hours": 18.828333333333333,
+        "median_waiting_time_hours": 1.1769444444444446,
+        "waiting_time_std": 4.570726586241659,
+        "bottleneck_risk": "Low",
+        "percentile_90_waiting": 3.337194444444446
+      },
+      "Payment Processing": {
+        "event_count": 83,
+        "avg_waiting_time_hours": 0.27441767068273093,
+        "max_waiting_time_hours": 0.35,
+        "median_waiting_time_hours": 0.27666666666666667,
+        "waiting_time_std": 0.04263128257804538,
+        "bottleneck_risk": "Low",
+        "percentile_90_waiting": 0.32966666666666666
+      },
+      "Generate Payment Confirmation": {
+        "event_count": 10,
+        "avg_waiting_time_hours": 1.6059722222222224,
+        "max_waiting_time_hours": 13.707777777777778,
+        "median_waiting_time_hours": 0.2498611111111111,
+        "waiting_time_std": 4.252356583092917,
+        "bottleneck_risk": "Low",
+        "percentile_90_waiting": 1.6730277777777731
+      },
+      "Assignment": {
+        "event_count": 123,
+        "avg_waiting_time_hours": 5.2142682926829265,
+        "max_waiting_time_hours": 41.87722222222222,
+        "median_waiting_time_hours": 0.9083333333333333,
+        "waiting_time_std": 8.69711767596579,
+        "bottleneck_risk": "Low",
+        "percentile_90_waiting": 18.226055555555554
+      }
+    },
+    "system_bottlenecks": {
+      "System2_SAP": {
+        "event_count": 2073,
+        "avg_processing_time_hours": 8.74256118822504,
+        "reliability_score": 100,
+        "activity_diversity": 12
+      },
+      "System3_Cloud": {
+        "event_count": 1421,
+        "avg_processing_time_hours": 8.860017640628106,
+        "reliability_score": 100,
+        "activity_diversity": 12
+      },
+      "System1_Legacy": {
+        "event_count": 1679,
+        "avg_processing_time_hours": 8.65605338275392,
+        "reliability_score": 100,
+        "activity_diversity": 12
+      },
+      "System4_Manual": {
+        "event_count": 1717,
+        "avg_processing_time_hours": 8.073424098440546,
+        "reliability_score": 100,
+        "activity_diversity": 12
+      }
+    }
+  },
+  "fraud_analysis": {
+    "fraud_risk_distribution": {
+      "total_cases_scored": 1443,
+      "avg_fraud_score": 0.29943243243243245,
+      "median_fraud_score": 0.268,
+      "max_fraud_score": 0.977,
+      "high_risk_cases": 42,
+      "medium_risk_cases": 573,
+      "low_risk_cases": 828,
+      "fraud_score_std": 0.17978095425625207
+    },
+    "high_value_claims": {
+      "count": 388,
+      "avg_fraud_score": 0.29049484536082476,
+      "avg_claim_value": 8312.975515463917,
+      "high_risk_high_value": 11
+    },
+    "regional_fraud_patterns": {
+      "Southwest": {
+        "case_count": 209,
+        "avg_fraud_score": 0.299200956937799,
+        "high_risk_rate": 2.3923444976076556
+      },
+      "West": {
+        "case_count": 292,
+        "avg_fraud_score": 0.3010958904109589,
+        "high_risk_rate": 3.4246575342465753
+      },
+      "Midwest": {
+        "case_count": 294,
+        "avg_fraud_score": 0.2943265306122449,
+        "high_risk_rate": 2.7210884353741496
+      },
+      "Northeast": {
+        "case_count": 271,
+        "avg_fraud_score": 0.2988671586715867,
+        "high_risk_rate": 1.8450184501845017
+      },
+      "Southeast": {
+        "case_count": 377,
+        "avg_fraud_score": 0.3026604774535809,
+        "high_risk_rate": 3.7135278514588856
+      }
+    },
+    "dealer_risk_analysis": {
+      "Expert Center (West)": {
+        "case_count": 14,
+        "avg_fraud_score": 0.4823571428571429,
+        "high_risk_rate": 21.428571428571427,
+        "risk_category": "Medium"
+      },
+      "Expert Center (Southwest)": {
+        "case_count": 7,
+        "avg_fraud_score": 0.45785714285714285,
+        "high_risk_rate": 14.285714285714285,
+        "risk_category": "Medium"
+      },
+      "Superior Center (Northeast)": {
+        "case_count": 10,
+        "avg_fraud_score": 0.4177,
+        "high_risk_rate": 0.0,
+        "risk_category": "Medium"
+      },
+      "Superior Repair (Northeast)": {
+        "case_count": 8,
+        "avg_fraud_score": 0.41575,
+        "high_risk_rate": 0.0,
+        "risk_category": "Medium"
+      },
+      "Elite Center (Midwest)": {
+        "case_count": 13,
+        "avg_fraud_score": 0.41084615384615386,
+        "high_risk_rate": 15.384615384615385,
+        "risk_category": "Medium"
+      },
+      "Quality Automotive (Southeast)": {
+        "case_count": 9,
+        "avg_fraud_score": 0.40844444444444444,
+        "high_risk_rate": 0.0,
+        "risk_category": "Medium"
+      },
+      "Elite Motors (Southwest)": {
+        "case_count": 11,
+        "avg_fraud_score": 0.4032727272727273,
+        "high_risk_rate": 0.0,
+        "risk_category": "Medium"
+      },
+      "Expert Service (Midwest)": {
+        "case_count": 13,
+        "avg_fraud_score": 0.40215384615384614,
+        "high_risk_rate": 0.0,
+        "risk_category": "Medium"
+      },
+      "Premier Automotive (Midwest)": {
+        "case_count": 10,
+        "avg_fraud_score": 0.4002,
+        "high_risk_rate": 20.0,
+        "risk_category": "Medium"
+      },
+      "Premier Motors (Northeast)": {
+        "case_count": 5,
+        "avg_fraud_score": 0.3914,
+        "high_risk_rate": 0.0,
+        "risk_category": "Medium"
+      }
+    },
+    "investigation_effectiveness": {
+      "total_investigations": 123,
+      "confirmed_fraud_cases": 5,
+      "fraud_confirmation_rate": 4.0650406504065035,
+      "investigation_rate": 8.523908523908524
+    }
+  },
+  "kpis": {
+    "average_claim_processing_time": {
+      "current_hours": 32.37966832216832,
+      "target_hours": 48,
+      "current_vs_target_hours": -15.620331677831679,
+      "performance": "Above Target",
+      "sla_compliance_rate": 67.56756756756756,
+      "cases_within_sla": 975,
+      "total_cases": 1443
+    },
+    "straight_through_processing_rate": {
+      "current_percentage": 37.35273735273735,
+      "target_percentage": 60,
+      "gap_to_target": -22.64726264726265,
+      "performance": "Below Target",
+      "straight_through_count": 539,
+      "total_cases": 1443
+    },
+    "first_time_approval_rate": {
+      "current_percentage": 82.32848232848234,
+      "target_percentage": 85,
+      "gap_to_target": -2.6715176715176625,
+      "performance": "Below Target",
+      "first_time_approvals": 1188,
+      "rework_cases": 2,
+      "rework_rate": 0.1386001386001386
+    },
+    "fraud_detection_rate": {
+      "current_percentage": 0.0,
+      "target_percentage": 95,
+      "gap_to_target": -95.0,
+      "performance": "Below Target",
+      "true_positives": 0,
+      "false_positives": 42,
+      "false_negatives": 5,
+      "precision_percentage": 0.0
+    },
+    "cost_per_claim": {
+      "current_usd": 16.71171171171171,
+      "target_usd": 25,
+      "gap_to_target": -8.288288288288289,
+      "performance": "Above Target",
+      "total_estimated_cost": 24115.0,
+      "cost_breakdown": {
+        "simple_cases": 6258.0,
+        "moderate_cases": 10220.0,
+        "complex_cases": 9205
+      }
+    },
+    "customer_satisfaction_proxy": {
+      "quick_resolution_rate": 48.510048510048506,
+      "target_percentage": 40,
+      "gap_to_target": 8.510048510048506,
+      "performance": "Above Target",
+      "quick_resolutions": 700
+    }
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "basic_stats": {
+    "total_events": 40801,
+    "total_cases": 9989,
+    "unique_activities": 19,
+    "activity_list": [
+      "Application Received",
+      "Application Rejected",
+      "Employment Ended",
+      "Equipment Assigned",
+      "Interview Completed",
+      "Interview Failed",
+      "Job Posted",
+      "Leave Approved",
+      "Leave Requested",
+      "Offer Accepted",
+      "Offer Extended",
+      "Offer Rejected",
+      "Onboarding Started",
+      "Performance Review",
+      "Probation Completed",
+      "Probation Failed",
+      "Promotion Approved",
+      "Resignation Submitted",
+      "Training Completed"
+    ],
+    "date_range": {
+      "start": "2023-01-02",
+      "end": "2026-02-23"
+    },
+    "departments": {
+      "Engineering": "12417",
+      "Sales": "9898",
+      "Operations": "6184",
+      "Finance": "6132",
+      "HR": "4134",
+      "Marketing": "2036"
+    },
+    "locations": {
+      "New York": "12181",
+      "London": "10056",
+      "Singapore": "8260",
+      "Sydney": "6389",
+      "Berlin": "3915"
+    },
+    "resources": {
+      "Mike": "8302",
+      "Emma": "8266",
+      "Sarah": "8263",
+      "System": "5080",
+      "Lisa": "3330",
+      "James": "3312",
+      "Peter": "1698",
+      "Robert": "1476",
+      "Jennifer": "664",
+      "David": "391",
+      "Michael": "19"
+    }
+  },
+  "time_to_fill": {
+    "count": 1037,
+    "average_days": 52.2,
+    "median_days": 51,
+    "min_days": -10,
+    "max_days": 88,
+    "target_days": 30,
+    "cases_over_target": 1027,
+    "percentage_over_target": 99.0,
+    "by_department": {
+      "Sales": {
+        "count": 252,
+        "average_days": 52.1,
+        "over_target": 251
+      },
+      "Engineering": {
+        "count": 314,
+        "average_days": 51.9,
+        "over_target": 310
+      },
+      "Operations": {
+        "count": 151,
+        "average_days": 52.6,
+        "over_target": 151
+      },
+      "Finance": {
+        "count": 170,
+        "average_days": 52.6,
+        "over_target": 166
+      },
+      "Marketing": {
+        "count": 48,
+        "average_days": 53.1,
+        "over_target": 48
+      },
+      "HR": {
+        "count": 102,
+        "average_days": 51.9,
+        "over_target": 101
+      }
+    }
+  },
+  "bottleneck_analysis": {
+    "peter_analysis": {
+      "cases_handled": 1698,
+      "average_delay_days": 17.7,
+      "comparison_avg": 17.9,
+      "performance_impact": "Within normal range"
+    },
+    "david_analysis": {
+      "cases_handled": 391,
+      "total_equipment_cases": 1037,
+      "percentage_of_workload": 37.7
+    },
+    "robert_analysis": {
+      "cases_handled": 154,
+      "total_review_cases": 294,
+      "percentage_of_workload": 52.4
+    }
+  },
+  "process_flows": {
+    "recruitment_funnel": {
+      "job_posted": "10000",
+      "application_received": "10000",
+      "screening_pass_rate": 100.0,
+      "interview_completed": "5556",
+      "interview_rate": 55.6,
+      "offers_extended": "1492",
+      "offer_rate": 26.9,
+      "offers_accepted": "1037",
+      "acceptance_rate": 69.5
+    },
+    "completion_rates": {
+      "onboarding_started": "1037",
+      "probation_completed": "942",
+      "probation_success_rate": 90.8,
+      "employment_ended": "66",
+      "retention_rate": 93.0
+    },
+    "rejection_analysis": {
+      "application_rejected": "5956",
+      "interview_failed": "2819",
+      "offer_rejected": "188",
+      "probation_failed": "95"
+    }
+  },
+  "resource_performance": {
+    "Peter": {
+      "total_activities": 1698,
+      "activity_breakdown": {
+        "Interview Completed": "1698"
+      },
+      "departments_served": [
+        "Engineering",
+        "Finance",
+        "Operations",
+        "Sales",
+        "HR",
+        "Marketing"
+      ],
+      "locations_served": [
+        "London",
+        "New York",
+        "Berlin",
+        "Sydney",
+        "Singapore"
+      ]
+    },
+    "David": {
+      "total_activities": 391,
+      "activity_breakdown": {
+        "Equipment Assigned": "391"
+      },
+      "departments_served": [
+        "Finance",
+        "Engineering",
+        "Operations",
+        "Sales",
+        "Marketing",
+        "HR"
+      ],
+      "locations_served": [
+        "New York",
+        "Sydney",
+        "Singapore",
+        "Berlin",
+        "London"
+      ]
+    },
+    "Robert": {
+      "total_activities": 1476,
+      "activity_breakdown": {
+        "Interview Completed": "1322",
+        "Performance Review": "154"
+      },
+      "departments_served": [
+        "Sales",
+        "Finance",
+        "HR",
+        "Operations",
+        "Engineering",
+        "Marketing"
+      ],
+      "locations_served": [
+        "Singapore",
+        "New York",
+        "London",
+        "Berlin",
+        "Sydney"
+      ]
+    },
+    "System": {
+      "total_activities": 5080,
+      "activity_breakdown": {
+        "Application Received": "2562",
+        "Job Posted": "2518"
+      },
+      "departments_served": [
+        "Engineering",
+        "HR",
+        "Operations",
+        "Sales",
+        "Finance",
+        "Marketing"
+      ],
+      "locations_served": [
+        "New York",
+        "London",
+        "Sydney",
+        "Berlin",
+        "Singapore"
+      ]
+    }
+  },
+  "compliance": {
+    "sla_adherence": {},
+    "standard_flow_compliance": 100.0,
+    "missing_activities": {},
+    "total_hired_cases": 1037,
+    "standard_flow_cases": 1037
+  },
+  "kpi_dashboard": {
+    "time_to_fill": {
+      "target": 30,
+      "actual": 52.2,
+      "unit": "days",
+      "status": "MEETING_TARGET"
+    },
+    "offer_acceptance_rate": {
+      "target": 85,
+      "actual": 69.5,
+      "unit": "%",
+      "status": "BEHIND_TARGET"
+    },
+    "process_compliance_rate": {
+      "target": 95,
+      "actual": 100.0,
+      "unit": "%",
+      "status": "MEETING_TARGET"
+    }
+  }
+}

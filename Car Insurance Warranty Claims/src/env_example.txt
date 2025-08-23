@@ -1,0 +1,6 @@
+# Environment configuration for Mindzie Studio upload
+# Copy this file to .env and fill in your actual values
+
+TENANT_ID=your-tenant-id-here
+PROJECT_ID=your-project-id-here
+API_KEY=your-api-key-here

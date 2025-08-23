@@ -19,7 +19,8 @@
       "Bash(find:*)",
       "Bash(ls:*)",
       "Bash(git checkout:*)",
-      "Bash(rd:*)"
+      "Bash(rd:*)",
+      "Bash(del \"C:\\ReposMindzie\\mindzie_process_data\\Hire to Retire\\data_status.not\")"
     ],
     "deny": []
   }
